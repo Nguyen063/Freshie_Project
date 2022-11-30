@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.phamvannguyen.freshie.ui.home.HomeFragment"
+        android:name="com.phamvannguyen.freshie.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.phamvannguyen.freshie.ui.notifications.NotificationsFragment"
+        android:name="com.phamvannguyen.freshie.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.phamvannguyen.freshie.ui.account.AccountFragment"
+        android:name="com.phamvannguyen.freshie.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.phamvannguyen.freshie.ui.cart.CartFragment"
+        android:name="com.phamvannguyen.freshie.cart.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_Recommend"
-        android:name="com.phamvannguyen.freshie.ui.recommend.RecommendFragment"
+        android:name="com.phamvannguyen.freshie.recommend.RecommendFragment"
         android:label="@string/title_recommend"
         tools:layout="@layout/fragment_recommend" />
 </navigation>

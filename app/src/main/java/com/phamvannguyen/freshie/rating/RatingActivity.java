@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.ui.rating;
+package com.phamvannguyen.freshie.rating;
 
 import androidx.appcompat.app.AppCompatActivity;
 

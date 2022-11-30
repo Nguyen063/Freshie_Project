@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.rating.RatingActivity"
+    tools:context=".rating.RatingActivity"
     android:background="#F5F5F5"
     android:orientation="vertical">
 
@@ -102,7 +102,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hãy chia sẻ nhận xét của bạn cho sản phẩm này nhé!"
+            android:hint="Hãy chia sẻ nhận xét của bạn cho sản phẩm này nhé!"
             android:textSize="15sp"/>
     </LinearLayout>
 
