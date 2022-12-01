@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.freshie.project'
+    namespace 'com.phamvannguyen.freshie'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.freshie.project"
+        applicationId "com.phamvannguyen.freshie"
         minSdk 26
         targetSdk 32
         versionCode 1
