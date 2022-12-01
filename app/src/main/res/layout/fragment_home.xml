@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:background="@drawable/border_radius"
         app:queryHint="Search" />
 
     <ScrollView
@@ -32,8 +33,8 @@
                 app:sliderIndicatorRadius="1.5dp"
                 app:sliderScrollTimeInSec="3"
                 app:sliderStartAutoCycle="true"
+                android:background="@drawable/banner1"
                 />
-
         </LinearLayout>
 
     </ScrollView>
