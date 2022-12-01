@@ -8,7 +8,7 @@
     <!-- Thuộc tính màu và độ rộng của đường viền -->
     <stroke
         android:width="2dp"
-        android:color="@color/color_custom_2" >
+        android:color="@color/color_custom_1" >
     </stroke>
 
     <!-- Thuộc tính căn chỉnh-->
