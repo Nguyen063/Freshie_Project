@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie;
+package com.freshie.project;
 
 import android.content.Context;
 
