@@ -13,35 +13,35 @@
         android:theme="@style/Theme.Freshie"
         tools:targetApi="31">
         <activity
-            android:name=".PaymentMethod"
+            android:name=".payment.PaymentMethod"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignedUserAddress"
+            android:name=".payment.SignedUserAddress"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UnsignedUserCheckout"
+            android:name=".payment.UnsignedUserCheckout"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignedUserCheckout"
+            android:name=".payment.SignedUserCheckout"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RatingHistoryActivity"
+            android:name=".rating.RatingHistory"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
