@@ -11,9 +11,6 @@ import com.phamvannguyen.freshie.R;
 
 public class Categories extends AppCompatActivity {
 
-    private TabLayout tabLayout;
-    private ViewPager2 viewPager2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

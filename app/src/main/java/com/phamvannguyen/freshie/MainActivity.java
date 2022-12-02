@@ -46,19 +46,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 switch (position){
+
                     case 0:
-                        bottomNavigationView.getMenu().findItem(R.id.navigation_Recommend).setChecked(true);
-                        break;
-                    case 1:
                         bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
                         break;
-                    case 2:
+                    case 1:
                         bottomNavigationView.getMenu().findItem(R.id.navigation_notifications).setChecked(true);
                         break;
-                    case 3:
+                    case 2:
                         bottomNavigationView.getMenu().findItem(R.id.navigation_cart).setChecked(true);
                         break;
-                    case 4:
+                    case 3:
                         bottomNavigationView.getMenu().findItem(R.id.navigation_account).setChecked(true);
                         break;
                 }
@@ -76,22 +74,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.navigation_Recommend:
+                    case R.id.navigation_home:
                         viewPager.setCurrentItem(0);
                         break;
 
-                    case R.id.navigation_home:
+                    case R.id.navigation_notifications:
                         viewPager.setCurrentItem(1);
                         break;
-
-                    case R.id.navigation_notifications:
+                    case R.id.navigation_cart:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.navigation_cart:
-                        viewPager.setCurrentItem(3);
-                        break;
                     case R.id.navigation_account:
-                        viewPager.setCurrentItem(4);
+                        viewPager.setCurrentItem(3);
                         break;
                 }
                 return false;
