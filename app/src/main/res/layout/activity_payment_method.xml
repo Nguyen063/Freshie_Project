@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.PaymentMethod"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thanh toán khi nhận hàng"
+        android:textSize="18sp"
+        android:textColor="@color/color_custom_1"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ví ZaloPay"
+        android:textSize="18sp"
+        android:textColor="@color/color_custom_1"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ví Momo"
+        android:textSize="18sp"
+        android:textColor="@color/color_custom_1"/>
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ATM/Internet Banking"
+        android:textSize="18sp"
+        android:textColor="@color/color_custom_1"/>
+</LinearLayout>
