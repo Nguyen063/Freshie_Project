@@ -24,12 +24,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pageChange();
+
+    }
+
+    private void pageChange() {
         viewPager = findViewById(R.id.main_viewpager);
         bottomNavigationView =findViewById(R.id.nav_view);
 
 
         HomeAdapter homeAdapter = new HomeAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter((homeAdapter));
+
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -93,4 +99,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    }
+}
