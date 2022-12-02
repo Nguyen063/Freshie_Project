@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đăng ký"
-                android:textColor="#D9D9D9"
+                android:textColor="@color/color_custom_4"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:layout_weight="1"
