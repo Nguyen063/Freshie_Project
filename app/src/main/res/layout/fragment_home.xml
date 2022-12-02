@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
+        android:background="@drawable/border_radius"
         app:queryHint="Search" />
 
     <ScrollView
@@ -33,7 +34,17 @@
                 app:sliderScrollTimeInSec="3"
                 app:sliderStartAutoCycle="true"
                 />
+            <GridView
+                android:id="@+id/gridview_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4">
+            </GridView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </ScrollView>
