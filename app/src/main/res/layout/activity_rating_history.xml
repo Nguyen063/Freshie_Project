@@ -4,16 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".rating.RatingHistory"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="#F5F5F5">
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout_rating_history"
+        android:id="@+id/tabLayout_rating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/rating_history_viewpager"
+        android:id="@+id/viewPager_rating"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 </LinearLayout>
