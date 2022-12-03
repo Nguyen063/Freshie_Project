@@ -13,7 +13,7 @@
     <item
         android:id="@+id/navigation_category"
         android:icon="@drawable/ic_baseline_format_list_bulleted_24"
-        android:title="@string/title_shop" />
+        android:title="@string/title_category" />
     <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_baseline_account_circle_24"

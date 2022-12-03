@@ -4,6 +4,8 @@
     <string name="title_recommend">Recommend</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_cart">Cart</string>
+    <string name="title_category">Category</string>
+
     <string name="title_account">Account</string>
     <string name="title_shop">Categories</string>
     <!-- TODO: Remove or change this placeholder text -->

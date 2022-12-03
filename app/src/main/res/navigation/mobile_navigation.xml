@@ -25,8 +25,8 @@
 
     <fragment
         android:id="@+id/navigation_category"
-        android:name="com.phamvannguyen.freshie.cart.CartFragment"
-        android:label="@string/title_shop"
+        android:name="com.phamvannguyen.freshie.categories.CategoryFragment"
+        android:label="@string/title_category"
         tools:layout="@layout/fragment_category" />
 
 <!--    <fragment-->

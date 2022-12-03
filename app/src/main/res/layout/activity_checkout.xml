@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="Liên hệ"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
 
             <EditText
@@ -44,7 +44,6 @@
                 android:layout_marginTop="5dp"/>
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,8 +56,10 @@
                 android:layout_height="wrap_content"
                 android:text="Địa chỉ giao hàng"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
+
+
 
             <Spinner
                 android:id="@+id/spinner_District"
@@ -87,13 +88,13 @@
                     android:layout_height="wrap_content"
                     android:text="Nhà"
                     android:textSize="16sp"
-                    android:textColor="@color/color_custom_1"/>
+                    android:textColor="@color/color_custom_pink"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Văn phòng"
                     android:textSize="16sp"
-                    android:textColor="@color/color_custom_1"
+                    android:textColor="@color/color_custom_pink"
                     android:layout_marginStart="20dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phương thức vận chuyển"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -131,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phương thức thanh toán"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
             <LinearLayout
                 android:layout_height="wrap_content"
@@ -162,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mã giảm giá"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
             <LinearLayout
                 android:layout_height="wrap_content"
@@ -176,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Áp dụng"
-                    android:backgroundTint="@color/color_custom_1"
+                    android:backgroundTint="@color/color_custom_pink"
                     android:layout_marginStart="10dp"/>
             </LinearLayout>
 
@@ -185,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:text="Chọn mã khuyến mãi"
                 android:textStyle="bold"
-                android:textColor="@color/color_custom_1"/>
+                android:textColor="@color/color_custom_pink"/>
         </LinearLayout>
 
         <LinearLayout
@@ -200,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kiểm tra lại đơn hàng"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
             <ListView
                 android:layout_width="match_parent"
@@ -219,7 +220,7 @@
                 android:layout_height="wrap_content"
                 android:text="Chi tiết thanh toán"
                 android:textSize="22sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -280,7 +281,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.000.000đ"
-                    android:textColor="@color/color_custom_1"/>
+                    android:textColor="@color/color_custom_pink"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -309,7 +310,7 @@
                 android:text="Đặt hàng"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:backgroundTint="@color/color_custom_1"
+                android:backgroundTint="@color/color_custom_pink"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
         </LinearLayout>

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text=" Thanh toán khi nhận hàng"
             android:textSize="20sp"
-            android:textColor="@color/color_custom_1"
+            android:textColor="@color/color_custom_pink"
             android:drawableLeft="@drawable/cash"/>
         <RadioButton
             android:id="@+id/rad_ZaloPay"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text=" Ví ZaloPay"
             android:textSize="20sp"
-            android:textColor="@color/color_custom_1"
+            android:textColor="@color/color_custom_pink"
             android:drawableLeft="@drawable/zalo"/>
         <RadioButton
             android:id="@+id/rad_Momo"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text=" Ví Momo"
             android:textSize="20sp"
-            android:textColor="@color/color_custom_1"
+            android:textColor="@color/color_custom_pink"
             android:drawableLeft="@drawable/momo"/>
         <RadioButton
             android:id="@+id/rad_ATM"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text=" ATM/Internet Banking"
             android:textSize="20sp"
-            android:textColor="@color/color_custom_1"
+            android:textColor="@color/color_custom_pink"
             android:drawableLeft="@drawable/atm"/>
     </RadioGroup>
 </LinearLayout>
