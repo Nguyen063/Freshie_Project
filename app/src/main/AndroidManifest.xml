@@ -44,15 +44,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".payment.UserAddress"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".payment.Checkout"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

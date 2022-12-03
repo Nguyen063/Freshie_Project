@@ -24,14 +24,14 @@
         tools:layout="@layout/fragment_account" />
 
     <fragment
-        android:id="@+id/navigation_cart"
+        android:id="@+id/navigation_category"
         android:name="com.phamvannguyen.freshie.cart.CartFragment"
-        android:label="@string/title_cart"
-        tools:layout="@layout/fragment_cart" />
+        android:label="@string/title_shop"
+        tools:layout="@layout/fragment_category" />
 
-    <fragment
-        android:id="@+id/navigation_Recommend"
-        android:name="com.phamvannguyen.freshie.recommend.RecommendFragment"
-        android:label="@string/title_recommend"
-        tools:layout="@layout/fragment_recommend" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_Recommend"-->
+<!--        android:name="com.phamvannguyen.freshie.recommend.RecommendFragment"-->
+<!--        android:label="@string/title_recommend"-->
+<!--        tools:layout="@layout/fragment_recommend" />-->
 </navigation>
