@@ -28,11 +28,14 @@ public class ExchangeGiftActivity extends AppCompatActivity {
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.vichy,"Giảm 100k",
                 "Giảm tối đa 100K cho đơn từ 500K",
                 "HSD: 31/12/2022"));
-        exchangeGiftList.add(new ExchangeGiftModel(R.drawable.innisfree,"GIẢM 30%",
+        exchangeGiftList.add(new ExchangeGiftModel(R.drawable.innisfree,"Giảm 30%",
                 "Giảm 30% tối đa 100K cho đơn từ 600K",
                 "HSD: 31/12/2022"));
-        exchangeGiftList.add(new ExchangeGiftModel(R.drawable.senka,"Giamr 30k",
+        exchangeGiftList.add(new ExchangeGiftModel(R.drawable.senka,"Giảm 30k",
                 "Giảm 30K cho đơn từ 500K",
+                "HSD: 31/12/2022"));
+        exchangeGiftList.add(new ExchangeGiftModel(R.drawable.anessa,"Giảm 100k",
+                "Giảm 50K cho đơn từ 500K",
                 "HSD: 31/12/2022"));
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.anessa,"Giảm 100k",
                 "Giảm 50K cho đơn từ 500K",

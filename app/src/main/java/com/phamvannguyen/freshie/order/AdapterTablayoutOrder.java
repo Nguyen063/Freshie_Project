@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.phamvannguyen.freshie.login.login;
-
 public class AdapterTablayoutOrder extends FragmentStateAdapter {
     public AdapterTablayoutOrder(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
@@ -25,7 +23,7 @@ public class AdapterTablayoutOrder extends FragmentStateAdapter {
             case 3:
                 return new cancelled();
             default:
-                return new login();
+                return new wait_confirm();
         }
     }
 
