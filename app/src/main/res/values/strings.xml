@@ -5,6 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_cart">Cart</string>
     <string name="title_account">Account</string>
+    <string name="title_shop">Categories</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -23,6 +24,8 @@
     <string name="skin_care">Skin</string>
     <string name="hair_care">Hair</string>
     <string name="makeup">Makeup</string>
+
+
 
 
 </resources>

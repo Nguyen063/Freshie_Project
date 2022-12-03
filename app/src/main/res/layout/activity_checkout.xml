@@ -61,17 +61,6 @@
                 android:textStyle="bold"/>
 
             <Spinner
-                android:id="@+id/spinner_Province"
-                android:layout_width="match_parent"
-<<<<<<< HEAD
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-=======
-                android:layout_height="wrap_content"/>
-
->>>>>>> df053f6b7732da368e0c536741a0614531a26827
-
-            <Spinner
                 android:id="@+id/spinner_District"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
