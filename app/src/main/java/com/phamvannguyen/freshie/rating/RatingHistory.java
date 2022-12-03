@@ -20,15 +20,14 @@ public class RatingHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating_history);
 
-        tabLayout = findViewById(R.id.tab_layout_rating_history);
-        viewPager2 = findViewById(R.id.rating_history_viewpager);
+        tabLayout = findViewById(R.id.tabLayout_rating);
+        viewPager2 = findViewById(R.id.viewPager_rating);
 
         ratingHistoryAdapter = new RatingHistoryAdapter(this);
         viewPager2.setAdapter(ratingHistoryAdapter);
 
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
-
-            switch (position) {
+            switch (position){
                 case 0:
                     tab.setText("Chưa đánh giá");
                     break;
