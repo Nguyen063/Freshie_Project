@@ -64,11 +64,7 @@
                 android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
 
-            <Spinner
-                android:id="@+id/spinner_Province"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+
 
             <Spinner
                 android:id="@+id/spinner_District"
