@@ -1,4 +1,6 @@
 package com.phamvannguyen.freshie.categories;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
@@ -20,19 +22,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFragment extends Fragment {
-       public CategoryFragment(){
     private View view;
     private GridView gridView;
     List<Product> products = new ArrayList<Product>();
 
 
+    public CategoryFragment(){
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_category, container, false);
 
         View rootView = inflater.inflate(R.layout.fragment_category,
                 container, false);
