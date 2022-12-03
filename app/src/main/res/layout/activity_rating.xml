@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="top"
-            android:background="@drawable/border_radius"
+            android:background="@drawable/border_radius_pink"
             android:hint="Hãy chia sẻ nhận xét của bạn cho sản phẩm này nhé!"
             android:textSize="15sp"
             android:padding="10dp"
@@ -222,10 +222,10 @@
             android:layout_height="wrap_content"
             android:text="Hiển thị tên tài khoản trên đánh giá này"
             android:textColor="@color/black"/>
-        <ImageView
+        <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_toggle_on_24"/>
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <Button
