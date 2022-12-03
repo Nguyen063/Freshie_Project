@@ -30,7 +30,7 @@
                 android:id="@+id/txt_UserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_radius"
+                android:background="@drawable/border_radius_pink"
                 android:hint="Họ và tên người nhận"
                 android:padding="10dp"
                 android:layout_marginTop="5dp"/>
@@ -38,7 +38,7 @@
                 android:id="@+id/txt_UserPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_radius"
+                android:background="@drawable/border_radius_pink"
                 android:hint="Số điện thoại"
                 android:padding="10dp"
                 android:layout_marginTop="5dp"/>
@@ -64,6 +64,7 @@
                 android:id="@+id/spinner_Province"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD:app/src/main/res/layout/activity_checkout.xml
                 android:layout_weight="1"/>
 
             <Spinner
@@ -78,10 +79,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 />
+=======
+                android:background="@drawable/border_radius_pink"
+                android:hint="Tinh/Thành phố"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+>>>>>>> ac1486a378191ccc201db88045e2f7eed99bed1a:app/src/main/res/layout/activity_unsigned_user_checkout.xml
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_radius"
+                android:background="@drawable/border_radius_pink"
                 android:hint="Số nhà, tên đường"
                 android:padding="10dp"
                 android:layout_marginTop="5dp"/>
