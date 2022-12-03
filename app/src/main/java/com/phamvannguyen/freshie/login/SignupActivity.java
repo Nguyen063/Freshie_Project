@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.phamvannguyen.freshie.MainActivity;
-import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
@@ -66,7 +65,6 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
     }
 
