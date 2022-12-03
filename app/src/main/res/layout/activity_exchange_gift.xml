@@ -68,9 +68,7 @@
         <ListView
             android:id="@+id/lv_voucher"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="1000dp"
             android:background="@color/white"/>
     </LinearLayout>
-
-
 </ScrollView>

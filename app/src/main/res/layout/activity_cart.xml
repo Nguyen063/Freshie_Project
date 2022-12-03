@@ -1,45 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".cart.CartActivity"
     android:orientation="vertical"
-    android:background="#F3F3F3"
-    >
+    android:background="#F3F3F3">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#3AB0FF">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:scaleX="1.4"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:layout_gravity="center" />
-        <TextView
+        android:orientation="vertical"
+        android:id="@+id/ll_cart_product">
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:textSize="26sp"
-            android:textColor="@color/white"
-            android:text="Giỏ hàng"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+        </ListView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@id/ll_cart_product"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tổng thanh toán:"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đã bao gồm VAT"
+                android:textSize="14sp"
+                android:textColor="#868484"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="700.000"
             android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#3AB0FF"
+            android:paddingLeft="10dp"
+            android:paddingTop="13dp"
             />
-
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:text="ĐẶT HÀNG"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:background="@drawable/rounded_button"
+            android:backgroundTint="#3AB0FF"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            />
     </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

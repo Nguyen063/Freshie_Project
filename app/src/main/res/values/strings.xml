@@ -24,6 +24,9 @@
     <string name="skin_care">Skin</string>
     <string name="hair_care">Hair</string>
     <string name="makeup">Makeup</string>
+    <!-- Cart Page-->
+    <string name="cart_title">Giỏ hàng</string>
+
 
 
 </resources>
