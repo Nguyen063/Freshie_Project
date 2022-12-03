@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
 
 import java.io.File;
@@ -22,57 +23,30 @@ import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
+    ActivityMainBinding binding;
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
+    DataBaseHelper db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        try {
+            db = new DataBaseHelper(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        copyDB();
+
+
         createNavigation();
 
     }
 
-    private void copyDB() {
-        File dbPath = getDatabasePath(DataBaseHelper.DB_NAME);
-        if(!dbPath.exists()){
-            //Copy data
-            if(copyDBFromAssets()) {
-                Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Toast.makeText(this, "Fail!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-    private boolean copyDBFromAssets() {
-        String dbPath = getApplicationInfo().dataDir + DataBaseHelper.DB_PATH_SUFFIX +DataBaseHelper.DB_NAME;
 
-        try {
-            InputStream inputStream = getAssets().open(DataBaseHelper.DB_NAME);
-            File f = new File(getApplicationInfo().dataDir+ DataBaseHelper.DB_PATH_SUFFIX);
-            if(!f.exists()){
-                f.mkdir();
-            }
-            OutputStream outputStream = new FileOutputStream(dbPath);
-            byte[] buffer = new byte[1024];
-            int lenght ;
-            while ((lenght= inputStream.read(buffer))>0){
-
-                outputStream.write(buffer,0,lenght);
-            }
-            outputStream.flush();
-            outputStream.close();
-            inputStream.close();
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-    }
 
     private void createNavigation() {
         viewPager = findViewById(R.id.main_viewpager);
