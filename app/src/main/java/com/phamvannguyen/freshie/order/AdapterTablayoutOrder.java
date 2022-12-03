@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.phamvannguyen.freshie.login.login;
-import com.phamvannguyen.freshie.login.sign_up;
 
 public class AdapterTablayoutOrder extends FragmentStateAdapter {
     public AdapterTablayoutOrder(@NonNull FragmentActivity fragmentActivity) {
