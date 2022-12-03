@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="x2"
                     android:textSize="18sp"
-                    android:textColor="@color/color_custom_light_gray"
+                    android:textColor="@color/black"
                     android:layout_gravity="end"/>
             </LinearLayout>
 </LinearLayout>

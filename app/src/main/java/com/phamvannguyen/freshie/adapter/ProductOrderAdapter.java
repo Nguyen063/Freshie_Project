@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.models.NotRating;
+import com.phamvannguyen.freshie.models.ProductOrder;
 
 import java.util.List;
 
-public class NotRatingAdapter extends BaseAdapter {
+public class ProductOrderAdapter extends BaseAdapter {
 
     Activity activity;
     int item_layout;
-    List<NotRating> notRatingList;
+    List<ProductOrder> notRatingList;
 
-    public NotRatingAdapter(Activity activity, int item_layout, List<NotRating> notRatingList) {
+    public ProductOrderAdapter(Activity activity, int item_layout, List<ProductOrder> notRatingList) {
         this.activity = activity;
         this.item_layout = item_layout;
         this.notRatingList = notRatingList;
@@ -58,7 +58,7 @@ public class NotRatingAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        NotRating notRating = notRatingList.get(i);
+        ProductOrder notRating = notRatingList.get(i);
         holder.txtName.setText(notRating.getProductName());
         holder.txtPrice.setText(notRating.getProductPrice() + "đ");
         holder.txtNum.setText("x" + notRating.getProductNum());
