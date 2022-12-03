@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".payment.SignedUserCheckout">
+    tools:context=".payment.Checkout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,13 +12,46 @@
         android:padding="10dp"
         android:background="#F5F5F5">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Liên hệ"
+                android:textSize="22sp"
+                android:textColor="@color/color_custom_1"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/txt_UserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_radius_pink"
+                android:hint="Họ và tên người nhận"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+            <EditText
+                android:id="@+id/txt_UserPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_radius_pink"
+                android:hint="Số điện thoại"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -27,22 +60,43 @@
                 android:textColor="@color/color_custom_1"
                 android:textStyle="bold"/>
 
-            <LinearLayout
+            <Spinner
+                android:id="@+id/spinner_District"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Địa chỉ giao hàng"
-                    android:textSize="16sp"/>
+                android:layout_weight="1"/>
 
-                <ImageView
+            <Spinner
+                android:id="@+id/spinner_Town"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_radius_pink"
+                android:hint="Số nhà, tên đường"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_edit_24"/>
+                    android:text="Nhà"
+                    android:textSize="16sp"
+                    android:textColor="@color/color_custom_1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Văn phòng"
+                    android:textSize="16sp"
+                    android:textColor="@color/color_custom_1"
+                    android:layout_marginStart="20dp"/>
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout

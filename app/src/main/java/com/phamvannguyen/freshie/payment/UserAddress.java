@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.phamvannguyen.freshie.R;
 
-public class SignedUserCheckout extends AppCompatActivity {
+public class UserAddress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signed_user_checkout);
+        setContentView(R.layout.activity_user_address);
     }
 }
