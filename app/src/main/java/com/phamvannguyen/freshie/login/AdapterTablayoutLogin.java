@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.phamvannguyen.freshie.rating.new_rating;
-import com.phamvannguyen.freshie.rating.old_rating;
 
 public class AdapterTablayoutLogin extends FragmentStateAdapter {
     public AdapterTablayoutLogin(@NonNull FragmentActivity fragmentActivity) {
