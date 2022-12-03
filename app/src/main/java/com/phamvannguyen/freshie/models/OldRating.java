@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.model;
+package com.phamvannguyen.freshie.models;
 
 public class OldRating {
     int productThumb;

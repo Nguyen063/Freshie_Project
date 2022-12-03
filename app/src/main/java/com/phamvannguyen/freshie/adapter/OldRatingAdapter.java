@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.model.OldRating;
+import com.phamvannguyen.freshie.models.OldRating;
 
 import java.util.ArrayList;
 import java.util.List;

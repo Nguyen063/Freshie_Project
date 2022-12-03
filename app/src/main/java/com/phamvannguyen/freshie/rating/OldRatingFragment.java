@@ -1,8 +1,5 @@
 package com.phamvannguyen.freshie.rating;
 
-import static com.phamvannguyen.freshie.rating.NotRatingFragment.ARG_PARAM1;
-import static com.phamvannguyen.freshie.rating.NotRatingFragment.ARG_PARAM2;
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +11,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.OldRatingAdapter;
-import com.phamvannguyen.freshie.model.OldRating;
+import com.phamvannguyen.freshie.models.OldRating;
 
 import java.util.ArrayList;
 

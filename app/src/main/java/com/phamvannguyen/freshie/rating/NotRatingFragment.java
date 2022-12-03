@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.NotRatingAdapter;
-import com.phamvannguyen.freshie.model.NotRating;
+import com.phamvannguyen.freshie.models.NotRating;
 
 import java.util.ArrayList;
 

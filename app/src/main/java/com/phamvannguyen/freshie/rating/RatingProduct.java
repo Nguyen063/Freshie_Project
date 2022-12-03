@@ -5,16 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.RatingAdapter;
-import com.phamvannguyen.freshie.model.Rating;
+import com.phamvannguyen.freshie.models.Rating;
 
 import java.util.ArrayList;
 

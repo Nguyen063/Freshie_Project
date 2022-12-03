@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.model.NotRating;
+import com.phamvannguyen.freshie.models.NotRating;
 
 import java.util.List;
 

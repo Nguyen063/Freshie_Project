@@ -1,28 +1,18 @@
 package com.phamvannguyen.freshie.adapter;
 
-import static android.app.Activity.RESULT_OK;
 import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.model.Rating;
+import com.phamvannguyen.freshie.models.Rating;
 
 import java.util.List;
 
