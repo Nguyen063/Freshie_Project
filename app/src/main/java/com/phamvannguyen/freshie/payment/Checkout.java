@@ -19,7 +19,7 @@ public class Checkout extends AppCompatActivity {
         binding = ActivityCheckoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        spinnerProvince = findViewById(R.id.spinner_Province);
+      //  spinnerProvince = findViewById(R.id.spinner_Province);
         spinnerDistrict = findViewById(R.id.spinner_District);
         spinnerTown = findViewById(R.id.spinner_Town);
     }

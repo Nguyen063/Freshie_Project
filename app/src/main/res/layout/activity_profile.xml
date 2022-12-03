@@ -168,7 +168,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
-                android:marginLeft="15dp"
                 android:columnCount="4"
                 android:rowCount="1"
                 >
