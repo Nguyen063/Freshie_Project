@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".helpcenter.HelpCenter"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/color_custom_blue">
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="250dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleY="0.8"
+                android:scaleX="0.8"
+                android:src="@drawable/logo"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Freshie Cosmetics"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textSize="26sp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bắt đầu"
+                android:background="@drawable/txt_curve_blue"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_gravity="end"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xin chào, bạn cần Freshie hỗ trợ gì nè?"
+                android:background="@drawable/txt_curve_gray"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/txt_curve_gray"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="start"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn muốn hỏi về:"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="Đơn hàng của tôi khi nào nhận được?"
+                    android:textColor="@color/color_custom_blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tại sao tôi không dùng được voucher?"
+                    android:textSize="20sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/color_custom_blue"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tôi muốn khiếu nại về shipper"
+                    android:textSize="20sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/color_custom_blue"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kiểm tra đơn hàng"
+            android:background="@drawable/txt_curve_gray"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginEnd="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi trả hàng"
+            android:background="@drawable/txt_curve_gray"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginEnd="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Liên hệ vận chuyển"
+            android:background="@drawable/txt_curve_gray"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_camera_pink"
+                android:layout_marginEnd="10dp"/>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_photo"
+                android:layout_marginEnd="5dp"/>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_mic_24"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/border_radius_gray_edt"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:hint="Aa"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:drawableEnd="@drawable/ic_baseline_emoji_emotions_24"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"/>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_baseline_menu_24"/>
+        </LinearLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bắt đầu"
+            android:background="@drawable/txt_curve_gray"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+</LinearLayout>
