@@ -337,7 +337,7 @@
                 android:layout_height="wrap_content"
                 android:text="FreshieSale"
                 android:textStyle="bold"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textSize="15sp"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -347,7 +347,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:text="5%"
                 android:textStyle="bold"
                 android:textSize="15sp"/>
@@ -573,7 +573,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nguyen Thuong"
-                    android:textColor="@color/color_custom_2"
+                    android:textColor="@color/color_custom_blue"
                     android:paddingLeft="15dp"/>
             </LinearLayout>
             <TextView
@@ -621,7 +621,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dao Nguyen"
-                    android:textColor="@color/color_custom_2"
+                    android:textColor="@color/color_custom_blue"
                     android:paddingLeft="15dp"/>
             </LinearLayout>
             <TextView
@@ -643,7 +643,7 @@
             android:text="Xem thêm"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="@color/color_custom_1"
+            android:textColor="@color/color_custom_pink"
             android:layout_gravity="center"
             android:paddingBottom="5dp"/>
     </LinearLayout>
@@ -654,7 +654,7 @@
         android:text="DÀNH CHO BẠN"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/color_custom_1"/>
+        android:textColor="@color/color_custom_pink"/>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

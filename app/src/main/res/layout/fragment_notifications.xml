@@ -16,14 +16,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Khuyến mãi"
-            android:backgroundTint="@color/color_custom_1" />
+            android:backgroundTint="@color/color_custom_pink" />
         <Button
             android:id="@+id/btn_yourNoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Của bạn"
-            android:backgroundTint="@color/color_custom_2"/>
+            android:backgroundTint="@color/color_custom_blue"/>
     </LinearLayout>
 
     <ListView

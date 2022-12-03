@@ -31,14 +31,14 @@
                     android:text="Product Name"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="@color/color_custom_1"/>
+                    android:textColor="@color/color_custom_pink"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Giao hàng thành công: 20/10/2022"
                         android:textSize="14sp"
-                        android:textColor="@color/color_custom_4"/>
+                        android:textColor="@color/color_custom_light_gray"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rất tuyệt vời"
                 android:textSize="14sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="end"/>
@@ -102,7 +102,7 @@
             android:id="@+id/btn_AddPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_custom_1"
+            android:backgroundTint="@color/color_custom_pink"
             android:text="Thêm hình ảnh"
             android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
             android:textSize="12sp"
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rất tuyệt vời"
                 android:textSize="18sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="end"/>
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:text="Rất tuyệt vời"
                 android:textSize="18sp"
-                android:textColor="@color/color_custom_1"
+                android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="end"/>
@@ -239,6 +239,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/color_custom_1"
+        android:backgroundTint="@color/color_custom_pink"
         android:text="Đánh giá"/>
 </LinearLayout>
