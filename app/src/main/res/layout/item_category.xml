@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="150dp"
+    android:layout_height="230dp">
+    <ImageView
+        android:id="@+id/imv_Thumb"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/facebook"/>
+    <TextView
+        android:id="@+id/txt_ProductName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Kem dưỡng da Vitamin Tree Water-Gel"
+        android:textAppearance="@style/item_title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/txt_Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.000.000đ"
+            android:textAppearance="@style/item_price"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txt_Discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-20%"
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/item_discount"
+            android:layout_weight="2"
+            android:layout_marginEnd="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:src="@drawable/ic_baseline_star_rate_24"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/txt_ratingAverage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="4.5"
+            android:textAppearance="@style/item_rating_avg"/>
+        <TextView
+            android:id="@+id/txt_ratingCount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="100"
+            android:textAppearance="@style/item_rating_count"
+            android:layout_marginStart="5dp"/>
+        <TextView
+            android:id="@+id/txt_Sold"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_height="match_parent"
+            android:text="40000 Đã bán"
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/item_sold"/>
+
+    </LinearLayout>
+
+</LinearLayout>
