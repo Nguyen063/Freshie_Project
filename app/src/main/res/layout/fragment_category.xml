@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:background="@color/color_custom_2">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_radius_pink"
+            app:queryHint="Search"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/btn_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_weight="5"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:backgroundTint="#00000000"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/category_title"
+                android:textAppearance="@style/white_title"
+                android:textColor="@color/color_custom_1"
+                android:gravity="center" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginVertical="10dp">
+                <Button
+                    android:id="@+id/btn_HotDeals"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_radius_pink"
+                    app:backgroundTint="@color/color_custom_2"
+                    android:text="@string/hot_deals"
+                    android:padding="0dp"
+                    android:layout_marginEnd="5dp"/>
+                <Button
+                    android:id="@+id/btn_Skincare"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_radius_pink"
+                    app:backgroundTint="@color/color_custom_2"
+                    android:text="@string/skin_care"
+                    android:padding="0dp"
+                    android:layout_marginEnd="5dp"/>
+                <Button
+                    android:id="@+id/btn_HairCare"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_radius_pink"
+                    app:backgroundTint="@color/color_custom_2"
+                    android:text="@string/hair_care"
+                    android:padding="0dp"
+                    android:layout_marginEnd="5dp"/>
+                <Button
+                    android:id="@+id/btn_Makeup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:background="@drawable/border_radius_pink"
+                    app:backgroundTint="@color/color_custom_2"
+                    android:text="@string/makeup"/>
+
+            </LinearLayout>
+            <GridView
+                android:id="@+id/gv_ListProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="2"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

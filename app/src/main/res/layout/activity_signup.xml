@@ -70,7 +70,7 @@
             android:padding="10dp"
             android:textAppearance="@style/editText"/>
         <EditText
-            android:id="@+id/edt_RePassword"
+            android:id="@+id/edt_ConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Xác nhận mật khẩu"
@@ -78,6 +78,7 @@
             android:padding="10dp"
             android:textAppearance="@style/editText"/>
         <TextView
+            android:id="@+id/txt_ForgetPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quên mật khẩu?"
@@ -85,9 +86,10 @@
             android:textSize="20sp"
             android:layout_marginTop="20dp"
             android:gravity="right"
+            android:clickable="true"
             android:textAppearance="@style/editText"/>
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_Login"
+            android:id="@+id/btn_Signup"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Đăng ký"
