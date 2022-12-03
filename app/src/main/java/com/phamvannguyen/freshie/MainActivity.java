@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.getMenu().findItem(R.id.navigation_notifications).setChecked(true);
                         break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.navigation_cart).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.navigation_category).setChecked(true);
                         break;
                     case 3:
                         bottomNavigationView.getMenu().findItem(R.id.navigation_account).setChecked(true);
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_notifications:
                         viewPager.setCurrentItem(1);
                         break;
-                    case R.id.navigation_cart:
+                    case R.id.navigation_category:
                         viewPager.setCurrentItem(2);
                         break;
                     case R.id.navigation_account:
