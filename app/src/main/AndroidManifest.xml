@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Freshie"
         tools:targetApi="31">
         <activity
+            android:name=".exchangegift.ExchangeGiftActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".payment.PaymentMethod"
             android:exported="false">
             <meta-data
@@ -32,23 +44,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
-            android:name=".payment.SignedUserAddress"
+            android:name=".payment.UserAddress"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".payment.UnsignedUserCheckout"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".payment.SignedUserCheckout"
+            android:name=".payment.Checkout"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

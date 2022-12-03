@@ -20,7 +20,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:scaleX="1.4"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 android:layout_gravity="center"
 
@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
-                android:marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:columnCount="4"
                 android:rowCount="1"
                 >
@@ -329,7 +329,7 @@
                     android:text="HSD: 31/12/2022"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                    />
                 <TextView
                     android:layout_width="130dp"
@@ -337,7 +337,7 @@
                     android:text="HSD: 31/12/2022"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     />
                 <TextView
                     android:layout_width="130dp"
@@ -345,7 +345,7 @@
                     android:text="HSD: 31/12/2022"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     />
             </LinearLayout>
 
@@ -476,7 +476,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/clock"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center"
                     />
@@ -492,7 +492,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
@@ -514,7 +514,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/star"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center"
                     />
@@ -530,7 +530,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
@@ -552,7 +552,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/user"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center"
                     />
@@ -567,7 +567,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginStart="150dp"
                     android:src="@drawable/black_polygon3" />
             </LinearLayout>
             <ImageView
@@ -588,7 +588,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/info"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center"
                     />
@@ -604,7 +604,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
@@ -626,7 +626,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/share"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center"
                     />
@@ -642,7 +642,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
