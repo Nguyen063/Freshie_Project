@@ -75,9 +75,9 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
-            android:background="@drawable/rounded_button"
-            app:backgroundTint= "#3AB0FF"
+            android:background="@drawable/border_radius_pink"
             android:layout_gravity="center"
+            app:backgroundTint="@color/color_custom_2"
             android:layout_marginTop="20dp"
             android:textSize="20sp" />
     </LinearLayout>

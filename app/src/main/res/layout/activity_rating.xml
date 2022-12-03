@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="top"
-            android:background="@drawable/border_radius"
+            android:background="@drawable/border_radius_pink"
             android:hint="Hãy chia sẻ nhận xét của bạn cho sản phẩm này nhé!"
             android:textSize="15sp"
             android:padding="10dp"

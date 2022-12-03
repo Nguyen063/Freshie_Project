@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.phamvannguyen.freshie.account.AccountFragment;
 import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.notifications.NotificationsFragment;
-import com.phamvannguyen.freshie.recommend.RecommendFragment;
 
 public class HomeAdapter extends FragmentStatePagerAdapter {
     public HomeAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -19,14 +18,12 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new RecommendFragment();
-            case 1:
                 return new HomeFragment();
-            case 2:
+            case 1:
                 return new NotificationsFragment();
-            case 3:
+            case 2:
                 return new CartFragment();
-            case 4:
+            case 3:
                 return new AccountFragment();
             default:
                 return new HomeFragment();
@@ -35,7 +32,7 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 
 }
