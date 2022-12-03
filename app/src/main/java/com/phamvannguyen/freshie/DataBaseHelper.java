@@ -13,7 +13,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "cosmetic.db";
     public static final int DB_VERSION = 1;
     public static final String TBL_PRODUCT = "product";
-    public static final String TBL_DETAIL = "product_description";
     public static final String COL_ID = "ProductId";
     public static final String COL_NAME = "ProductName";
     public static final String COL_CATEGORY = "Category";
@@ -39,4 +38,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
 }
