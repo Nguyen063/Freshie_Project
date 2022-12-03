@@ -17,4 +17,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="reset_forgot_password">Vui lòng cung cấp Email/ Số điện thoại \n để lấy lại mật khẩu</string>
+
 </resources>
