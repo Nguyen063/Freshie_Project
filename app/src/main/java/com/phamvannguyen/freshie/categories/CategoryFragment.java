@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFragment extends Fragment {
-    private View view;
+
     private GridView gridView;
     List<Product> products = new ArrayList<Product>();
 
@@ -34,11 +34,9 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
+        gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
 
-        View rootView = inflater.inflate(R.layout.fragment_category,
-                container, false);
-        gridView = (GridView) rootView.findViewById(R.id.gv_ListProduct);
-        view = inflater.inflate(R.layout.fragment_category, container, false);
 
         products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
                 41,4.2,100));
@@ -91,7 +89,7 @@ public class CategoryFragment extends Fragment {
             holder.txtRatingAverage.setText(p.getRatingAverage() + "");
             holder.txtRatingCount.setText(p.getRatingCount() + "");
             holder.txtSold.setText(p.getSold() + "");
-            holder.imgProduct.setImageResource(R.drawable.logo);
+//            holder.imgProduct.setImageResource(R.drawable.logo);
 
             return view;
         }
