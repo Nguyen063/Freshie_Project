@@ -28,4 +28,6 @@
     <!-- Cart Page-->
     <string name="cart_title">Giỏ hàng</string>
 
+    <!--    Login Page-->
+    <string name="skip_login">Bỏ qua</string>
 </resources>
