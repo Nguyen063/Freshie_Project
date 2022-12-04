@@ -1,19 +1,16 @@
-package com.phamvannguyen.freshie.profile;
+package com.phamvannguyen.freshie.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Html;
-import android.widget.Button;
 
 import com.phamvannguyen.freshie.R;
 
-public class Profile extends AppCompatActivity {
+public class ChangePassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_change_password);
     }
-
 }

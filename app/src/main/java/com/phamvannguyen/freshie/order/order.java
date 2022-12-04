@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.login.AdapterTablayoutLogin;
 
 public class order extends AppCompatActivity {
 

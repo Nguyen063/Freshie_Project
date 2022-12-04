@@ -110,7 +110,7 @@
             android:layout_height="60dp"
             android:textSize="20sp"
             android:textColor="#ffffff"
-            android:text="Nhập"/>
+            android:text="Xác Nhận"/>
 
     </LinearLayout>
 </LinearLayout>
