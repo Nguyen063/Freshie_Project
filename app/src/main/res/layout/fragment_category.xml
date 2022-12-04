@@ -32,13 +32,9 @@
             android:backgroundTint="#00000000"/>
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -92,13 +88,15 @@
                     android:text="@string/makeup"/>
 
             </LinearLayout>
-            <GridView
-                android:id="@+id/gv_ListProduct"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:numColumns="2"/>
-        </LinearLayout>
 
-    </ScrollView>
+        </LinearLayout>
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gv_ListProduct"
+        android:numColumns="2"
+        android:padding="10dp" />
+
+
 
 </LinearLayout>
