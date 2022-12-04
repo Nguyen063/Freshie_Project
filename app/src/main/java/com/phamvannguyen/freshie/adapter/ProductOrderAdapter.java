@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.models.NotRating;
+import com.phamvannguyen.freshie.models.ProductOrder;
 
 import java.util.List;
 
-public class NotRatingAdapter extends BaseAdapter {
+public class ProductOrderAdapter extends BaseAdapter {
 
     Activity activity;
     int item_layout;
-    List<NotRating> notRatingList;
+    List<ProductOrder> notRatingList;
 
-    public NotRatingAdapter(Activity activity, int item_layout, List<NotRating> notRatingList) {
+    public ProductOrderAdapter(Activity activity, int item_layout, List<ProductOrder> notRatingList) {
         this.activity = activity;
         this.item_layout = item_layout;
         this.notRatingList = notRatingList;
@@ -52,23 +52,26 @@ public class NotRatingAdapter extends BaseAdapter {
             holder.txtPrice = view.findViewById(R.id.txt_Price);
             holder.txtNum = view.findViewById(R.id.txt_NumProduct);
             holder.imgProduct = view.findViewById(R.id.img_Product);
+            holder.txtName = view.findViewById(R.id.txt_categories_home);
+
 
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
 
-        NotRating notRating = notRatingList.get(i);
+        ProductOrder notRating = notRatingList.get(i);
         holder.txtName.setText(notRating.getProductName());
         holder.txtPrice.setText(notRating.getProductPrice() + "đ");
         holder.txtNum.setText("x" + notRating.getProductNum());
+        holder.txtName.setText(notRating.getProductName());
         holder.imgProduct.setImageResource(notRating.getProductThumb());
 
         return view;
     }
 
     public static class ViewHolder{
-        TextView txtName, txtPrice, txtNum;
+        TextView txtName, txtPrice, txtNum, txtBrand;
         ImageView imgProduct;
     }
 }

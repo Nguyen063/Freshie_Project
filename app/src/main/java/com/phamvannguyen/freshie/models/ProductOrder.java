@@ -1,12 +1,12 @@
 package com.phamvannguyen.freshie.models;
 
-public class NotRating {
+public class ProductOrder {
     int productThumb;
     String productName;
     double productPrice;
     int productNum;
 
-    public NotRating(int productThumb, String productName, double productPrice, int productNum) {
+    public ProductOrder(int productThumb, String productName, double productPrice, int productNum) {
         this.productThumb = productThumb;
         this.productName = productName;
         this.productPrice = productPrice;

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.phamvannguyen.freshie.MainActivity;
-import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityLoginBinding;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         binding.tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.tvSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);

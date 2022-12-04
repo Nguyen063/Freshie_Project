@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.adapter.NotRatingAdapter;
-import com.phamvannguyen.freshie.models.NotRating;
+import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.models.ProductOrder;
 
 import java.util.ArrayList;
 
@@ -70,11 +70,11 @@ public class NotRatingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_not_rating, container, false);
         ListView lvNotRating = view.findViewById(R.id.lv_NotRating);
-        ArrayList<NotRating> notRatings = new ArrayList<>();
-        notRatings.add(new NotRating(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,3));
-        notRatings.add(new NotRating(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
+        ArrayList<ProductOrder> notRatings = new ArrayList<>();
+        notRatings.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,3));
+        notRatings.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
 
-        NotRatingAdapter notRatingAdapter = new NotRatingAdapter(getActivity(),R.layout.item_not_rating,notRatings);
+        ProductOrderAdapter notRatingAdapter = new ProductOrderAdapter(getActivity(),R.layout.item_product_order,notRatings);
         lvNotRating.setAdapter(notRatingAdapter);
 
         Button btnRating = view.findViewById(R.id.btn_Rating);
