@@ -52,6 +52,8 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder.txtPrice = view.findViewById(R.id.txt_Price);
             holder.txtNum = view.findViewById(R.id.txt_NumProduct);
             holder.imgProduct = view.findViewById(R.id.img_Product);
+            holder.txtName = view.findViewById(R.id.txt_categories_home);
+
 
             view.setTag(holder);
         } else {
@@ -62,13 +64,14 @@ public class ProductOrderAdapter extends BaseAdapter {
         holder.txtName.setText(notRating.getProductName());
         holder.txtPrice.setText(notRating.getProductPrice() + "đ");
         holder.txtNum.setText("x" + notRating.getProductNum());
+        holder.txtName.setText(notRating.getProductName());
         holder.imgProduct.setImageResource(notRating.getProductThumb());
 
         return view;
     }
 
     public static class ViewHolder{
-        TextView txtName, txtPrice, txtNum;
+        TextView txtName, txtPrice, txtNum, txtBrand;
         ImageView imgProduct;
     }
 }
