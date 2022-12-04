@@ -105,16 +105,18 @@ public class Product {
     public void setRatingCount(int ratingCount) {
         RatingCount = ratingCount;
     }
-    public void getFormattedPrice() {
-        String formattedPrice = String.format("%,.0f đ", Price);
-        System.out.println(formattedPrice);
+    public String getFormattedPrice() {
+        return  String.format("%,.0f đ", Price );
+
     }
-    public void getFormattedOriginalPrice() {
-        String formattedOriginalPrice = String.format("%,.0f đ", OriginalPrice);
-        System.out.println(formattedOriginalPrice);
+    public String getFormattedOriginalPrice() {
+        return  String.format("%,.0f đ", OriginalPrice );
+
     }
-    public void getFormattedDiscount() {
-        String formattedDiscount = String.format("%,.0f %", Discount);
-        System.out.println(formattedDiscount);
+    public String getFormattedDiscount() {
+        return  String.format("%,.0f '%'", Discount );
+
     }
+
+
 }
