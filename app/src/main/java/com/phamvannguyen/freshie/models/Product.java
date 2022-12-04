@@ -18,7 +18,7 @@ public class Product {
 
     public Product(int productID, String productName, int category,
                    String brand, double originalPrice, double price,
-                   int sold, double ratingAverage, int ratingCount, byte[]image) {
+                   int sold, double ratingAverage, int ratingCount, byte[] image) {
         ProductID = productID;
         ProductName = productName;
         Category = category;
@@ -116,10 +116,7 @@ public class Product {
         Image = image;
     }
 
-    public Bitmap getImageBitmap() {
 
-        return BitmapFactory.decodeByteArray(Image, 0, Image.length);
-    }
 
     public void setRatingCount(int ratingCount) {
         RatingCount = ratingCount;
