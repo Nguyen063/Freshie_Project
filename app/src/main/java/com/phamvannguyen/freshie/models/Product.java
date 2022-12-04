@@ -106,17 +106,12 @@ public class Product {
         RatingCount = ratingCount;
     }
     public String getFormattedPrice() {
-        return  String.format("%,.0f đ", Price );
-
+        return String.format("%,.0f đ", Price);
     }
-    public String getFormattedOriginalPrice() {
-        return  String.format("%,.0f đ", OriginalPrice );
-
+    public String getFormattedOriginalPrice (){
+        return String.format("%,.0f đ", OriginalPrice);
     }
-    public String getFormattedDiscount() {
-        return  String.format("%,.0f '%'", Discount );
-
+    public String getFormattedDiscount (){
+        return String.format("%,.0f %", Discount);
     }
-
-
 }
