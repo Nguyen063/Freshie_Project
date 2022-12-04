@@ -3,6 +3,8 @@ package com.phamvannguyen.freshie.categories;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,9 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.OldRating;
 import com.phamvannguyen.freshie.models.Product;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +30,9 @@ public class CategoryAdapter extends BaseAdapter {
     Activity activity;
     int layout;
     List<Product> products;
+    byte[] decodedString;
+    Bitmap decodedByte;
+
 
     public CategoryAdapter() {
     }
@@ -80,8 +88,7 @@ public class CategoryAdapter extends BaseAdapter {
         holder.txtRatingCount.setText(p.getRatingCount() + "");
         holder.txtSold.setText(p.getSold() + "");
 
-//        Bitmap bitmap = MainActivity.convertByteArrayToBitmap(p.getImage());
-//        holder.imgProduct.setImageBitmap(bitmap);
+        holder.imgProduct.setImageBitmap(BitmapFactory.decodeByteArray(p.getImage(), 0, p.getImage().length));
 
         return view;
     }

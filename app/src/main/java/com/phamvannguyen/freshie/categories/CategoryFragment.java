@@ -76,7 +76,7 @@ public class CategoryFragment extends Fragment {
                 + DataBaseHelper.COL_RATING_AVERAGE  + " , "
                 + DataBaseHelper.COL_RATING_COUNT+ " , "
                 + DataBaseHelper.COL_IMAGE
-                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_CATEGORY + " = "+ category);
+                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_ID + " = "+ category);
 
 
         while (cursor.moveToNext()){
