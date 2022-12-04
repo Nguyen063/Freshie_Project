@@ -2,6 +2,7 @@ package com.phamvannguyen.freshie.categories;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.OldRating;
 import com.phamvannguyen.freshie.models.Product;
@@ -73,11 +75,13 @@ public class CategoryAdapter extends BaseAdapter {
         Product p = products.get(position);
         holder.txtName.setText(p.getProductName());
         holder.txtPrice.setText(p.getPrice() + "");
-        holder.txtDiscount.setText(p.getDiscount() + "");
+        holder.txtDiscount.setText(p.getFormattedDiscount() + "");
         holder.txtRatingAverage.setText(p.getRatingAverage() + "");
         holder.txtRatingCount.setText(p.getRatingCount() + "");
         holder.txtSold.setText(p.getSold() + "");
-//        holder.imgProduct.setImageResource(R.drawable.logo);
+
+//        Bitmap bitmap = MainActivity.convertByteArrayToBitmap(p.getImage());
+//        holder.imgProduct.setImageBitmap(bitmap);
 
         return view;
     }
