@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,6 +54,8 @@ public class ExchangeGiftAdapter extends BaseAdapter {
             holder.txtVoucherSale = view.findViewById(R.id.txt_voucherSale);
             holder.txtVoucherCondition = view.findViewById(R.id.txt_voucherCondition);
             holder.txtVoucherTime = view.findViewById(R.id.txt_voucherTime);
+            holder.btnMyPoint = view.findViewById(R.id.btn_myPoint);
+            holder.btnMyVoucher = view.findViewById(R.id.btn_myVoucher);
 
             view.setTag(holder);
         } else {
@@ -63,12 +66,12 @@ public class ExchangeGiftAdapter extends BaseAdapter {
             holder.txtVoucherSale.setText(exchangeGiftModel.getVoucherSale());
             holder.txtVoucherCondition.setText(exchangeGiftModel.getVoucherCondition());
             holder.txtVoucherTime.setText(exchangeGiftModel.getVoucherTime());
-
             return view;
         }
 
     private static class ViewHolder {
         ImageView imvVoucherImage;
         TextView txtVoucherSale, txtVoucherCondition, txtVoucherTime;
+        Button btnMyPoint, btnMyVoucher;
     }
 }
