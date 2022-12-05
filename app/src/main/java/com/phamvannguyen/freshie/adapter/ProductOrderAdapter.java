@@ -20,22 +20,22 @@ public class ProductOrderAdapter extends BaseAdapter {
 
     Activity activity;
     int item_layout;
-    List<Product> notRatingList;
+    List<Product> ProductList;
 
-    public ProductOrderAdapter(Activity activity, int item_layout, List<Product> notRatingList) {
+    public ProductOrderAdapter(Activity activity, int item_layout, List<Product> ProductList) {
         this.activity = activity;
         this.item_layout = item_layout;
-        this.notRatingList = notRatingList;
+        this.ProductList = ProductList;
     }
 
     @Override
     public int getCount() {
-        return notRatingList.size();
+        return ProductList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return notRatingList.get(i);
+        return ProductList.get(i);
     }
 
     @Override
@@ -62,9 +62,9 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        if (notRatingList.size() == 0) {
+        if (ProductList.size() == 0) {
 
-            Product notRating = notRatingList.get(i);
+            Product notRating = ProductList.get(i);
             holder.txtName.setText(notRating.getProductName());
             holder.txtPrice.setText(notRating.getFormattedPrice());
             holder.txtNum.setText("1");
@@ -90,4 +90,4 @@ public class ProductOrderAdapter extends BaseAdapter {
         TextView txtName, txtPrice, txtNum, txtBrand;
         ImageView imgProduct;
     }
-    }
+}
