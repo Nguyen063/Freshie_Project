@@ -57,7 +57,6 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder.imgProduct = view.findViewById(R.id.img_Product);
             holder.txtName = view.findViewById(R.id.txt_categories_home);
 
-
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
