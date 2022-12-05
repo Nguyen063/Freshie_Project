@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -30,15 +27,11 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    private GridView gridView;
-    TextView textView;
-    DataBaseHelper db = MainActivity.db;
+     DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
 
     FragmentHomeBinding binding;
@@ -80,18 +73,7 @@ public class HomeFragment extends Fragment {
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
 
-        new CountDownTimer(2000000, 1000) {
-            @Override
-            public void onTick(long l) {
-                binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : " + l/1000%60);
-            }
-
-            @Override
-            public void onFinish() {
-            }
-        }.start();
-
-
+//        gridView = (GridView) view.findViewById(R.id.gridview_categories);
 
 
         loadData();
@@ -233,6 +215,7 @@ public class HomeFragment extends Fragment {
             list.add(new Product(cursor.getInt(0)));
         }
         return list;
-
     }
+
+
 }

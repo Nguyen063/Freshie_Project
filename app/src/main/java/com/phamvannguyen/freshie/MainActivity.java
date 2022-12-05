@@ -1,6 +1,10 @@
 package com.phamvannguyen.freshie;
 
+import static com.phamvannguyen.freshie.DataBaseHelper.TBL_PRODUCT;
+
 import android.app.ProgressDialog;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -24,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
+import com.phamvannguyen.freshie.models.Product;
 
 
 import java.net.HttpURLConnection;
@@ -31,6 +36,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -151,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             this.ImageView = imv;
         }
 
+
         @Override
         public void run() {
             mainHandler.post(new Runnable() {
@@ -180,20 +188,36 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public static Bitmap getBitmapFromURL(String src) {
+    public static Bitmap getBitmapFromURL(String URL) {
+        InputStream inputStream = null;
         try {
-            URL url = new URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            inputStream = new URL(URL).openStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(inputStream);
             return myBitmap;
         } catch (IOException e) {
             // Log exception
             return null;
         }
     }
+
+    public static ArrayList<Product> getListWhere(String condition) {
+        ArrayList<Product> listProduct = new ArrayList<>();
+        String sql = "SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + condition;
+        Cursor cursor = db.getData(sql);
+            if(cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    listProduct.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                            cursor.getDouble(4), cursor.getDouble(5), cursor.getInt(6), cursor.getDouble(7), cursor.getInt(8),
+                            cursor.getString(10), cursor.getString(12),
+                            cursor.getInt(13), cursor.getInt(14), cursor.getInt(15),
+                            cursor.getString(16)));
+                }
+                };
+
+        cursor.close();
+        return listProduct;
+    }
+
 }
 
 

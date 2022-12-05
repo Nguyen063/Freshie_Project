@@ -19,37 +19,59 @@ public class Product {
     int Sold;
     double RatingAverage;
     int RatingCount;
-    String ThumbUrl;
     String ImageUrl;
+    String ThumbUrl;
+    int IsDeal;
+    int IsBestSeller;
+    int IsNew;
     String Description;
-    boolean IsDeal;
-    boolean IsBestSeller;
-    boolean IsNew;
 
-
-    public Product(int productID) {
+    public Product( int productID, String productName, String category,
+                   String brand, double originalPrice, double price,  int sold, double ratingAverage,
+                   int ratingCount, String imageUrl, String thumbUrl, int isDeal, int isBestSeller, int isNew,
+                    String description) {
         ProductID = productID;
-        Cursor c = db.getData("SELECT * FROM "+ DataBaseHelper.TBL_PRODUCT + " WHERE "+ DataBaseHelper.COL_ID +" = " + ProductID);
-
-        c.moveToFirst();
-        ProductName = c.getString(1);
-        Category = c.getString(2);
-        Brand = c.getString(3);
-        OriginalPrice = c.getDouble(4);
-        Price = c.getDouble(5);
+        ProductName = productName;
+        Category = category;
+        Brand = brand;
+        OriginalPrice = originalPrice;
+        Price = price;
         Discount = (OriginalPrice - Price)/OriginalPrice * 100;
-        Sold = c.getInt(6);
-        RatingAverage = c.getDouble(7);
-        RatingCount = c.getInt(8);
-        ThumbUrl = c.getString(12);
-        ImageUrl = c.getString(10);
-        Description = c.getString(16);
-        IsDeal = c.getInt(13) == 1;
-        IsBestSeller = c.getInt(14) == 1;
-        IsNew = c.getInt(15) == 1;
-
-
+        Sold = sold;
+        RatingAverage = ratingAverage;
+        RatingCount = ratingCount;
+        ImageUrl = imageUrl;
+        ThumbUrl = thumbUrl;
+        IsDeal = isDeal;
+        IsBestSeller = isBestSeller;
+        IsNew = isNew;
+        Description = description;
     }
+
+
+    //    public Product(int productID) {
+//        ProductID = productID;
+//        Cursor c = db.getData("SELECT * FROM "+ DataBaseHelper.TBL_PRODUCT + " WHERE "+ DataBaseHelper.COL_ID +" = " + ProductID);
+//
+//        c.moveToFirst();
+//        ProductName = c.getString(1);
+//        Category = c.getString(2);
+//        Brand = c.getString(3);
+//        OriginalPrice = c.getDouble(4);
+//        Price = c.getDouble(5);
+//        Discount = (OriginalPrice - Price)/OriginalPrice * 100;
+//        Sold = c.getInt(6);
+//        RatingAverage = c.getDouble(7);
+//        RatingCount = c.getInt(8);
+//        ThumbUrl = c.getString(12);
+//        ImageUrl = c.getString(10);
+//        Description = c.getString(16);
+//        IsDeal = c.getInt(13) == 1;
+//        IsBestSeller = c.getInt(14) == 1;
+//        IsNew = c.getInt(15) == 1;
+//
+//
+//    }
 
     public DataBaseHelper getDb() {
         return db;
@@ -168,28 +190,28 @@ public class Product {
     }
 
 
-    public boolean isDeal() {
+    public int getIsDeal() {
         return IsDeal;
     }
 
-    public void setDeal(boolean deal) {
-        IsDeal = deal;
+    public void setIsDeal(int isDeal) {
+        IsDeal = isDeal;
     }
 
-    public boolean isBestSeller() {
+    public int getIsBestSeller() {
         return IsBestSeller;
     }
 
-    public void setBestSeller(boolean bestSeller) {
-        IsBestSeller = bestSeller;
+    public void setIsBestSeller(int isBestSeller) {
+        IsBestSeller = isBestSeller;
     }
 
-    public boolean isNew() {
+    public int getIsNew() {
         return IsNew;
     }
 
-    public void setNew(boolean aNew) {
-        IsNew = aNew;
+    public void setIsNew(int isNew) {
+        IsNew = isNew;
     }
 
     public void setRatingCount(int ratingCount) {
