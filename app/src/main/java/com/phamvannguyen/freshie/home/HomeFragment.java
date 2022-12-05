@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,11 +77,27 @@ public class HomeFragment extends Fragment {
 
 //        gridView = (GridView) view.findViewById(R.id.gridview_categories);
 
-
+        countDown();
         loadData();
         listenEvents();
 
         return view;
+    }
+
+    private void countDown() {
+
+            new CountDownTimer(2239000, 1000){
+
+                @Override
+                public void onTick(long l) {
+                    binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
+                }
+                @Override
+                public void onFinish() {
+
+                }
+
+        }.start();
     }
 
     private void loadData() {
@@ -215,6 +232,8 @@ public class HomeFragment extends Fragment {
 //        }
 //        return list;
 //    }
+
+
 
 
 }
