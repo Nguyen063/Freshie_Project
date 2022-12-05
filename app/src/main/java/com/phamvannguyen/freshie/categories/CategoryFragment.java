@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.categories;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -8,24 +9,27 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.util.ArrayList;
 
 
 public class CategoryFragment extends Fragment {
 
-
     private View view;
     private GridView gridView;
     static ArrayList<Product> products;
+    Product product;
 
     private DataBaseHelper db = MainActivity.db;
+
     public CategoryFragment() {
         // Required empty public constructor
     }
@@ -66,9 +70,9 @@ public class CategoryFragment extends Fragment {
 
     private void loadListview(String category) {
         //Cursor cursor = db.getData("SELECT * FROM Product");
-        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID
+        Cursor cursor = db.getData("SELECT " + DataBaseHelper.COL_ID
                 + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " +
-                DataBaseHelper.COL_CATEGORY  + " = '"+ category +"'" );
+                DataBaseHelper.COL_CATEGORY + " = '" + category + "'");
 
 
         while (cursor.moveToNext()) {
@@ -82,6 +86,26 @@ public class CategoryFragment extends Fragment {
 
         CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
         gridView.setAdapter(adapter);
+        addEvents();
     }
 
+    private void addEvents() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+
+                  Product product = products.get(i);
+//                intent.putExtra("name", selectproduct.getProductName());
+//                intent.putExtra("price", selectproduct.getProductName());
+//                intent.putExtra("categories", selectproduct.getCategory());
+//                intent.putExtra("brand", selectproduct.getBrand());
+//                intent.putExtra("Thumb", selectproduct.getThumb());
+//                intent.putExtra("rating", selectproduct.getRatingAverage());
+//                intent.putExtra("ThumbURL", selectproduct.getThumbUrl());
+                startActivity(intent);
+
+            }
+        });
+    }
 }

@@ -16,29 +16,17 @@
 
         <activity
             android:name=".flashsale.FlashSale"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
-
-
-
-        <!--Nếu chỉnh thì đừng đưa main đi xa nhé, nó sẽ bị lỗi-->
+                <!--Nếu chỉnh thì đừng đưa main đi xa nhé, nó sẽ bị lỗi-->
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,12 +34,7 @@
         </activity>
         <activity
             android:name=".payment.Checkout"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -79,13 +62,8 @@
         </activity>
         <activity
             android:name=".product.ProductDetailActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -96,24 +74,14 @@
             android:name=".cart.CartActivity"
             android:exported="true"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:exported="true"
+            android:exported="false"
             android:name=".exchangegift.ExchangeGiftActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -122,7 +90,7 @@
 
         <activity
             android:name=".login.ChangePassword"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -132,12 +100,7 @@
 
         <activity
             android:name=".login.SignupActivity"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -146,12 +109,7 @@
 
         <activity
             android:name=".login.ForgotPasswordActivity"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -159,12 +117,7 @@
         </activity>
         <activity
             android:name=".login.ResetPasswordActivity"
-            android:exported="true">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -172,12 +125,7 @@
         </activity>
         <activity
             android:name=".order.order"
-            android:exported="true">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -192,7 +140,7 @@
 
         <activity
             android:name=".rating.RatingHistory"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
