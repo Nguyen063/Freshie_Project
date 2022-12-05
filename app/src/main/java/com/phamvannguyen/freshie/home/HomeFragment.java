@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -88,25 +89,25 @@ public class HomeFragment extends Fragment {
 
         //flash sale gridView
         flashSale_list = new ArrayList<>();
-        flashSale_list = getListItem(DataBaseHelper.COL_IS_DEAL,"= 1");
+        flashSale_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
         FlashSaleHomeAdapter flashSaleHomeAdapter = new FlashSaleHomeAdapter(getActivity(), R.layout.item_flashsale_home, flashSale_list);
         binding.gridFlashSale.setAdapter(flashSaleHomeAdapter);
 
         //---new arrivals gridView
         newProduct_list = new ArrayList<>();
-        newProduct_list = getListItem(DataBaseHelper.COL_IS_NEW,"= 1");
+        newProduct_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
         NewProductHomeAdapter newProductAdapter = new NewProductHomeAdapter(getActivity(), R.layout.item_newproduct_home, newProduct_list);
         binding.gridNewProduct.setAdapter(newProductAdapter);
 
         //---best seller gridView
         bestSeller_list = new ArrayList<>();
-        bestSeller_list = getListItem(DataBaseHelper.COL_IS_BEST_SELLER,"= 1");
+        bestSeller_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
         BestSellerHomeAdapter bestSellerAdapter = new BestSellerHomeAdapter(getActivity(), R.layout.item_bestseller_home, bestSeller_list);
         binding.gridBestseller.setAdapter(bestSellerAdapter);
 
         //---For you gridView
         forYou_list = new ArrayList<>();
-        forYou_list = getListItem(DataBaseHelper.COL_IS_BEST_SELLER,"= 1");
+        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
         CategoryAdapter forYouAdapter = new CategoryAdapter(getActivity(), R.layout.item_category, forYou_list);
         binding.gridForYou.setAdapter(forYouAdapter);
 
@@ -129,9 +130,7 @@ public class HomeFragment extends Fragment {
         binding.txtFreshnow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_FRESH_NOW);
-                startActivity(intent);
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             }
         });
         binding.txtHignend.setOnClickListener(new View.OnClickListener() {
@@ -209,15 +208,15 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    public  List<Product> getListItem(String ColName, String Condition){
-        List<Product> list = new ArrayList<>();
-        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
-                + " LIMIT 10");
-        while (cursor.moveToNext()){
-            list.add(new Product(cursor.getInt(0)));
-        }
-        return list;
-    }
+//    public  List<Product> getListItem(String ColName, String Condition){
+//        List<Product> list = new ArrayList<>();
+//        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
+//                + " LIMIT 10");
+//        while (cursor.moveToNext()){
+//            list.add(new Product(cursor.getInt(0)));
+//        }
+//        return list;
+//    }
 
 
 }

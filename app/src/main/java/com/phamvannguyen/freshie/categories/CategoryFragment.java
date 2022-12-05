@@ -66,20 +66,21 @@ public class CategoryFragment extends Fragment {
 
     private void loadListview(String category) {
         //Cursor cursor = db.getData("SELECT * FROM Product");
-        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID
-                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " +
-                DataBaseHelper.COL_CATEGORY  + " = '"+ category +"'" );
-
-
-        while (cursor.moveToNext()) {
+//        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID
+//                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " +
+//                DataBaseHelper.COL_CATEGORY  + " = '"+ category +"'" );
+//
+//
+//        while (cursor.moveToNext()) {
 //            products.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getInt(2),
 //                    cursor.getString(3), cursor.getDouble(4), cursor.getDouble(5),cursor.getInt(6),
 //                    cursor.getDouble(7), cursor.getInt(8),cursor.getBlob(9)));
+////        }
+//            products.add(new Product(cursor.getInt(0)));
 //        }
-            products.add(new Product(cursor.getInt(0)));
-        }
-        cursor.close();
+//        cursor.close();
 
+        products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = '" + category + "'");
         CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
         gridView.setAdapter(adapter);
     }

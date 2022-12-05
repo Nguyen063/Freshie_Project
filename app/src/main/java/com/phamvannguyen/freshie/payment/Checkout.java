@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
@@ -130,7 +132,7 @@ public class Checkout extends AppCompatActivity {
         binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
 
 
-        orders.add(new Product(id));
+        orders = MainActivity.getListWhere(DataBaseHelper.COL_ID + " = " + id);
 
         productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
         binding.lvOrder.setAdapter(productOrderAdapter);
