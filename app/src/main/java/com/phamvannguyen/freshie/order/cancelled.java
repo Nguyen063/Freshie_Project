@@ -35,8 +35,8 @@ public class cancelled extends Fragment {
         byte[] image = null;
 
 
-        orders.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",
-                1,"inisfree",10000,7000,1000,4.5,40, image ));
+//        orders.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",
+//                1,"inisfree",10000,7000,1000,4.5,40, image ));
 //        orders.add(new Product(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
 //        orders.add(new Product(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
 
