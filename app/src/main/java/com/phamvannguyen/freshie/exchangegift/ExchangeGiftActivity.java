@@ -2,7 +2,10 @@ package com.phamvannguyen.freshie.exchangegift;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityExchangeGiftBinding;
@@ -13,14 +16,31 @@ public class ExchangeGiftActivity extends AppCompatActivity {
     ActivityExchangeGiftBinding binding;
     ExchangeGiftAdapter adapter;
     ArrayList<ExchangeGiftModel> exchangeGiftList;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //  setContentView(R.layout.activity_gift_voucher);
+
+
+
         binding = ActivityExchangeGiftBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loadData();
+        addEvent();
+
+    }
+
+    private void addEvent() {
+        binding.btnMyVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ExchangeGiftActivity.this, UserVoucherActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void loadData() {
