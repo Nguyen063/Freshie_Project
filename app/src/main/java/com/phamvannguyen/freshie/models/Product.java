@@ -32,6 +32,7 @@ public class Product {
         Image = image;
     }
 
+
     public int getProductID() {
         return ProductID;
     }
