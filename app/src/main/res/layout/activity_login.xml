@@ -156,6 +156,7 @@
             android:text="@string/skip_login"
             android:background="@drawable/rounded_button"
             android:layout_gravity="center"
-            app:backgroundTint="@color/color_custom_blue"/>
+            app:backgroundTint="@color/color_custom_blue"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </LinearLayout>
