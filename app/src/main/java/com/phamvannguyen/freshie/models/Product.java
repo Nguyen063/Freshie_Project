@@ -22,6 +22,9 @@ public class Product {
     String ThumbUrl;
     String ImageUrl;
     String Description;
+    boolean IsDeal;
+    boolean IsBestSeller;
+    boolean IsNew;
 
 
     public Product(int productID) {
@@ -40,6 +43,10 @@ public class Product {
         RatingCount = c.getInt(8);
         ThumbUrl = c.getString(12);
         ImageUrl = c.getString(10);
+        Description = c.getString(16);
+        IsDeal = c.getInt(13) == 1;
+        IsBestSeller = c.getInt(14) == 1;
+        IsNew = c.getInt(15) == 1;
 
 
     }
@@ -158,6 +165,31 @@ public class Product {
     }
     public Bitmap getImage(){
         return MainActivity.getBitmapFromURL(ImageUrl);
+    }
+
+
+    public boolean isDeal() {
+        return IsDeal;
+    }
+
+    public void setDeal(boolean deal) {
+        IsDeal = deal;
+    }
+
+    public boolean isBestSeller() {
+        return IsBestSeller;
+    }
+
+    public void setBestSeller(boolean bestSeller) {
+        IsBestSeller = bestSeller;
+    }
+
+    public boolean isNew() {
+        return IsNew;
+    }
+
+    public void setNew(boolean aNew) {
+        IsNew = aNew;
     }
 
     public void setRatingCount(int ratingCount) {

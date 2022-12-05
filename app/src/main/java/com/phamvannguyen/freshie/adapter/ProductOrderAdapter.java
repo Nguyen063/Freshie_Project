@@ -69,12 +69,8 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder.txtPrice.setText(notRating.getFormattedPrice());
             holder.txtNum.setText("1");
             holder.txtName.setText(notRating.getProductName());
-//            try {
-//                holder.imgProduct.setImageBitmap(BitmapFactory.decodeByteArray(notRating.getImage(), 0,
-//                        notRating.getImage().length));
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            new MainActivity.FetchImage(notRating.getThumbUrl(), holder.imgProduct).start();
+
 
         }
 //        else {
