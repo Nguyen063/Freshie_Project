@@ -71,7 +71,7 @@ public class FlashSaleAdapter extends BaseAdapter {
         }
 
         Product flashSale = flashSaleList.get(i);
-        holder.productThumbnail.setImageBitmap(BitmapFactory.decodeByteArray(flashSale.getImage(),0,flashSale.getImage().length));
+//        holder.productThumbnail.setImageBitmap(BitmapFactory.decodeByteArray(flashSale.getImage(),0,flashSale.getImage().length));
         holder.productName.setText(flashSale.getProductName());
         holder.productPrice.setText(toString().valueOf(flashSale.getFormattedPrice()));
         holder.productDiscount.setText( flashSale.getFormattedDiscount());
