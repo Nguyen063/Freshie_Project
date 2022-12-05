@@ -78,10 +78,10 @@ public class ProductOrderAdapter extends BaseAdapter {
 
 
         }
-        else {
+//        else {
 //            holder.txtName.setText("Không có sản phẩm nào");
-            Toast.makeText(activity, "Không có sản phẩm nào", Toast.LENGTH_SHORT).show();
-        }
+//            Toast.makeText(activity, "Không có sản phẩm nào", Toast.LENGTH_SHORT).show();
+//        }
 
         return view;
     }

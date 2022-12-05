@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.phamvannguyen.freshie.R;
 
-public class OderTracking extends AppCompatActivity {
+public class OrderTracking extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
