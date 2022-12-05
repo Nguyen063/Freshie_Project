@@ -50,8 +50,7 @@ public class HomeFragment extends Fragment {
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
 
-        gridView = (GridView) view.findViewById(R.id.gridview_categories);
-
+//        gridView = (GridView) view.findViewById(R.id.gridview_categories);
 
 
         return view;
