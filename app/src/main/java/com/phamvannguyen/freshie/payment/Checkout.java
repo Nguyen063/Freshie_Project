@@ -130,11 +130,7 @@ public class Checkout extends AppCompatActivity {
         binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
 
 
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.innisfree);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        orders.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",1,"inisfree",10000,7000,1000,4.5,40, byteArray ));
+        orders.add(new Product(id));
 
         productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
         binding.lvOrder.setAdapter(productOrderAdapter);
