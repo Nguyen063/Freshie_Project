@@ -45,4 +45,13 @@
             android:textColor="@color/color_custom_pink"
             android:drawableLeft="@drawable/atm"/>
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_Confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/color_custom_pink"
+        android:text="Xác nhận"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

@@ -72,6 +72,7 @@ public class CategoryAdapter extends BaseAdapter {
             holder.txtRatingAverage = view.findViewById(R.id.txt_RatingAverage);
             holder.txtRatingCount = view.findViewById(R.id.txt_RatingCount);
             holder.txtSold = view.findViewById(R.id.txt_Sold);
+            holder.imgProduct = view.findViewById(R.id.imv_Thumb);
 
             view.setTag(holder);
         }
@@ -88,7 +89,8 @@ public class CategoryAdapter extends BaseAdapter {
         holder.txtRatingCount.setText(p.getRatingCount() + "");
         holder.txtSold.setText(p.getSold() + "");
 
-        holder.imgProduct.setImageBitmap(BitmapFactory.decodeByteArray(p.getImage(), 0, p.getImage().length));
+//        holder.imgProduct.setImageBitmap(p.getThumb());
+        new MainActivity.FetchImage( p.getThumbUrl(), holder.imgProduct).start();
 
         return view;
     }

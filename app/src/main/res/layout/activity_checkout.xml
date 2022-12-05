@@ -10,12 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_bottom">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="#F5F5F5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +41,6 @@
                 android:hint="Số điện thoại"
                 android:padding="10dp"
                 android:layout_marginTop="5dp"/>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,19 +58,29 @@
                 android:textStyle="bold"/>
 
 
-
             <Spinner
-                android:id="@+id/spinner_District"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <Spinner
-                android:id="@+id/spinner_Town"
+                android:id="@+id/spinner_Province"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                />
+                android:spinnerMode="dropdown"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:id="@+id/spinner_District"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
+                <Spinner
+                    android:id="@+id/spinner_Town"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,12 +93,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/rad_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nhà"
                     android:textSize="16sp"
                     android:textColor="@color/color_custom_pink"/>
                 <RadioButton
+                    android:id="@+id/rad_office"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Văn phòng"
@@ -123,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Giao hàng nhanh"
-                android:textSize="16sp"/>
+                android:textSize="18sp"/>
 <!--        </LinearLayout>-->
 
 <!--        <LinearLayout-->
@@ -139,18 +144,21 @@
                 android:text="Phương thức thanh toán"
                 android:textSize="22sp"
                 android:textColor="@color/color_custom_pink"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
             <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
                 <TextView
+                    android:id="@+id/txt_paymentMethod"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Thanh toán khi nhận hàng"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
 
                 <ImageView
+                    android:id="@+id/btn_ChangePayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_edit_24"/>
@@ -171,23 +179,26 @@
                 android:textSize="22sp"
                 android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
-<!--            <LinearLayout-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_width="match_parent">-->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
                 <EditText
+                    android:id="@+id/edt_Voucher"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nhập mã khuyến mãi"/>
                 <Button
+                    android:id="@+id/btn_UseVoucher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Áp dụng"
                     android:backgroundTint="@color/color_custom_pink"
                     android:layout_marginStart="10dp"/>
-<!--            </LinearLayout>-->
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/txt_chooseVoucher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chọn mã khuyến mãi"
@@ -195,13 +206,13 @@
                 android:textColor="@color/color_custom_pink"/>
 <!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:padding="10dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:padding="10dp">-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -216,7 +227,7 @@
                 android:layout_height="wrap_content"
                 />
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
 
         <LinearLayout
@@ -260,7 +271,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.000.000đ"
+                    android:text="0đ"
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
@@ -275,7 +286,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.000.000đ"
+                    android:text="0đ"
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
@@ -328,6 +339,7 @@
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"/>
             <Button
+                android:id="@+id/btn_Order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đặt hàng"
