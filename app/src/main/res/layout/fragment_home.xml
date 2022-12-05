@@ -17,7 +17,7 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@drawable/border_radius_pink"
         app:queryHint="Search"
@@ -30,7 +30,8 @@
             android:scaleY="1.5"
             android:layout_weight="5"
             android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:backgroundTint="#00000000"/>
+            android:backgroundTint="#00000000"
+            android:padding="2dp"/>
     </LinearLayout>
 
     <ScrollView
@@ -133,16 +134,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="FLASH SALE"
-                        android:textSize="20dp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
-                        android:textColor="@color/color_custom_pink"
+                        android:textColor="@color/color_custom_blue"
                         android:layout_margin="10dp" />
                     <TextView
+                        android:id="@+id/txtCount_Down"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1 : 20 : 30"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/color_custom_pink"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
@@ -152,7 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Xem thêm >"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:clickable="true"
                         android:textColor="@color/black"
                         android:layout_marginStart="10dp"

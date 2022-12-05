@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -17,17 +17,15 @@ import com.phamvannguyen.freshie.models.FlashSales;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class FlashSale extends AppCompatActivity {
 
     FlashSaleAdapter flashSaleAdapter;
     ArrayList<Product> flashSales = new ArrayList<>();
-
+    TextView textView;
     ListView lvFlashSale;
     private DataBaseHelper db = MainActivity.db;
-
 
 
     @Override
@@ -36,8 +34,25 @@ public class FlashSale extends AppCompatActivity {
         setContentView(R.layout.activity_flash_sale);
 
         lvFlashSale = findViewById(R.id.lv_flashsale);
+        textView = findViewById(R.id.txtCount_Down);
 
-        loadData();
+//        loadData(); Hàm này đang bị lỗi
+        countdown();
+
+    }
+
+    private void countdown() {
+
+        new CountDownTimer(2000000, 1000) {
+            @Override
+            public void onTick(long l) {
+                textView.setText(l/360000%24 + " : " + l/60000%60 + " : " + l/1000%60);
+            }
+
+            @Override
+            public void onFinish() {
+            }
+        }.start();
     }
 
     private void loadData() {
@@ -49,6 +64,7 @@ public class FlashSale extends AppCompatActivity {
 //        flashSales.add(new FlashSales(R.drawable.vitamintree,"Kem dưỡng da Vitamin Tree Water-Gel",350000,20,4.5,100,1000));
 
         //-----------------get data from database-----------------
+
         Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID +
                  " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_IS_DEAL + " = "+ 1);
 

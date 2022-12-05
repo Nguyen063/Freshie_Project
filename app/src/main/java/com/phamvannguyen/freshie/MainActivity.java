@@ -5,13 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -46,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         db = new DataBaseHelper(this);
+
+ ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.Freshie);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        //String title = actionBar.getTitle().toString();
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         createNavigation();
@@ -91,11 +102,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -116,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+
+
             }
         });
     }
@@ -163,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
     public static Bitmap getBitmapFromURL(String src) {
         try {
