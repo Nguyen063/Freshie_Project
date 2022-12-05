@@ -14,10 +14,7 @@
         android:theme="@style/Theme.Freshie"
         tools:targetApi="31">
 
-
-
-
-        <!--Nếu chỉnh thì đừng đưa main đi xa nhé-->
+        <!--Nếu chỉnh thì đừng đưa main đi xa nhé, nó sẽ bị lỗi-->
         <activity
             android:name=".MainActivity"
             android:exported="true"

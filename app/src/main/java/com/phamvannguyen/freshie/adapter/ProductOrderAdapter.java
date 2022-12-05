@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
@@ -63,7 +62,7 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        if (ProductList.size() != 0) {
+        if (ProductList.size() == 0) {
 
             Product notRating = ProductList.get(i);
             holder.txtName.setText(notRating.getProductName());
