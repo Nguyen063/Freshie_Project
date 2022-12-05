@@ -2,14 +2,19 @@ package com.phamvannguyen.freshie.payment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Spinner;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
+import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Checkout extends AppCompatActivity {
@@ -18,7 +23,7 @@ public class Checkout extends AppCompatActivity {
     Spinner spinnerProvince, spinnerDistrict, spinnerTown;
 
     ProductOrderAdapter productOrderAdapter;
-    ArrayList<ProductOrder> orders = new ArrayList<>();
+    ArrayList<Product> orders = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,22 @@ public class Checkout extends AppCompatActivity {
     }
 
     private void loadData() {
-        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
-        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
+
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("productId", 0);
+//        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
+//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
+//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
+//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
+//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
+
+
+        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.innisfree);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        orders.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",1,"inisfree",10000,7000,1000,4.5,40, byteArray ));
+
         productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
         binding.lvOrder.setAdapter(productOrderAdapter);
     }

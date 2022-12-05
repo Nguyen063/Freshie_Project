@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.helpcenter;
+package com.phamvannguyen.freshie.customerservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.phamvannguyen.freshie.R;
 
-public class HelpCenter extends AppCompatActivity {
+public class CustomerService extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

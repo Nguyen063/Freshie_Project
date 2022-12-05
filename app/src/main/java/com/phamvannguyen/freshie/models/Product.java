@@ -52,6 +52,7 @@ public class Product {
         this.db = db;
     }
 
+
     public int getProductID() {
         return ProductID;
     }
