@@ -32,9 +32,9 @@
             android:backgroundTint="#00000000"/>
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,19 +51,30 @@
                 app:sliderScrollTimeInSec="3"
                 app:sliderStartAutoCycle="true"
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TableRow>
+
+                    </TableRow>
+                </TableLayout>
             <GridView
                 android:id="@+id/gridview_categories"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="4">
+                android:layout_height="match_parent"
+                android:numColumns="2">
             </GridView>
+            </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+
+
         </LinearLayout>
 
-    </ScrollView>
+<!--    </ScrollView>-->
 
 </LinearLayout>

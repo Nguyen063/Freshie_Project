@@ -6,28 +6,14 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/mn_Notification"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:background="?attr/actionBarItemBackground"
-            android:layout_width="?attr/actionBarSize"
-            android:layout_height="?attr/actionBarSize"
-            />
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
-       >
+        android:gravity="right">
 
         <ImageButton
             android:src="@drawable/icon_settings"
-            android:layout_height="?attr/actionBarSize"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/color_custom_blue"
             android:id="@+id/setting_profile"
             android:layout_marginRight="25dp"
@@ -38,19 +24,17 @@
         <ImageButton
             android:id="@+id/chatting"
             android:src="@drawable/icon_chatting"
-            android:layout_height="?attr/actionBarSize"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/color_custom_blue"
             android:layout_marginRight="10dp"
             android:layout_gravity="right"
             />
         <ImageButton
             android:id="@+id/mn_Cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:background="?attr/actionBarItemBackground"
-            android:layout_width="?attr/actionBarSize"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_marginRight="10dp"
             android:layout_gravity="right"
             />
 
