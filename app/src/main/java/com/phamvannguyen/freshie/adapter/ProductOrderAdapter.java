@@ -63,7 +63,7 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        if (ProductList.size() != 0) {
+        if (ProductList.size() == 0) {
 
             Product notRating = ProductList.get(i);
             holder.txtName.setText(notRating.getProductName());

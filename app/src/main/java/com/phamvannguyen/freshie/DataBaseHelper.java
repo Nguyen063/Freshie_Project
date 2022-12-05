@@ -34,9 +34,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_DESCRIPTION = "Description";
     public static final String COL_IMAGE_URL = "MediumImage";
     public static final String COL_THUMB_URL = "Thumb";
-    public static final String COL_IS_DEAL = "IsDeal";
-    public static final String COL_IS_BEST_SELLER = "IsBestSeller";
-    public static final String COL_IS_NEW = "IsNew";
+    public static final String COL_IS_DEAL = "is_deal";
+    public static final String COL_IS_BEST_SELLER = "is_best_seller";
+    public static final String COL_IS_NEW = "is_new";
 
     private Context mycontext;
     private String DB_PATH = "/data/data/com.phamvannguyen.freshie/databases/";

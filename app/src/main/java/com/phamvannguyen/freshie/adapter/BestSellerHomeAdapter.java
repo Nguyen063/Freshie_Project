@@ -53,7 +53,7 @@ public class BestSellerHomeAdapter extends BaseAdapter {
 
             holder.imgProductThumb = view.findViewById(R.id.img_ProductThumb);
             holder.txtProductName = view.findViewById(R.id.txt_ProductName);
-            holder.txtsoldCount = view.findViewById(R.id.txt_soldCount);
+            holder.txtSoldCount = view.findViewById(R.id.txt_soldCount);
 
             view.setTag(holder);
         }
@@ -63,7 +63,7 @@ public class BestSellerHomeAdapter extends BaseAdapter {
 
         Product product = bestSellerList.get(i);
         holder.txtProductName.setText(product.getProductName());
-        holder.txtsoldCount.setText(product.getSold());
+        holder.txtSoldCount.setText(String.valueOf(product.getSold())+" đã bán");
         new MainActivity.FetchImage(product.getThumbUrl(), holder.imgProductThumb).start();
 
         return view;
@@ -71,6 +71,6 @@ public class BestSellerHomeAdapter extends BaseAdapter {
 
     public static class ViewHolder{
         ImageView imgProductThumb;
-        TextView txtProductName, txtsoldCount;
+        TextView txtProductName, txtSoldCount;
     }
 }
