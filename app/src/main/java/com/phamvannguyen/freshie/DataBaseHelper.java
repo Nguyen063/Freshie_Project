@@ -1,6 +1,7 @@
 package com.phamvannguyen.freshie;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -29,6 +30,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_PRICE = "Price";
     public static final String COL_RATING_AVERAGE = "RatingAverage";
     public static final String COL_RATING_COUNT = "RatingCount";
+    public static final String COL_SOLD = "Sold";
     public static final String COL_DESCRIPTION = "Description";
     public static final String COL_IMAGE = "Image";
 
@@ -38,7 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public SQLiteDatabase myDataBase;
 
 
-    public DataBaseHelper(Context context) throws IOException {
+    public DataBaseHelper(Context context)  {
         super(context,DB_NAME,null,1);
         this.mycontext=context;
         boolean dbexist = checkdatabase();
@@ -50,7 +52,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void createdatabase() throws IOException {
+    public void createdatabase() {
         boolean dbexist = checkdatabase();
         if(!dbexist) {
             this.getReadableDatabase();
@@ -110,7 +112,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         super.close();
     }
-
+    public Cursor getData(String sql) {
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(sql, null);
+        return c;
+    }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 

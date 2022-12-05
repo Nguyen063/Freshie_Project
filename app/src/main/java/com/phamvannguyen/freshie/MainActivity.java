@@ -1,5 +1,7 @@
 package com.phamvannguyen.freshie;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
-    DataBaseHelper db;
+    public static DataBaseHelper db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,11 +34,8 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        try {
-            db = new DataBaseHelper(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        db = new DataBaseHelper(this);
+
 
         createNavigation();
         FragmentManager manager = getSupportFragmentManager();
@@ -110,6 +109,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+
+
+
+
+
+    public static Bitmap convertByteArrayToBitmap(byte[] bytes) {
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
 }

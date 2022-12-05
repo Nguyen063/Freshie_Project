@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.categories;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.Product;
 
@@ -22,6 +25,7 @@ public class CategoryFragment extends Fragment {
     private GridView gridView;
     static ArrayList<Product> products;
 
+    private DataBaseHelper db = MainActivity.db;
     public CategoryFragment() {
         // Required empty public constructor
     }
@@ -37,20 +41,53 @@ public class CategoryFragment extends Fragment {
 
         gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
 
-        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
-                41,4.2,100));
-        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
-                41,4.2,100));
-        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
-                41,4.2,100));
-        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
-                41,4.2,100));
-        CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
-        gridView.setAdapter(adapter);
+        loadListview(1);
+
+
+        //Add raw data
+//        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
+//                41,4.2,100));
+//        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
+//                41,4.2,100));
+//        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
+//                41,4.2,100));
+//        products.add(new Product(1, "Sửa rửa mặt", "Sửa rửa mặt", "senka", 1000,800,
+//                41,4.2,100));
+
+
+        //--Load db----
+
+        ;
+
 
         return view;
 
-
-
     }
+
+    private void loadListview(int category) {
+        //Cursor cursor = db.getData("SELECT * FROM Product");
+        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID + " , "
+                + DataBaseHelper.COL_NAME + " , "
+                + DataBaseHelper.COL_CATEGORY + " , "
+                + DataBaseHelper.COL_BRAND + " , "
+                + DataBaseHelper.COL_ORIGINAL_PRICE + " , "
+                + DataBaseHelper.COL_PRICE + " , "
+                + DataBaseHelper.COL_SOLD + " , "
+                + DataBaseHelper.COL_RATING_AVERAGE  + " , "
+                + DataBaseHelper.COL_RATING_COUNT+ " , "
+                + DataBaseHelper.COL_IMAGE
+                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_ID + " = "+ category);
+
+
+        while (cursor.moveToNext()){
+            products.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getInt(2),
+                    cursor.getString(3), cursor.getDouble(4), cursor.getDouble(5),cursor.getInt(6),
+                    cursor.getDouble(7), cursor.getInt(8),cursor.getBlob(9)));
+        }
+        cursor.close();
+
+        CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
+        gridView.setAdapter(adapter);
+    }
+
 }

@@ -1,9 +1,12 @@
 package com.phamvannguyen.freshie.models;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 public class Product {
     int ProductID;
     String ProductName;
-    String Category;
+    int Category;
     String Brand;
     double OriginalPrice;
     double Price;
@@ -11,9 +14,11 @@ public class Product {
     int Sold;
     double RatingAverage;
     int RatingCount;
+    byte[] Image;
 
-    public Product(int productID, String productName, String category,
-                   String brand, double originalPrice, double price, int sold, double ratingAverage, int ratingCount) {
+    public Product(int productID, String productName, int category,
+                   String brand, double originalPrice, double price,
+                   int sold, double ratingAverage, int ratingCount, byte[] image) {
         ProductID = productID;
         ProductName = productName;
         Category = category;
@@ -24,7 +29,9 @@ public class Product {
         Sold = sold;
         RatingAverage = ratingAverage;
         RatingCount = ratingCount;
+        Image = image;
     }
+
 
     public int getProductID() {
         return ProductID;
@@ -42,11 +49,11 @@ public class Product {
         ProductName = productName;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return Category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         Category = category;
     }
 
@@ -102,6 +109,16 @@ public class Product {
         return RatingCount;
     }
 
+    public byte[] getImage() {
+        return Image;
+    }
+
+    public void setImage(byte[] image) {
+        Image = image;
+    }
+
+
+
     public void setRatingCount(int ratingCount) {
         RatingCount = ratingCount;
     }
@@ -112,6 +129,6 @@ public class Product {
         return String.format("%,.0f đ", OriginalPrice);
     }
     public String getFormattedDiscount (){
-        return String.format("%,.0f %", Discount);
+        return String.format("-%.0f%% ", Discount);
     }
 }

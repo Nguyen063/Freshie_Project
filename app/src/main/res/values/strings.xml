@@ -21,11 +21,13 @@
     <string name="reset_forgot_password">Vui lòng cung cấp Email/ Số điện thoại \n để lấy lại mật khẩu</string>
     <!--    Category Pages-->
     <string name="category_title">Danh mục</string>
-    <string name="hot_deals">Hot deals</string>
+    <string name="perfume">Perfume</string>
     <string name="skin_care">Skin</string>
     <string name="hair_care">Hair</string>
     <string name="makeup">Makeup</string>
     <!-- Cart Page-->
     <string name="cart_title">Giỏ hàng</string>
 
+    <!--    Login Page-->
+    <string name="skip_login">Bỏ qua</string>
 </resources>
