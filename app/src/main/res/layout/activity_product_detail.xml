@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_gravity="center"
-        android:src="@drawable/product_photo"
+        android:src="@drawable/p_loading"
         android:background="@color/white"/>
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/txtGiaSanPhamDaGiam"
+                android:id="@+id/txt_Dt_Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="300.000đ"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/txtGiaGocSanPham"
+                    android:id="@+id/txt_Dt_OriginalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="300.000đ"
@@ -52,6 +52,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="italic"/>
                 <TextView
+                    android:id="@+id/txt_Dt_Discount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20%"
@@ -144,7 +145,7 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_star_half_24"/>
             <TextView
-                android:id="@+id/txtDanhGiaSanPham"
+                android:id="@+id/txt_RatingAverage"
                 android:paddingLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,7 +159,7 @@
                 android:paddingRight="10dp"
                 android:textSize="15sp"/>
             <TextView
-                android:id="@+id/txtLuotBan"
+                android:id="@+id/txt_Sold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1.8K"
@@ -178,7 +179,7 @@
         android:background="@color/white"
         android:gravity="center">
         <LinearLayout
-            android:id="@+id/btnChatNgay"
+            android:id="@+id/btnChatNow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -203,7 +204,7 @@
             android:paddingRight="10dp"
             android:textSize="35sp"/>
         <LinearLayout
-            android:id="@+id/btnThemVaoGioHang"
+            android:id="@+id/btnAddToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -419,36 +420,10 @@
             android:textSize="18sp"
             android:padding="5dp"
             android:textStyle="bold"/>
+
         <TextView
-            android:id="@+id/txtChiTietSanPham"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="- Thương hiệu : I'm From \n- Loại da: Mọi loại da \n- Barcode: 2251888892 \n- Sản phẩm : Kem Dưỡng Da \n- Khối lượng : 75g \n- Xuất xứ : Hàn Quốc"
-            android:textSize="15sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="THÀNH PHẦN, CÔNG DỤNG"
-            android:textSize="18sp"
-            android:padding="5dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="- Thành phần chính chiết xuất từ lá hắc mai biển được trồng trên đỉnh núi Taebaek dồi dào lượng Vitamin, khoáng chất giúp cấp nước, dưỡng ẩm sâu vượt trội cho làn da.
-\n- Các thành phần khác như Butylene Glycol, Dipropylene Glycol, chiết xuất cây phỉ witch hazel, niacinamide có tác dụng làm sáng đều màu da, thanh lọc và thải độc da hiệu quả. \n- Đặc biệt, sản phẩm hoàn toàn không có chất tạo màu, tạo mùi, không silicon cũng như dầu khoáng gây hại cho làn da."
-            android:textSize="15sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HƯỚNG DẪN SỬ DỤNG"
-            android:textSize="18sp"
-            android:padding="5dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txt_Description"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:text="- Sau khi rửa mặt, lấy một lượng vừa đủ thoa lên khắp vùng mặt, tránh vùng mắt và miệng. \n - Massage nhẹ nhàng và vỗ đều để da dễ dàng thẩm thấu dưỡng chất từ gel."

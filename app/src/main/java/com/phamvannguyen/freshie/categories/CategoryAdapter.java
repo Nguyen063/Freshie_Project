@@ -36,7 +36,7 @@ public class CategoryAdapter extends BaseAdapter {
 
     public CategoryAdapter() {
     }
-    public CategoryAdapter(FragmentActivity activity, int layout, ArrayList<Product> products) {
+    public CategoryAdapter(FragmentActivity activity, int layout, List<Product> products) {
         this.activity = activity;
         this.layout = layout;
         this.products = products;

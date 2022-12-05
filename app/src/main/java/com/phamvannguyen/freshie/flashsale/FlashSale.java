@@ -48,37 +48,14 @@ public class FlashSale extends AppCompatActivity {
 //        flashSales.add(new FlashSales(R.drawable.vitamintree,"Kem dưỡng da Vitamin Tree Water-Gel",350000,20,4.5,100,1000));
 //        flashSales.add(new FlashSales(R.drawable.vitamintree,"Kem dưỡng da Vitamin Tree Water-Gel",350000,20,4.5,100,1000));
 
-        //--Set raw data---
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.innisfree);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        flashSales.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",1,"inisfree",10000,7000,1000,4.5,40, byteArray ));
-        flashSales.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",1,"inisfree",10000,7000,1000,4.5,40, byteArray ));
-        flashSales.add(new Product(1,"Kem dưỡng da Vitamin Tree Water-Gel",1,"inisfree",10000,7000,1000,4.5,40, byteArray ));
-
-
-
         //-----------------get data from database-----------------
-//        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID + " , "
-//                + DataBaseHelper.COL_NAME + " , "
-//                + DataBaseHelper.COL_CATEGORY + " , "
-//                + DataBaseHelper.COL_BRAND + " , "
-//                + DataBaseHelper.COL_ORIGINAL_PRICE + " , "
-//                + DataBaseHelper.COL_PRICE + " , "
-//                + DataBaseHelper.COL_SOLD + " , "
-//                + DataBaseHelper.COL_RATING_AVERAGE  + " , "
-//                + DataBaseHelper.COL_RATING_COUNT+ " , "
-//                + DataBaseHelper.COL_IMAGE
-//                + " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_ID + " = "+ 1);
-//
-//
-//        while (cursor.moveToNext()){
-//            flashSales.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getInt(2),
-//                    cursor.getString(3), cursor.getDouble(4), cursor.getDouble(5),cursor.getInt(6),
-//                    cursor.getDouble(7), cursor.getInt(8),cursor.getBlob(9)));
-//        }
-//        cursor.close();
+        Cursor cursor = db.getData("SELECT "+ DataBaseHelper.COL_ID +
+                 " FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_IS_DEAL + " = "+ 1);
+
+        while (cursor.moveToNext()){
+            flashSales.add(new Product(cursor.getInt(0)));
+        }
+        cursor.close();
 
         //-----------------get data from database-----------------
 
