@@ -31,23 +31,10 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         getIntentInfo();
-        addEvent();
 
 
     }
 
-    private void addEvent() {
-    binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
-//            int sl = Integer.parseInt(binding.txtSold.getText().toString().trim());
-//            intent.putExtra("soluong",sl);
-            startActivity(intent);
-        }
-    });
-
-    }
 
 
     private void getIntentInfo() {
