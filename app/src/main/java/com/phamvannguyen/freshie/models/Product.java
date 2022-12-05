@@ -1,12 +1,17 @@
 package com.phamvannguyen.freshie.models;
 
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
+import com.phamvannguyen.freshie.MainActivity;
+
 public class Product {
+    private DataBaseHelper db = MainActivity.db;
     int ProductID;
     String ProductName;
-    int Category;
+    String Category;
     String Brand;
     double OriginalPrice;
     double Price;
@@ -14,22 +19,37 @@ public class Product {
     int Sold;
     double RatingAverage;
     int RatingCount;
-    byte[] Image;
+    String ThumbUrl;
+    String ImageUrl;
+    String Description;
 
-    public Product(int productID, String productName, int category,
-                   String brand, double originalPrice, double price,
-                   int sold, double ratingAverage, int ratingCount, byte[] image) {
+
+    public Product(int productID) {
         ProductID = productID;
-        ProductName = productName;
-        Category = category;
-        Brand = brand;
-        OriginalPrice = originalPrice;
-        Price = price;
-        Discount = (OriginalPrice - Price) / OriginalPrice * 100;
-        Sold = sold;
-        RatingAverage = ratingAverage;
-        RatingCount = ratingCount;
-        Image = image;
+        Cursor c = db.getData("SELECT * FROM "+ DataBaseHelper.TBL_PRODUCT + " WHERE "+ DataBaseHelper.COL_ID +" = " + ProductID);
+
+        c.moveToFirst();
+        ProductName = c.getString(1);
+        Category = c.getString(2);
+        Brand = c.getString(3);
+        OriginalPrice = c.getDouble(4);
+        Price = c.getDouble(5);
+        Discount = (OriginalPrice - Price)/OriginalPrice * 100;
+        Sold = c.getInt(6);
+        RatingAverage = c.getDouble(7);
+        RatingCount = c.getInt(8);
+        ThumbUrl = c.getString(12);
+        ImageUrl = c.getString(10);
+
+
+    }
+
+    public DataBaseHelper getDb() {
+        return db;
+    }
+
+    public void setDb(DataBaseHelper db) {
+        this.db = db;
     }
 
     public int getProductID() {
@@ -48,11 +68,11 @@ public class Product {
         ProductName = productName;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return Category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         Category = category;
     }
 
@@ -108,15 +128,36 @@ public class Product {
         return RatingCount;
     }
 
-    public byte[] getImage() {
-        return Image;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setImage(byte[] image) {
-        Image = image;
+    public void setDescription(String description) {
+        Description = description;
     }
 
+    public String getThumbUrl() {
+        return ThumbUrl;
+    }
 
+    public void setThumbUrl(String thumbUrl) {
+        ThumbUrl = thumbUrl;
+    }
+
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
+
+    public Bitmap getThumb(){
+        return MainActivity.getBitmapFromURL(ThumbUrl);
+    }
+    public Bitmap getImage(){
+        return MainActivity.getBitmapFromURL(ImageUrl);
+    }
 
     public void setRatingCount(int ratingCount) {
         RatingCount = ratingCount;

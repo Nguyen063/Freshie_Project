@@ -32,7 +32,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_RATING_COUNT = "RatingCount";
     public static final String COL_SOLD = "Sold";
     public static final String COL_DESCRIPTION = "Description";
-    public static final String COL_IMAGE = "Image";
+    public static final String COL_IMAGE_URL = "MediumImage";
+    public static final String COL_THUMB_URL = "Thumb";
 
     private Context mycontext;
     private String DB_PATH = "/data/data/com.phamvannguyen.freshie/databases/";
@@ -126,5 +127,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+    public Cursor getProductCol(int productID, String columnName) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "SELECT " + columnName + " FROM " + TBL_PRODUCT + " WHERE " + COL_ID + " = " + productID; ;
 
+        Cursor c = db.rawQuery(sql, null);
+        return c;
+    }
 }
