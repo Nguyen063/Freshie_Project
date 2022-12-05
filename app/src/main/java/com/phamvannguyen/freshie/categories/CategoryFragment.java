@@ -78,9 +78,9 @@ public class CategoryFragment extends Fragment {
 ////        }
 //            products.add(new Product(cursor.getInt(0)));
 //        }
-//        cursor.close();
+////        cursor.close();
 
-        products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = '" + category + "'");
+
         CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
         gridView.setAdapter(adapter);
     }
