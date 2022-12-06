@@ -73,11 +73,10 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-
+                
             }
 
         }.start();
-
     }
 
     private void loadProductDetail() {
