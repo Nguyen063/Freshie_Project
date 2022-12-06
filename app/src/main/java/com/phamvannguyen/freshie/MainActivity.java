@@ -46,7 +46,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
     public static DataBaseHelper db;
 

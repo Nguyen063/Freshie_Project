@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -38,6 +40,7 @@ public class HomeFragment extends Fragment {
     DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
 
+    ViewPager viewPager = MainActivity.viewPager;
     FragmentHomeBinding binding;
     private SliderView sliderView;
     int [] images = {
@@ -122,13 +125,7 @@ public class HomeFragment extends Fragment {
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CategoryFragment fr = new CategoryFragment();
-                Bundle args = new Bundle();
-                fr.setArguments(args);
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_category, fr);
-                fragmentTransaction.commit();
+                viewPager.setCurrentItem(2);
             }
         });
 
