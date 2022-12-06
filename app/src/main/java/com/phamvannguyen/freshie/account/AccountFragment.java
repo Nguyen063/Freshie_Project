@@ -10,18 +10,13 @@ import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.cart.CartActivity;
-import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.FragmentAccountBinding;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
-import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.login.LoginActivity;
 import com.phamvannguyen.freshie.order.cancelled;
 import com.phamvannguyen.freshie.order.delivered;
@@ -114,18 +109,9 @@ public class AccountFragment extends Fragment {
         binding.btnDelivering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), delivering.class);
-//                intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
-//                startActivity(intent);
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-                transaction.replace(R.id.container, delivering.class, null);
-                transaction.addToBackStack(null);
-                transaction.commit();
-//                transaction.hide(AccountFragment);
-//                transaction.setMaxLifecycle(AccountFragment, Lifecycle.State.STARTED);
-
+                Intent intent = new Intent(getActivity(), delivering.class);
+                intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
+                startActivity(intent);
             }
         });
         binding.btnDelivered.setOnClickListener(new View.OnClickListener() {

@@ -1,20 +1,14 @@
 package com.phamvannguyen.freshie.home;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.GridView;
+import android.widget.AdapterView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -22,12 +16,16 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.BestSellerHomeAdapter;
 import com.phamvannguyen.freshie.adapter.FlashSaleHomeAdapter;
 import com.phamvannguyen.freshie.adapter.NewProductHomeAdapter;
-import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
+import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
+import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.models.ProductOrder;
+import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -36,13 +34,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    private GridView gridView;
 
     DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
+    Product selectProduct;
 
-    ViewPager viewPager = MainActivity.viewPager;
     FragmentHomeBinding binding;
+
     private SliderView sliderView;
     int [] images = {
             R.drawable.banner1,
@@ -51,7 +49,7 @@ public class HomeFragment extends Fragment {
     public static final String INTENT_NAME = "HomeFragment";
     public static final String INTENT_DEALS = "Deals";
     public static final String INTENT_FRESH_NOW = "Fresh now";
-    public static final String INTENT_HIGH_END = "HIgh end";
+    public static final String INTENT_HIGH_END = "High end";
     public static final String INTENT_MY_VOUCHER = "My voucher";
     public static final String INTENT_CATEGORY = "Category";
     public static final String INTENT_ORDER = "Order";
@@ -59,7 +57,7 @@ public class HomeFragment extends Fragment {
     public static final String INTENT_FREE_SHIP = "Free ship";
     public static final String INTENT_NEW = "New";
     public static final String INTENT_BEST_SELLER = "Best seller";
-
+    public static final String INTENT_CART = "Cart";
 
     Intent intent;
     public HomeFragment(){
@@ -81,13 +79,74 @@ public class HomeFragment extends Fragment {
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
 
-//        gridView = (GridView) view.findViewById(R.id.gridview_categories);
-
-
+        countDown();
         loadData();
         listenEvents();
+        selectProdcutDetail();
 
         return view;
+    }
+
+    private void selectProdcutDetail() {
+        binding.gridForYou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                Product selectProduct = forYou_list.get(i);
+                //Data
+                intent.putExtra("productID", selectProduct.getProductID());
+                startActivity(intent);
+            }
+        });
+
+        binding.gridNewProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = newProduct_list.get(i);
+                //Data
+
+                startActivity(intent);
+            }
+        });
+
+        binding.gridBestseller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = bestSeller_list.get(i);
+                //Data
+
+                startActivity(intent);
+            }
+        });
+
+        binding.gridFlashSale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = flashSale_list.get(i);
+                //Data
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void countDown() {
+
+        new CountDownTimer(2239000, 1000){
+
+            @Override
+            public void onTick(long l) {
+                binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
+            }
+            @Override
+            public void onFinish() {
+
+            }
+
+        }.start();
     }
 
     private void loadData() {
@@ -126,14 +185,19 @@ public class HomeFragment extends Fragment {
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(2);
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
             }
         });
 
         binding.txtFreshnow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                intent = new Intent(getActivity(), CartActivity.class);
+                intent.putExtra(INTENT_NAME, INTENT_FRESH_NOW);
+                startActivity(intent);
             }
         });
         binding.txtHignend.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +211,7 @@ public class HomeFragment extends Fragment {
         binding.txtMyvoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), UserVoucherActivity.class);
                 intent.putExtra(INTENT_NAME, INTENT_MY_VOUCHER);
                 startActivity(intent);
             }
@@ -155,22 +219,15 @@ public class HomeFragment extends Fragment {
         binding.txtCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-//                transaction.add(R.id.container, CategoryFragment.class, null);
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.container, CategoryFragment.class, null);
-                transaction.commit();
-
+                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent.putExtra(INTENT_NAME, INTENT_CATEGORY);
+                startActivity(intent);
             }
-
         });
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), order.class);
                 intent.putExtra(INTENT_NAME, INTENT_ORDER);
                 startActivity(intent);
             }
@@ -178,7 +235,7 @@ public class HomeFragment extends Fragment {
         binding.txtPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), ExchangeGiftActivity.class);
                 intent.putExtra(INTENT_NAME, INTENT_POINT);
                 startActivity(intent);
             }
@@ -186,7 +243,7 @@ public class HomeFragment extends Fragment {
         binding.txtFreeship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), CartActivity.class);
                 intent.putExtra(INTENT_NAME, INTENT_FREE_SHIP);
                 startActivity(intent);
             }
@@ -196,7 +253,7 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), FlashSale.class);
                 intent.putExtra(INTENT_NAME, INTENT_DEALS);
                 startActivity(intent);
             }
@@ -209,7 +266,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
+        binding.txtViewNewest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(getActivity(), CategoryFragment.class);
@@ -217,16 +274,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
     }
-
-
-    private void setContentView(int fragment_category) {
-
-
-    }
-
 //        binding.btnCart.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -234,6 +282,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
+}
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
@@ -243,6 +292,3 @@ public class HomeFragment extends Fragment {
 //        }
 //        return list;
 //    }
-
-
-}
