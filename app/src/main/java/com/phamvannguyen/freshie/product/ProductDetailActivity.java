@@ -31,7 +31,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     public static final String INTENT_PRODUCT_DETAIL = "Products Detail";
     public static final String INTENT_BUY_WITH_VOUCHER = "BuyWithVoucher";
-    public static final String INTENT_PRODUCT_ID = "ProductId";
+    public static final String INTENT_PRODUCT = "Product Parcelable";
 
     Product product;
 
@@ -68,9 +68,13 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void loadProductDetail() {
-       product = MainActivity.getProductWithId(getIntentId());
+        Bundle b = getIntent().getExtras();
+        product = (Product)b.getParcelable(INTENT_PRODUCT);
+//       product = MainActivity.getProductWithId(getIntentId());
        new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
+//        binding.imgProduct.setImageBitmap(product.getImageBitmap());
        binding.txtDescription.setText(product.getDescription());
+
        binding.txtProductName.setText(product.getProductName());
        binding.txtPrice.setText(product.getFormattedPrice());
        binding.txtOriginalPrice.setText(product.getFormattedOriginalPrice());
@@ -125,7 +129,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     private int getIntentId() {
         Intent intent = getIntent();
-        return intent.getIntExtra(INTENT_PRODUCT_ID, 1);
+        return intent.getIntExtra(INTENT_PRODUCT, 1);
     }
 
 

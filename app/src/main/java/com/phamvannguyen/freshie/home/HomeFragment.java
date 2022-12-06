@@ -1,11 +1,15 @@
 package com.phamvannguyen.freshie.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.view.ViewParent;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +23,7 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.BestSellerHomeAdapter;
 import com.phamvannguyen.freshie.adapter.FlashSaleHomeAdapter;
 import com.phamvannguyen.freshie.adapter.NewProductHomeAdapter;
+import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
@@ -54,6 +59,7 @@ public class HomeFragment extends Fragment {
     public static final String INTENT_FREE_SHIP = "Free ship";
     public static final String INTENT_NEW = "New";
     public static final String INTENT_BEST_SELLER = "Best seller";
+
 
     Intent intent;
     public HomeFragment(){
@@ -149,17 +155,10 @@ public class HomeFragment extends Fragment {
         binding.txtCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-//                transaction.add(R.id.container, CategoryFragment.class, null);
-                transaction.addToBackStack(null);
-                transaction.replace(R.id.container, CategoryFragment.class, null);
-                transaction.commit();
-
+                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent.putExtra(INTENT_NAME, INTENT_CATEGORY);
+                startActivity(intent);
             }
-
         });
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,23 +210,38 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //-----------------GridView item click events-----------------
+        binding.gridFlashSale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(flashSale_list.get(i), getActivity());
+            }
+        });
 
+        binding.gridNewProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(newProduct_list.get(i), getActivity());
 
+            }
+        });
+        binding.gridForYou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(forYou_list.get(i), getActivity());
+
+            }
+        });
+        binding.gridBestseller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(bestSeller_list.get(i), getActivity());
+
+            }
+        });
+
+        //
     }
-
-
-    private void setContentView(int fragment_category) {
-
-
-    }
-
-//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                intent = new Intent(getActivity(), CartActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
