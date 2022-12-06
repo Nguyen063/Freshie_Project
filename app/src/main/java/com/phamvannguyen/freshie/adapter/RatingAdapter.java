@@ -107,6 +107,7 @@ public class RatingAdapter extends BaseAdapter {
                         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         activity.startActivityForResult(intent, 0);
                         dialog.dismiss();
+
                     }
 
 

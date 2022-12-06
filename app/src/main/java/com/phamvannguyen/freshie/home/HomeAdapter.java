@@ -36,4 +36,8 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
         return 4;
     }
 
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return super.getItemPosition(object);
+    }
 }

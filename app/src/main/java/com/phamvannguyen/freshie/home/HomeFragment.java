@@ -43,6 +43,7 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class HomeFragment extends Fragment {
     private GridView gridView;
@@ -185,18 +186,28 @@ public class HomeFragment extends Fragment {
         //-----------------Category section-----------------
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_DEALS);
-                startActivity(intent);
+            public void onClick(View view) {
+//                List<Fragment> fragments = new Vector<Fragment>();
+//
+////for each fragment you want to add to the pager
+//                Bundle page = new Bundle();
+//                page.putString(CategoryFragment.INTENT_NAME,"flash sale" );
+//                fragments.add(Fragment.instantiate(this,CategoryFragment.class.getName(),page));
+//
+////after adding all the fragments write the below lines
+//
+//                this.  = new HomeAdapter(getActivity().getSupportFragmentManager(), fragments);
+//
+//                viewPager.setAdapter();
             }
         });
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_NEW);
-                startActivity(intent);
+                CategoryFragment fragment = new CategoryFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString(CategoryFragment.INTENT_NAME, "best seller");
+                fragment.setArguments(bundle);
             }
         });
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {

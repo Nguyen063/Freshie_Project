@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
@@ -57,10 +58,25 @@ public class CategoryFragment extends Fragment {
 
         gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
 
+//        loadbundle();
+        if(loadBundle()!=null){
+
         loadListview("Skincare");
+        }
+        else {
+            loadListview("Makeup");
+        }
         addEvents();
         return view;
 
+    }
+
+    private String loadBundle() {
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+          return  bundle.getString(INTENT_NAME);
+        }
+        else return null;
     }
 
     private void addEvents() {
@@ -81,6 +97,7 @@ public class CategoryFragment extends Fragment {
             public void onClick(View v) {
                 loadListview("Skincare");
             }
+
         });
         binding.btnPerfume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,4 +129,8 @@ public class CategoryFragment extends Fragment {
         gridView.setAdapter(adapter);
     }
 
+    private void setInitialColor(Button btn) {
+//        binding.btnHairCare.setBackgroundColor();
+
+    }
 }
