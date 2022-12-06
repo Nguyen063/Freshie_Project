@@ -133,7 +133,12 @@ public class HomeFragment extends Fragment {
         binding.txtFreshnow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction transaction = fragmentManager.beginTransaction();
+//                transaction.setReorderingAllowed(true);
+//                Fragment fragment = fragmentManager.findFragmentByTag();
+//
+//                transaction.replace();
             }
         });
         binding.txtHignend.setOnClickListener(new View.OnClickListener() {
