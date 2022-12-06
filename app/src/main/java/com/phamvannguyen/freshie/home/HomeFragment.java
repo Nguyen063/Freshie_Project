@@ -28,7 +28,6 @@ import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
-import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -123,7 +122,7 @@ public class HomeFragment extends Fragment {
     private void listenEvents() {
 
 
-        ///-------Click events on Circle items section----------------
+        ///-------Circle items section----------------
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -186,8 +185,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
-        //-----------------TextView "Xem thêm" in Category section-----------------
+        //-----------------Category section-----------------
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,16 +242,6 @@ public class HomeFragment extends Fragment {
 
         //
     }
-
-
-
-
-
-
-
-
-
-
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition

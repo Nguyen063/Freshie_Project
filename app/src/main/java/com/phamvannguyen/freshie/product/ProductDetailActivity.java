@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -46,6 +47,24 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadProductDetail();
 
         addEvents();
+        countdown();
+    }
+
+    private void countdown() {
+
+        new CountDownTimer(2239000, 1000){
+
+            @Override
+            public void onTick(long l) {
+                binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
+            }
+            @Override
+            public void onFinish() {
+
+            }
+
+        }.start();
+
     }
 
     private void loadProductDetail() {

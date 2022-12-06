@@ -86,6 +86,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/txtCount_Down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00 : 16 : 32"
