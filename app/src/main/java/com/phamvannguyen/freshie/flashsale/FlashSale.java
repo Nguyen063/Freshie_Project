@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.login.flashsale;
+package com.phamvannguyen.freshie.flashsale;
 
 import androidx.appcompat.app.AppCompatActivity;
 

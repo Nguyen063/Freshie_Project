@@ -1,12 +1,16 @@
 package com.phamvannguyen.freshie.models;
 
+import android.graphics.Bitmap;
+
 public class Rating {
     int productThumb;
     String productName;
+    Bitmap ratingPhoto;
 
-    public Rating(int productThumb, String productName) {
+    public Rating(int productThumb, String productName, Bitmap ratingPhoto) {
         this.productThumb = productThumb;
         this.productName = productName;
+        this.ratingPhoto = ratingPhoto;
     }
 
     public int getProductThumb() {
@@ -23,5 +27,13 @@ public class Rating {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public Bitmap getRatingPhoto() {
+        return ratingPhoto;
+    }
+
+    public void setRatingPhoto(Bitmap ratingPhoto) {
+        this.ratingPhoto = ratingPhoto;
     }
 }
