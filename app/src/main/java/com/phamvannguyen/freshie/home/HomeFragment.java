@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
@@ -121,9 +122,13 @@ public class HomeFragment extends Fragment {
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_DEALS);
-                startActivity(intent);
+                CategoryFragment fr = new CategoryFragment();
+                Bundle args = new Bundle();
+                fr.setArguments(args);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_category, fr);
+                fragmentTransaction.commit();
             }
         });
 
