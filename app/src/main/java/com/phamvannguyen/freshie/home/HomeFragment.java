@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
@@ -226,10 +228,17 @@ public class HomeFragment extends Fragment {
         binding.txtCategories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_CATEGORY);
-                startActivity(intent);
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+//                transaction.add(R.id.container, CategoryFragment.class, null);
+                transaction.addToBackStack(null);
+                transaction.replace(R.id.container, CategoryFragment.class, null);
+                transaction.commit();
+
             }
+
         });
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -281,6 +290,14 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+    }
+
+
+    private void setContentView(int fragment_category) {
+
+
     }
 //        binding.btnCart.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -289,7 +306,9 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-    }
+
+}
+
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
