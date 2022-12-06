@@ -35,6 +35,16 @@ public class wait_confirm extends Fragment {
         ProductOrderAdapter productOrderAdapter = new ProductOrderAdapter(getActivity(),R.layout.item_product_order,orders);
         lvWaitConfirm.setAdapter(productOrderAdapter);
 
+        Button btnViewDetail = view.findViewById(R.id.btn_ViewDetail);
+        btnViewDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), OrderTracking.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }

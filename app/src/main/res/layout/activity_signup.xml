@@ -96,17 +96,6 @@
             android:padding="10dp"
             android:background="@drawable/edt_curve_no_color_bg"
             android:textAppearance="@style/editText"/>
-        <TextView
-            android:id="@+id/txt_ForgetPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quên mật khẩu?"
-            android:textColor="#F473B9"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:gravity="right"
-            android:clickable="true"
-            android:textAppearance="@style/editText"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_Signup"
             android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.categories;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -8,13 +9,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.databinding.FragmentCategoryBinding;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.util.ArrayList;
 
@@ -82,6 +86,22 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 loadListview("Perfume");
+            }
+        });
+//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), CartActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+        binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                Product selecProduct = products.get(i);
+                //Data
+                startActivity(intent);
             }
         });
     }

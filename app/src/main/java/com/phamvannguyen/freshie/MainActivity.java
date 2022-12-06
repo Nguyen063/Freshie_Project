@@ -3,28 +3,35 @@ package com.phamvannguyen.freshie;
 import static com.phamvannguyen.freshie.DataBaseHelper.TBL_PRODUCT;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
+import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.models.Product;
 
 
@@ -53,6 +60,32 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         db = new DataBaseHelper(this);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater li = LayoutInflater.from(this);
+        View customView = li.inflate(R.layout.actionbar, null);
+        actionBar.setCustomView(customView);
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        ImageButton btnBackHome = (ImageButton) customView.findViewById(R.id.Back_Home);
+        btnBackHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton btnCart = (ImageButton) customView.findViewById(R.id.Cart_toolbar);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         createNavigation();
@@ -98,11 +131,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -123,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+
+
             }
         });
     }
@@ -171,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
     public static Bitmap getBitmapFromURL(String URL) {
         InputStream inputStream = null;

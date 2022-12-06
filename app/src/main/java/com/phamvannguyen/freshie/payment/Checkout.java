@@ -19,6 +19,7 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 import com.phamvannguyen.freshie.order.OrderTracking;
@@ -65,6 +66,26 @@ public class Checkout extends AppCompatActivity {
     }
 
     private void addEvents() {
+
+        binding.btnUseVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(binding.edtVoucher.getText().toString().equals("")){
+                    Toast.makeText(Checkout.this, "Vui lòng nhập mã voucher", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Checkout.this, "Đã áp dụng mã voucher", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        binding.txtChooseVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Checkout.this, UserVoucherActivity.class);
+                startActivity(intent);
+            }
+        });
+
         binding.btnChangePayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,17 +93,7 @@ public class Checkout extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        binding.btnUseVoucher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(binding.edtVoucher.getText().toString() != null){
-                    Toast.makeText(Checkout.this, "Áp dụng mã giảm giá thành công!", Toast.LENGTH_LONG);
-                }
-                else {
-                    Toast.makeText(Checkout.this,"Mã giảm giá không tồn tại", Toast.LENGTH_LONG);
-                }
-            }
-        });
+
         binding.btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
