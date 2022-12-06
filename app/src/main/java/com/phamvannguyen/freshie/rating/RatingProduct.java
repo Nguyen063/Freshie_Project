@@ -1,6 +1,7 @@
 package com.phamvannguyen.freshie.rating;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -45,4 +46,6 @@ public class RatingProduct extends AppCompatActivity {
         ratingAdapter = new RatingAdapter(RatingProduct.this, R.layout.item_rating, ratings);
         lvRating.setAdapter(ratingAdapter);
     }
+
+
 }
