@@ -71,6 +71,7 @@ public class RatingAdapter extends BaseAdapter {
             holder.btnAddPhoto = view.findViewById(R.id.btn_AddPhoto);
             holder.btnRating = view.findViewById(R.id.btn_Rating);
             holder.btnAddPhoto = view.findViewById(R.id.btn_AddPhoto);
+            holder.imgAddPhoto = view.findViewById(R.id.img_AddPhoto);
 
             view.setTag(holder);
         }else{
@@ -80,6 +81,8 @@ public class RatingAdapter extends BaseAdapter {
         Rating rating = ratingList.get(i);
         holder.txtName.setText(rating.getProductName());
         holder.imgProduct.setImageResource(rating.getProductThumb());
+        holder.imgAddPhoto.setImageBitmap(rating.getRatingPhoto());
+
 
         holder.btnAddPhoto.setOnClickListener(new View.OnClickListener() {
             @Override

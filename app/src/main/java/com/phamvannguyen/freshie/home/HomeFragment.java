@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -27,7 +28,6 @@ import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.models.ProductOrder;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
