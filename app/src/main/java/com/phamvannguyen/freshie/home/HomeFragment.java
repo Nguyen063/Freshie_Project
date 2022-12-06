@@ -99,9 +99,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                selectProduct = forYou_list.get(i);
+                Product selectProduct = forYou_list.get(i);
                 //Data
-
+                intent.putExtra("productID", selectProduct.getProductID());
                 startActivity(intent);
             }
         });
@@ -210,9 +210,9 @@ public class HomeFragment extends Fragment {
         binding.txtHignend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_HIGH_END);
-                startActivity(intent);
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.show(new CategoryFragment());
+                transaction.commit();
             }
         });
         binding.txtMyvoucher.setOnClickListener(new View.OnClickListener() {

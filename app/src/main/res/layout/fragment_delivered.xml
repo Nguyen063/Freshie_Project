@@ -14,7 +14,7 @@
         android:padding="10dp">
 
         <ListView
-            android:id="@+id/lv_wait_confirm"
+            android:id="@+id/lv_delivered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <LinearLayout
@@ -37,13 +37,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.000.000đ"
+                android:text="800.000đ"
                 android:textSize="18sp"
                 android:textColor="@color/color_custom_pink"
                 android:textStyle="bold"/>
         </LinearLayout>
         <Button
-            android:id="@+id/btn_ViewDetail"
+            android:id="@+id/btn_reorder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đặt lại"

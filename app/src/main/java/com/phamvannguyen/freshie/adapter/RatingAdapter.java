@@ -133,25 +133,25 @@ public class RatingAdapter extends BaseAdapter {
 
         });
 
-//        holder.btnRating.setOnClickList
-//        ener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Dialog dialog = new Dialog(activity);
-//                dialog.setContentView(R.layout.dialog_rating_success);
-//
-//                Button btnshopNow = dialog.findViewById(R.id.btn_shopNow);
-//                btnshopNow.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Intent intent = new Intent(activity, CategoryFragment.class);
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                dialog.show();
-//            }
-//        });
+        holder.btnRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(activity);
+                dialog.setContentView(R.layout.dialog_rating_success);
+
+                Button btnshopNow = dialog.findViewById(R.id.btn_shopNow);
+                btnshopNow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(activity, CategoryFragment.class);
+                        activity.startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
 
         return view;
     }
