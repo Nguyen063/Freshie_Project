@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
@@ -30,6 +31,7 @@ import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -41,6 +43,7 @@ public class HomeFragment extends Fragment {
 
     DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
+    Product selectProduct;
 
     FragmentHomeBinding binding;
 
@@ -86,9 +89,56 @@ public class HomeFragment extends Fragment {
         countDown();
         loadData();
         listenEvents();
+        selectProdcutDetail();
 
         return view;
     }
+
+    private void selectProdcutDetail() {
+        binding.gridForYou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = forYou_list.get(i);
+                //Data
+
+                startActivity(intent);
+            }
+        });
+
+        binding.gridNewProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = newProduct_list.get(i);
+                //Data
+
+                startActivity(intent);
+            }
+        });
+
+        binding.gridBestseller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = bestSeller_list.get(i);
+                //Data
+
+                startActivity(intent);
+            }
+        });
+
+        binding.gridFlashSale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                selectProduct = flashSale_list.get(i);
+                //Data
+                startActivity(intent);
+            }
+        });
+    }
+
 
     private void countDown() {
 
@@ -231,8 +281,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        
-
+    }
 //        binding.btnCart.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -254,4 +303,3 @@ public class HomeFragment extends Fragment {
 
 
 
-}
