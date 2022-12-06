@@ -21,17 +21,27 @@
         android:layout_width="match_parent"
         android:id="@+id/text_appname"
         android:layout_toRightOf="@+id/Back_Home"
-        android:layout_toLeftOf="@id/imv_setting_profile"
+        android:layout_toLeftOf="@id/line1"
         android:background="@drawable/border_radius_pink" />
-
+<LinearLayout
+    android:id="@+id/line1"
+    android:layout_width="wrap_content"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentRight="true"
+    android:gravity="center_horizontal"
+    android:layout_alignParentTop="true">
     <ImageButton
         android:id="@+id/imv_setting_profile"
-        android:src="@drawable/profile_avatar"
-        android:background="?attr/actionBarItemBackground"
-        android:layout_width="50dp"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
+        android:background="@drawable/ic_baseline_account_circle_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        />
+
+</LinearLayout>
+
 
     </RelativeLayout>
 
