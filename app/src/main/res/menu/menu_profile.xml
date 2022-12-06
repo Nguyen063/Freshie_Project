@@ -5,12 +5,4 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
-    <item
-        android:id="@+id/profile_cart"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
-    <item
-        android:id="@+id/profile_cart"
-        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
-        android:title="@string/title_category" />
 </menu>
