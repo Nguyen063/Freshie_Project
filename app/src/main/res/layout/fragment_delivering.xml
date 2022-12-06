@@ -14,7 +14,7 @@
         android:padding="10dp">
 
         <ListView
-            android:id="@+id/lv_wait_confirm"
+            android:id="@+id/lv_delivering"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <LinearLayout

@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.rating;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.OldRatingAdapter;
@@ -73,6 +75,8 @@ public class OldRatingFragment extends Fragment {
 
         OldRatingAdapter adapter = new OldRatingAdapter(getActivity(), R.layout.item_old_rating, OldRatingList);
         lvRatingHistory.setAdapter(adapter);
+//        TextView txtNumRating = (TextView) view.findViewById(R.id.txt_NumRating);
+//        txtNumRating.setText(OldRatingList.size());
         return view;
     }
 }

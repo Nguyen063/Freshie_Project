@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Kem chống nắng Eucerin"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        android:maxLines="2"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="center"/>

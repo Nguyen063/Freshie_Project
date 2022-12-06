@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
@@ -55,7 +56,7 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder.txtPrice = view.findViewById(R.id.txt_Price);
             holder.txtNum = view.findViewById(R.id.txt_NumProduct);
             holder.imgProduct = view.findViewById(R.id.img_Product);
-            holder.txtName = view.findViewById(R.id.txt_categories_home);
+//            holder.txtName = view.findViewById(R.id.txt_categories_home);
 
             view.setTag(holder);
         } else {

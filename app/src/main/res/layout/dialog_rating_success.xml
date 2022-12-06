@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/edt_curve_pink_bg"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đánh giá thành công"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Freshie gửi tặng bạn 30 điểm thưởng"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/btn_shopNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Tiếp tục mua sắm"
+        android:textColor="@color/color_custom_blue"
+        android:layout_marginTop="15dp"/>
+</LinearLayout>

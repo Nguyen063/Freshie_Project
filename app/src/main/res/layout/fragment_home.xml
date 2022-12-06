@@ -6,32 +6,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".home.HomeFragment"
-    android:background="#F5F5F5">
+    android:background="#F5F5F5"
+    android:id="@+id/fragment_home">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="6"
-        android:background="@color/color_custom_blue">
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/border_radius_pink"
-        app:queryHint="Search"
-        android:layout_weight="1"/>
-        <ImageButton
-            android:id="@+id/btn_cart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:layout_weight="5"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:backgroundTint="#00000000"/>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:weightSum="6"-->
+<!--        android:background="@color/color_custom_blue">-->
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:id="@+id/search_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/border_radius_pink"-->
+<!--        app:queryHint="Search"-->
+<!--        android:layout_weight="1"/>-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_cart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleX="1.5"-->
+<!--            android:scaleY="1.5"-->
+<!--            android:layout_weight="5"-->
+<!--            android:src="@drawable/ic_baseline_shopping_cart_24"-->
+<!--            android:backgroundTint="#00000000"-->
+<!--            android:padding="2dp"/>-->
+<!--    </LinearLayout>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,7 +41,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/slide_view"
@@ -133,36 +135,42 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="FLASH SALE"
-                        android:textSize="20dp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
-                        android:textColor="@color/color_custom_pink"
+                        android:textColor="@color/color_custom_blue"
                         android:layout_margin="10dp" />
                     <TextView
+                        android:id="@+id/txtCount_Down"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1 : 20 : 30"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_custom_pink"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"/>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/txt_viewFlashSale"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Xem thêm >"
-                        android:textSize="18dp"
+                        android:textSize="16sp"
+                        android:clickable="true"
                         android:textColor="@color/black"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginEnd="10dp"/>
                 </LinearLayout>
+
+
+
                 <GridView
-                    android:id="@+id/grid_flashsale"
-                    android:layout_width="match_parent"
+                    android:id="@+id/grid_flashSale"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:numColumns="3"/>
+                    android:numColumns="3"
+                    android:scrollbars="horizontal" />
             </LinearLayout>
 
             <LinearLayout
@@ -186,17 +194,19 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/txt_viewNewest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Xem thêm >"
-                        android:textSize="18dp"
+                        android:textSize="16sp"
+                        android:clickable="true"
                         android:textColor="@color/black"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginEnd="10dp"/>
                 </LinearLayout>
                 <GridView
-                    android:id="@+id/grid_newproduct"
+                    android:id="@+id/grid_newProduct"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="3"/>
@@ -223,11 +233,13 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/txt_viewBestSeller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Xem thêm >"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:textColor="@color/black"
+                        android:clickable="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginEnd="10dp"/>
@@ -251,9 +263,10 @@
                 android:background="@drawable/edt_curve_white_bg"
                 android:textColor="@color/color_custom_pink"/>
             <GridView
-                android:id="@+id/grid_foryou"
+                android:nestedScrollingEnabled="true"
+                android:id="@+id/grid_forYou"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="800dp"
                 android:numColumns="2"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"

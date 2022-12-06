@@ -36,7 +36,7 @@ public class CategoryAdapter extends BaseAdapter {
 
     public CategoryAdapter() {
     }
-    public CategoryAdapter(FragmentActivity activity, int layout, ArrayList<Product> products) {
+    public CategoryAdapter(FragmentActivity activity, int layout, List<Product> products) {
         this.activity = activity;
         this.layout = layout;
         this.products = products;
@@ -83,11 +83,11 @@ public class CategoryAdapter extends BaseAdapter {
 
         Product p = products.get(position);
         holder.txtName.setText(p.getProductName());
-        holder.txtPrice.setText(p.getPrice() + "");
-        holder.txtDiscount.setText(p.getFormattedDiscount() + "");
-        holder.txtRatingAverage.setText(p.getRatingAverage() + "");
-        holder.txtRatingCount.setText(p.getRatingCount() + "");
-        holder.txtSold.setText(p.getSold() + "");
+        holder.txtPrice.setText(String.valueOf(p.getFormattedPrice()));
+        holder.txtDiscount.setText(String.valueOf(p.getFormattedDiscount()));
+        holder.txtRatingAverage.setText(String.valueOf(p.getRatingAverage()));
+        holder.txtRatingCount.setText( String.valueOf(p.getRatingCount()));
+        holder.txtSold.setText(String.valueOf(p.getSold()));
 
 //        holder.imgProduct.setImageBitmap(p.getThumb());
         new MainActivity.FetchImage( p.getThumbUrl(), holder.imgProduct).start();

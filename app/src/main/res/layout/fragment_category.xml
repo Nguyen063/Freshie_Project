@@ -13,23 +13,24 @@
         android:orientation="horizontal"
         android:weightSum="6"
         android:background="@color/color_custom_blue">
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/border_radius_pink"
-            app:queryHint="Search"
-            android:layout_weight="1"/>
-        <ImageButton
-            android:id="@+id/btn_cart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:layout_weight="5"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            android:backgroundTint="#00000000"/>
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:id="@+id/search_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:background="@drawable/border_radius_pink"-->
+<!--            app:queryHint="Search"-->
+<!--            android:layout_weight="1"/>-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_cart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleX="1.5"-->
+<!--            android:scaleY="1.5"-->
+<!--            android:layout_weight="5"-->
+<!--            android:src="@drawable/ic_baseline_shopping_cart_24"-->
+<!--            android:backgroundTint="#00000000"-->
+<!--            android:padding="2dp"/>-->
     </LinearLayout>
 
         <LinearLayout
@@ -167,14 +168,6 @@
                             android:layout_height="match_parent"
                             android:layout_weight="3"
                             android:src="@drawable/ic_baseline_arrow_downward_24"/>
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:src="@drawable/ic_baseline_arrow_upward_24"/>
-
-
-
 
                     </LinearLayout>
 

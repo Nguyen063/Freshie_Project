@@ -11,11 +11,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.phamvannguyen.freshie.models.Product;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String DB_PATH_SUFFIX = "/databases/";
@@ -34,9 +37,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_DESCRIPTION = "Description";
     public static final String COL_IMAGE_URL = "MediumImage";
     public static final String COL_THUMB_URL = "Thumb";
-    public static final String COL_IS_DEAL = "IsDeal";
-    public static final String COL_IS_BEST_SELLER = "IsBestSeller";
-    public static final String COL_IS_NEW = "IsNew";
+    public static final String COL_IS_DEAL = "is_deal";
+    public static final String COL_IS_BEST_SELLER = "is_best_seller";
+    public static final String COL_IS_NEW = "is_new";
 
     private Context mycontext;
     private String DB_PATH = "/data/data/com.phamvannguyen.freshie/databases/";
@@ -121,6 +124,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(sql, null);
         return c;
     }
+
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
