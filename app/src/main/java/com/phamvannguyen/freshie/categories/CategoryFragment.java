@@ -30,6 +30,8 @@ public class CategoryFragment extends Fragment {
     private GridView gridView;
     static ArrayList<Product> products;
 
+    public static final String INTENT_NAME = "CategoryFragment";
+    public static final String INTENT_DEALS = "Deals";
     FragmentCategoryBinding binding;
     private DataBaseHelper db = MainActivity.db;
     public CategoryFragment() {
@@ -37,6 +39,13 @@ public class CategoryFragment extends Fragment {
     }
 
 
+    public static CategoryFragment newInstance() {
+        Bundle args = new Bundle();
+        args.putString(INTENT_NAME, INTENT_DEALS);
+        CategoryFragment fragment = new CategoryFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,10 +98,10 @@ public class CategoryFragment extends Fragment {
         binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                Product selecProduct = products.get(i);
-                //Data
-                startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), ProductDetailActivity.class);
+                intent.putExtra(ProductDetailActivity.INTENT_PRODUCT_ID, products.get(i).getProductID());
+                getActivity().startActivity(intent);
             }
         });
     }

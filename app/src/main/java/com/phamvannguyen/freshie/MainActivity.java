@@ -46,10 +46,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
     public static DataBaseHelper db;
-
 
     static Handler mainHandler = new Handler();
 
@@ -223,22 +222,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static Product getProductFromCursor(Cursor cursor) {
+
+        return new Product(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                cursor.getDouble(4), cursor.getDouble(5), cursor.getInt(6), cursor.getDouble(7), cursor.getInt(8),
+                cursor.getString(10), cursor.getString(12),
+                cursor.getInt(13), cursor.getInt(14), cursor.getInt(15),
+                cursor.getString(16));
+    }
     public static ArrayList<Product> getListWhere(String condition) {
         ArrayList<Product> listProduct = new ArrayList<>();
         String sql = "SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + condition;
         Cursor cursor = db.getData(sql);
             if(cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {
-                    listProduct.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),
-                            cursor.getDouble(4), cursor.getDouble(5), cursor.getInt(6), cursor.getDouble(7), cursor.getInt(8),
-                            cursor.getString(10), cursor.getString(12),
-                            cursor.getInt(13), cursor.getInt(14), cursor.getInt(15),
-                            cursor.getString(16)));
+                    listProduct.add(getProductFromCursor(cursor));
                 }
                 };
 
         cursor.close();
         return listProduct;
+    }
+    public static Product getProductWithId(int Id){
+        Product product = null;
+        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + DataBaseHelper.COL_ID + " = " + Id);
+        if(cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                product = getProductFromCursor(cursor);
+            }
+        };
+
+        cursor.close();
+        return product;
     }
 
 }

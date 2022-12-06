@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/txt_Dt_Price"
+                android:id="@+id/txt_Price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="300.000đ"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/txt_Dt_OriginalPrice"
+                    android:id="@+id/txt_OriginalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="300.000đ"
@@ -52,7 +52,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="italic"/>
                 <TextView
-                    android:id="@+id/txt_Dt_Discount"
+                    android:id="@+id/txt_Discount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20%"
