@@ -186,7 +186,15 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
+            }
+        });
+        binding.txtViewNewest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getActivity(), FlashSale.class);
                 intent.putExtra(INTENT_NAME, INTENT_DEALS);
                 startActivity(intent);
             }
@@ -194,16 +202,8 @@ public class HomeFragment extends Fragment {
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_NEW);
-                startActivity(intent);
-            }
-        });
-        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME,INTENT_BEST_SELLER );
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
                 startActivity(intent);
             }
         });

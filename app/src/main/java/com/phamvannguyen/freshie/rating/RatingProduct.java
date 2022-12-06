@@ -3,6 +3,7 @@ package com.phamvannguyen.freshie.rating;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -55,7 +57,7 @@ public class RatingProduct extends AppCompatActivity {
 //                }
 //            }
 //        });
-
+            back();
 
         setContentView(R.layout.activity_rating);
         lvRating = findViewById(R.id.lv_rating);
@@ -65,6 +67,26 @@ public class RatingProduct extends AppCompatActivity {
 
 
 
+    }
+
+    private void back() {
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Rating Product");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void addEvents() {
