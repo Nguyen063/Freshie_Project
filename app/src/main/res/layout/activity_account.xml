@@ -1,83 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".account.AccountFragment"
     android:orientation="vertical"
-    android:background="#F3F3F3">
+    tools:context=".account.AccountFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#3AB0FF">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:scaleX="1.4"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_baseline_arrow_back_24"
-                android:layout_gravity="center"
-
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:textSize="26sp"
-                android:textColor="@color/white"
-                android:text="Tài khoản"
-                android:gravity="center"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
             android:orientation="vertical"
             android:background="@color/white"
-            android:padding="5dp"
+            android:padding="10dp"
             android:layout_gravity="right"
             android:layout_marginTop="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="right"
-                android:layout_marginBottom="5dp">
-                <ImageView
-                    android:id="@+id/imv_cart_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_cart"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center"/>
-                <ImageView
-                    android:id="@+id/imv_chat_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_chatting"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center"/>
-                <ImageView
-                    android:id="@+id/imv_note_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_notes"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center"/>
-                <ImageView
-                    android:id="@+id/imv_setting_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_settings"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,17 +30,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/profile_avatar"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:text="Nguyễn Thành Phát"
-                    android:textColor="@color/black"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
-
+                    android:text="Brooklyn Simmons"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    />
                 <ImageView
                     android:id="@+id/imv_edit_profile"
                     android:layout_width="wrap_content"
@@ -169,31 +110,30 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
+                android:layout_marginStart="15dp"
                 android:columnCount="4"
                 android:rowCount="1"
                 >
                 <Button
                     android:id="@+id/btn_waitingconfirm"
-                    android:layout_width="102dp"
+                    android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Chờ xác nhận"
-                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="10sp"
+                    android:textSize="8sp"
                     android:textColor="@color/black"
-                    android:layout_marginEnd="3dp"
-                    android:layout_gravity="center_vertical"
-                   android:drawableTop="@drawable/icon_calendarcheck_" />
+                    android:layout_marginEnd="5dp"
+                    android:layout_gravity="center"
+                    android:drawableTop="@drawable/icon_calendarcheck_" />
                 <Button
                     android:id="@+id/btn_delivering"
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đang giao"
-                    android:textAllCaps="false"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/white"
-                    android:textSize="10sp"
-                    android:layout_marginEnd="3dp"
+                    android:textSize="8sp"
+                    android:layout_marginEnd="5dp"
                     android:textColor="@color/black"
                     android:drawableTop="@drawable/delivering"/>
                 <Button
@@ -201,10 +141,9 @@
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đã giao"
-                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="10sp"
-                    android:layout_marginEnd="3dp"
+                    android:textSize="8sp"
+                    android:layout_marginEnd="5dp"
                     android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:drawableTop="@drawable/delivered"/>
@@ -213,11 +152,10 @@
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đã hủy"
-                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="10sp"
+                    android:textSize="8sp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="3dp"
+                    android:layout_marginEnd="5dp"
                     android:textColor="@color/black"
                     android:drawableTop="@drawable/canceled"/>
             </GridLayout>
@@ -232,43 +170,23 @@
             android:padding="5dp"
             android:layout_gravity="right"
             android:layout_marginTop="10dp">
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:text="Mã giảm giá"
-                    android:textStyle="bold"
-                    android:paddingLeft="10dp"
-                    android:layout_marginEnd="100dp"
-                    />
-                <TextView
-                    android:id="@+id/txt_viewvoucher"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="#9E9E9E"
-                    android:text="Xem tất cả mã giảm"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:gravity="right"
-                    />
-                <ImageView
-                    android:id="@+id/imv_viewvoucher"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/polygon2"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center" />
-                <ListView
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_categoryRecyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_productRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -287,6 +205,14 @@
                 >
 
             </GridLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingEnd="5dp"
+                />
 
 
         </LinearLayout>
@@ -594,5 +520,5 @@
 
 
 
-        </LinearLayout>
+    </LinearLayout>
 </ScrollView>

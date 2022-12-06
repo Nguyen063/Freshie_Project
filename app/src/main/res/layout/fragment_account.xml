@@ -27,17 +27,9 @@
                 android:paddingLeft="20dp"
                 android:backgroundTint="@color/white">
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/profile_avatar"/>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="right">
                     <ImageButton
                         android:id="@+id/btn_cart"
@@ -69,14 +61,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="22sp"
-                    android:text="Nguyễn Thành Phát"
+                    android:text="Brooklyn Simmons"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     />
+                <ImageView
+                    android:id="@+id/imv_edit_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/editprofile"
+                    android:layout_gravity="center"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    />
 
-                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -111,12 +111,18 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="#9E9E9E"
-                    android:text="Xem tất cả đơn hàng "
+                    android:text="Xem tất cả đơn hàng"
                     android:layout_gravity="center"
                     android:layout_marginEnd="5dp"
                     android:gravity="right"
-                    android:drawableEnd="@drawable/polygon2"
                     />
+                <ImageView
+                    android:id="@+id/imv_viewproduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/polygon2"
+                    android:layout_marginEnd="15dp"
+                    android:layout_gravity="center" />
             </LinearLayout>
 
             <ImageView
@@ -212,12 +218,18 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="#9E9E9E"
-                    android:text="Xem tất cả mã giảm "
+                    android:text="Xem tất cả mã giảm"
                     android:layout_gravity="center"
                     android:layout_marginEnd="5dp"
                     android:gravity="right"
-                    android:drawableEnd="@drawable/polygon2"
                     />
+                <ImageView
+                    android:id="@+id/imv_viewvoucher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/polygon2"
+                    android:layout_marginEnd="15dp"
+                    android:layout_gravity="center" />
             </LinearLayout>
 
             <ImageView
@@ -272,6 +284,40 @@
                     android:textColor="#F473B9"
                     android:drawableTop="@drawable/senka"/>
             </GridLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingEnd="5dp"
+                >
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="HSD: 31/12/2022"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginStart="10dp"
+                    />
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="HSD: 31/12/2022"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginStart="5dp"
+                    />
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="HSD: 31/12/2022"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginStart="5dp"
+                    />
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -304,12 +350,18 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="#9E9E9E"
-                    android:text="Xem tất cả sản phẩm đã mua "
+                    android:text="Xem tất cả sản phẩm đã mua"
                     android:layout_gravity="center"
                     android:layout_marginEnd="5dp"
                     android:gravity="right"
-                    android:drawableEnd="@drawable/polygon2"
                     />
+                <ImageView
+                    android:id="@+id/imv_view_buyed_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/polygon2"
+                    android:layout_marginEnd="15dp"
+                    android:layout_gravity="center" />
             </LinearLayout>
 
             <ImageView
@@ -335,7 +387,7 @@
                     android:text="350.000"
                     android:textStyle="bold"
                     android:backgroundTint="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textColor="#F473B9"
                     android:layout_marginEnd="3dp"
                     android:gravity="center"
@@ -348,7 +400,7 @@
                     android:layout_height="130dp"
                     android:text="180.000"
                     android:backgroundTint="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="3dp"
                     android:textColor="#F473B9"
@@ -361,7 +413,7 @@
                     android:layout_height="130dp"
                     android:text="290.000"
                     android:backgroundTint="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="5dp"
                     android:textColor="#F473B9"
@@ -398,20 +450,19 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Sản phẩm đã xem"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"/>
-
+                    android:layout_gravity="center"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:src="@drawable/black_polygon3"
-                    android:layout_marginEnd="40dp"/>
+                    android:layout_gravity="center"
+                    android:layout_marginStart="150dp"
+                    />
 
             </LinearLayout>
             <ImageView
@@ -437,19 +488,18 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Đánh giá của tôi"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_gravity="center"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
@@ -476,19 +526,18 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Thiết lập tài khoản"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_gravity="center"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/black_polygon3"
-                    android:layout_marginEnd="40dp"/>
+                    android:layout_marginStart="150dp"
+                    android:src="@drawable/black_polygon3" />
             </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
@@ -503,7 +552,7 @@
                 android:orientation="horizontal"
                 android:background="@color/white"
                 android:paddingLeft="20dp"
-                android:id="@+id/ll_customerservice">
+                android:id="@+id/ll_helpcenter">
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
@@ -513,19 +562,18 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:text="Chăm sóc khách hàng"
+                    android:text="Trung tâm trợ giúp"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_gravity="center"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
@@ -542,7 +590,7 @@
                 android:orientation="horizontal"
                 android:background="@color/white"
                 android:paddingLeft="20dp"
-                android:id="@+id/ll_logout">
+                android:id="@+id/ll_log_out">
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
@@ -552,24 +600,29 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Log out"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_gravity="center"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="150dp"
                     />
 
             </LinearLayout>
 
 
         </LinearLayout>
+
+
+
+
+
+
     </LinearLayout>
 </ScrollView>
