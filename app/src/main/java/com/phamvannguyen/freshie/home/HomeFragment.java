@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -23,6 +23,14 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.BestSellerHomeAdapter;
 import com.phamvannguyen.freshie.adapter.FlashSaleHomeAdapter;
 import com.phamvannguyen.freshie.adapter.NewProductHomeAdapter;
+import com.phamvannguyen.freshie.categories.CategoryAdapter;
+import com.phamvannguyen.freshie.categories.CategoryFragment;
+import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
+import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
+import com.phamvannguyen.freshie.flashsale.FlashSale;
+import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.order.order;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
@@ -86,8 +94,24 @@ public class HomeFragment extends Fragment {
 
         loadData();
         listenEvents();
+        countdown();
 
         return view;
+    }
+
+    private void countdown() {
+        new CountDownTimer(2239000, 1000){
+
+            @Override
+            public void onTick(long l) {
+                binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
+            }
+            @Override
+            public void onFinish() {
+
+            }
+
+        }.start();
     }
 
     private void loadData() {
@@ -126,44 +150,25 @@ public class HomeFragment extends Fragment {
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(2);
-            }
-        });
-
-        binding.txtFreshnow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-            }
-        });
-        binding.txtHignend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_HIGH_END);
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
                 startActivity(intent);
             }
         });
+
         binding.txtMyvoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), UserVoucherActivity.class);
                 intent.putExtra(INTENT_NAME, INTENT_MY_VOUCHER);
                 startActivity(intent);
             }
         });
-        binding.txtCategories.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_CATEGORY);
-                startActivity(intent);
-            }
-        });
+
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), order.class);
                 intent.putExtra(INTENT_NAME, INTENT_ORDER);
                 startActivity(intent);
             }
@@ -171,16 +176,8 @@ public class HomeFragment extends Fragment {
         binding.txtPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent = new Intent(getActivity(), ExchangeGiftActivity.class);
                 intent.putExtra(INTENT_NAME, INTENT_POINT);
-                startActivity(intent);
-            }
-        });
-        binding.txtFreeship.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_FREE_SHIP);
                 startActivity(intent);
             }
         });

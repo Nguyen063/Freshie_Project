@@ -91,7 +91,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".cart.CartActivity"
+            android:name=".cart.CartFragment"
             android:exported="true"
             android:label="@string/app_name">
 
