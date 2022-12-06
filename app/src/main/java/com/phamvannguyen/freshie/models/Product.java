@@ -38,7 +38,7 @@ public class Product {
         Price = price;
         Discount = (OriginalPrice - Price)/OriginalPrice * 100;
         Sold = sold;
-        RatingAverage = ratingAverage;
+        RatingAverage = ratingAverage/10;
         RatingCount = ratingCount;
         ImageUrl = imageUrl;
         ThumbUrl = thumbUrl;

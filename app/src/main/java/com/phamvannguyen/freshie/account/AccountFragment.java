@@ -170,7 +170,7 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        binding.llCustomerservice.setOnClickListener(new View.OnClickListener() {
+        binding.llHelpcenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), CustomerService.class);
@@ -178,7 +178,7 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        binding.llLogout.setOnClickListener(new View.OnClickListener() {
+        binding.llLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);

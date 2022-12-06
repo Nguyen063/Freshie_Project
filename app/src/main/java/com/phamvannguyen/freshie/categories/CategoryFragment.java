@@ -98,10 +98,10 @@ public class CategoryFragment extends Fragment {
         binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                Product selecProduct = products.get(i);
-                //Data
-                startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), ProductDetailActivity.class);
+                intent.putExtra(ProductDetailActivity.INTENT_PRODUCT_ID, products.get(i).getProductID());
+                getActivity().startActivity(intent);
             }
         });
     }

@@ -28,9 +28,11 @@ import java.util.Locale;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
-    public static final String INTENT_NAME = "Products Detail";
-    public static final String INTENT_BUYWITHVOUCHER = "BuyWithVoucher";
+    public static final String INTENT_PRODUCT_DETAIL = "Products Detail";
+    public static final String INTENT_BUY_WITH_VOUCHER = "BuyWithVoucher";
+    public static final String INTENT_PRODUCT_ID = "ProductId";
 
+    Product product;
 
     ActivityProductDetailBinding binding;
 
@@ -41,9 +43,22 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding = ActivityProductDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getIntentInfo();
+        loadProductDetail();
 
         addEvents();
+    }
+
+    private void loadProductDetail() {
+       product = MainActivity.getProductWithId(getIntentId());
+       new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
+       binding.txtDescription.setText(product.getDescription());
+       binding.txtProductName.setText(product.getProductName());
+       binding.txtPrice.setText(product.getFormattedPrice());
+       binding.txtOriginalPrice.setText(product.getFormattedOriginalPrice());
+       binding.txtDiscount.setText(product.getFormattedDiscount());
+
+
+
     }
 
     private void addEvents() {
@@ -83,15 +98,15 @@ public class ProductDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
-                intent.putExtra(INTENT_NAME, INTENT_BUYWITHVOUCHER);
+                intent.putExtra(INTENT_PRODUCT_DETAIL, INTENT_BUY_WITH_VOUCHER);
                 startActivity(intent);
             }
         });
     }
 
-    private void getIntentInfo() {
+    private int getIntentId() {
         Intent intent = getIntent();
-        int id = intent.getIntExtra("productID", 0);
+        return intent.getIntExtra(INTENT_PRODUCT_ID, 1);
     }
 
 
