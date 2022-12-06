@@ -57,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:stretchColumns="*"
-                android:layout_margin="10dp">
+                android:padding="5dp"
+                android:layout_margin="5dp">
                 <TableRow>
                     <TextView
                         android:id="@+id/txt_deals"
@@ -66,39 +67,6 @@
                         android:text="Deals xịn"
                         android:drawableTop="@drawable/deals_xin"
                         android:clickable="true"
-                        android:gravity="center"/>
-                    <TextView
-                        android:id="@+id/txt_freshnow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fresh Now"
-                        android:drawableTop="@drawable/freshnow"
-                        android:gravity="center"/>
-                    <TextView
-                        android:id="@+id/txt_hignend"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="HighEnd"
-                        android:clickable="true"
-                        android:drawableTop="@drawable/highend"
-                        android:gravity="center"/>
-                    <TextView
-                        android:id="@+id/txt_myvoucher"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MyVoucher"
-                        android:clickable="true"
-                        android:drawableTop="@drawable/myvoucher"
-                        android:gravity="center"/>
-                </TableRow>
-                <TableRow android:layout_marginTop="10dp">
-                    <TextView
-                        android:id="@+id/txt_categories"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Danh mục"
-                        android:clickable="true"
-                        android:drawableTop="@drawable/categories"
                         android:gravity="center"/>
                     <TextView
                         android:clickable="true"
@@ -117,14 +85,15 @@
                         android:drawableTop="@drawable/point"
                         android:gravity="center"/>
                     <TextView
-                        android:clickable="true"
-                        android:id="@+id/txt_freeship"
+                        android:id="@+id/txt_myvoucher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="FreeShip"
-                        android:drawableTop="@drawable/freeship"
+                        android:text="MyVoucher"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/myvoucher"
                         android:gravity="center"/>
                 </TableRow>
+
             </TableLayout>
             <LinearLayout
                 android:layout_width="match_parent"

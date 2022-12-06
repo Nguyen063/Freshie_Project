@@ -5,17 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
-import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.cart.CartActivity;
+import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.FragmentAccountBinding;
-import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.login.LoginActivity;
 import com.phamvannguyen.freshie.order.cancelled;
@@ -65,7 +61,7 @@ public class AccountFragment extends Fragment {
         binding.btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CartActivity.class);
+                Intent intent = new Intent(getActivity(), CartFragment.class);
                 intent.putExtra(INTENT_NAME, INTENT_CART);
                 startActivity(intent);
             }

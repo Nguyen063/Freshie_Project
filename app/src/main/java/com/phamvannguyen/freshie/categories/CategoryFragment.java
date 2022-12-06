@@ -1,7 +1,6 @@
 package com.phamvannguyen.freshie.categories;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +14,6 @@ import android.widget.GridView;
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.databinding.FragmentCategoryBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;

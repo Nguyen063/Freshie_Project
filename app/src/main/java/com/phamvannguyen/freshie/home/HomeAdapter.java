@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.phamvannguyen.freshie.account.AccountFragment;
+import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.notifications.NotificationsFragment;
 
@@ -24,7 +25,7 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
             case 2:
                 return new CategoryFragment();
             case 3:
-                return new AccountFragment();
+                return new CartFragment();
             default:
                 return new HomeFragment();
         }

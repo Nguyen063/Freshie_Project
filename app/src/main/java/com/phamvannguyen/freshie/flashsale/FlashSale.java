@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.login.flashsale;
+package com.phamvannguyen.freshie.flashsale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,27 +42,23 @@ public class FlashSale extends AppCompatActivity {
         setContentView(R.layout.activity_flash_sale);
 
         lvFlashSale = findViewById(R.id.lv_flashsale);
-
         loadData();
         countdown();
 
     }
 
     private void countdown() {
-        new CountDownTimer(2239000, 1000){
-
+        new CountDownTimer(2239000, 1000) {
             @Override
             public void onTick(long l) {
-                binding.txtCountDown.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
+                binding.txtFlashSale.setText(l/360000%24 + " : " + l/60000%60 + " : "+ l/1000%60 +"s");
             }
+
             @Override
             public void onFinish() {
-
             }
-
         }.start();
     }
-
 
     private void loadData() {
 
