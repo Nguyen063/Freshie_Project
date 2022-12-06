@@ -19,7 +19,7 @@
         android:textSize="14sp"
         android:maxLines="2"
         android:textColor="@color/black"
-        android:textStyle="bold"
+        android:textStyle="normal"
         android:gravity="center"/>
     <TextView
         android:id="@+id/txt_soldCount"

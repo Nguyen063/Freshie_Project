@@ -43,7 +43,6 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class HomeFragment extends Fragment {
     private GridView gridView;

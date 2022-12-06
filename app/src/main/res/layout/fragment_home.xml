@@ -114,16 +114,18 @@
                         android:textStyle="bold"
                         android:textColor="@color/color_custom_blue"
                         android:layout_margin="10dp" />
+
                     <TextView
                         android:id="@+id/txtCount_Down"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:textColor="@color/color_custom_pink"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/color_custom_pink"
+                        android:textSize="18sp"
+                        android:text="0 : 0 : 0s"
+                        android:textStyle="bold" />
                     <TextView
                         android:id="@+id/txt_viewFlashSale"
                         android:layout_width="match_parent"
@@ -132,10 +134,10 @@
                         android:textSize="16sp"
                         android:clickable="true"
                         android:textColor="@color/black"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:textStyle="italic"
+                        android:gravity="right"
+                        android:layout_marginRight="5dp"
+                       />
                 </LinearLayout>
 
 
@@ -160,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="SẢN PHẨM MỚI NHẤT"
                         android:textSize="20dp"
@@ -176,9 +178,9 @@
                         android:textSize="16sp"
                         android:clickable="true"
                         android:textColor="@color/black"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:textStyle="italic"
+                        android:gravity="right"
+                        android:layout_marginRight="5dp"/>
                 </LinearLayout>
                 <GridView
                     android:id="@+id/grid_newProduct"
@@ -199,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="BEST SELLER"
                         android:textSize="20dp"
@@ -212,12 +214,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Xem thêm >"
-                        android:textSize="16dp"
-                        android:textColor="@color/black"
+                        android:textSize="16sp"
                         android:clickable="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="10dp"/>
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right"/>
                 </LinearLayout>
                 <GridView
                     android:id="@+id/grid_bestseller"

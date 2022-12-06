@@ -1,13 +1,16 @@
 package com.phamvannguyen.freshie.order;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 
 public class order extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class order extends AppCompatActivity {
 
         adapterTablayoutOrder = new AdapterTablayoutOrder(this);
         viewPager2.setAdapter(adapterTablayoutOrder);
+        back();
 
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
 
@@ -44,6 +48,24 @@ public class order extends AppCompatActivity {
         }).attach();
     }
 
+    private void back() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Order");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
-}
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    this.finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
 

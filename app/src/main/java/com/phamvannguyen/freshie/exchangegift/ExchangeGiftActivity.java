@@ -1,9 +1,12 @@
 package com.phamvannguyen.freshie.exchangegift;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,13 +26,34 @@ public class ExchangeGiftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //  setContentView(R.layout.activity_gift_voucher);
 
-
-
         binding = ActivityExchangeGiftBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        back();
+
+//        @Override
+//        public boolean onOptionsItemSelected(MenuItem item) {
+//            switch (item.getItemId())
+//            {
+//                case android.R.id.home:
+//                    onBackPressed();
+//                    return true;
+//                default:break;
+//
+//            }
         loadData();
         addEvent();
 
+
+    }
+
+    public void back() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("ExchangeGiftActivity");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void addEvent() {
@@ -65,4 +89,15 @@ public class ExchangeGiftActivity extends AppCompatActivity {
         binding.lvVoucher.setAdapter(adapter);
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+                   switch (item.getItemId()) {
+                case android.R.id.home:
+                    this.finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
 }
