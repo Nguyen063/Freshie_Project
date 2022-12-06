@@ -39,8 +39,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     private void getIntentInfo() {
         Intent intent = getIntent();
-
-//        binding.imgProduct.setImageResource(intent.getByteExtra("Thumb", (byte) R.drawable.banner1));
+      //  binding.imgProduct.setImageResource(intent.getByteExtra("Thumb", (byte) R.drawable.banner1));
 //        binding.txtProductName.setText(intent.getStringExtra("name"));
 //        binding.txtDtPrice.setText(String.valueOf(intent.getStringExtra("price")));
 

@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,7 @@ import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -35,7 +37,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
      DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
-
+    Product GetProductDetail;
     FragmentHomeBinding binding;
     private SliderView sliderView;
     int [] images = {
@@ -197,31 +199,76 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //-----------------Category section-----------------
-        binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
+        binding.gridBestseller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                Product selecproduct = bestSeller_list.get(i);
+            //    Product selectForyou = forYou_list.get(i);
+                //Attach data
+
                 startActivity(intent);
             }
         });
-        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
+
+        binding.gridFlashSale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME, INTENT_NEW);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                GetProductDetail = flashSale_list.get(i);
+                //Attach data
+
                 startActivity(intent);
             }
         });
-        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
+
+        binding.gridNewProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME,INTENT_BEST_SELLER );
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                GetProductDetail = newProduct_list.get(i);
+                //Attach data
+
                 startActivity(intent);
             }
         });
+
+        binding.gridForYou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                Product selectForyou = forYou_list.get(i);
+                //Attach data
+
+                startActivity(intent);
+            }
+        });
+
+//        //-----------------Category section-----------------
+//        binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                intent = new Intent(getActivity(), CategoryFragment.class);
+//                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+//                startActivity(intent);
+//            }
+//        });
+//        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                intent = new Intent(getActivity(), CategoryFragment.class);
+//                intent.putExtra(INTENT_NAME, INTENT_NEW);
+//                startActivity(intent);
+//            }
+//        });
+//        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                intent = new Intent(getActivity(), CategoryFragment.class);
+//                intent.putExtra(INTENT_NAME,INTENT_BEST_SELLER );
+//                startActivity(intent);
+//            }
+//        });
     }
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
