@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -28,22 +27,18 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import com.phamvannguyen.freshie.cart.CartActivity;
+import com.phamvannguyen.freshie.account.AccountActivity;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
-import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,15 +74,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton btnCart = (ImageButton) customView.findViewById(R.id.Cart_toolbar);
-        btnCart.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnProfile = (ImageButton) customView.findViewById(R.id.imv_setting_profile);
+        btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
-
 
         createNavigation();
         FragmentManager manager = getSupportFragmentManager();
@@ -126,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.getMenu().findItem(R.id.navigation_category).setChecked(true);
                         break;
                     case 3:
-                        bottomNavigationView.getMenu().findItem(R.id.navigation_account).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.navigation_cart).setChecked(true);
                         break;
                 }
 
@@ -155,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_category:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.navigation_account:
+                    case R.id.navigation_cart:
                         viewPager.setCurrentItem(3);
                         break;
                 }
