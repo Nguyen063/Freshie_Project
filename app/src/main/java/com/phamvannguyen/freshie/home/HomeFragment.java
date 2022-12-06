@@ -1,18 +1,14 @@
 package com.phamvannguyen.freshie.home;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -20,16 +16,14 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.BestSellerHomeAdapter;
 import com.phamvannguyen.freshie.adapter.FlashSaleHomeAdapter;
 import com.phamvannguyen.freshie.adapter.NewProductHomeAdapter;
-import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
-import com.phamvannguyen.freshie.flashsale.FlashSale;
+import com.phamvannguyen.freshie.login.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.models.ProductOrder;
 import com.phamvannguyen.freshie.order.order;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -64,7 +58,6 @@ public class HomeFragment extends Fragment {
     public static final String INTENT_NEW = "New";
     public static final String INTENT_BEST_SELLER = "Best seller";
     public static final String INTENT_CART = "Cart";
-
 
     Intent intent;
     public HomeFragment(){
@@ -210,9 +203,9 @@ public class HomeFragment extends Fragment {
         binding.txtHignend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.show(new CategoryFragment());
-                transaction.commit();
+                intent = new Intent(getActivity(), CategoryFragment.class);
+                intent.putExtra(INTENT_NAME, INTENT_HIGH_END);
+                startActivity(intent);
             }
         });
         binding.txtMyvoucher.setOnClickListener(new View.OnClickListener() {

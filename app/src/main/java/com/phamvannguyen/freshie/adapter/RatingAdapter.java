@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.adapter;
 
+import static android.app.Activity.RESULT_OK;
 import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
 
 import android.app.Activity;
@@ -83,47 +84,35 @@ public class RatingAdapter extends BaseAdapter {
         holder.btnAddPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                ActivityResultLauncher<Intent> launcher = null;
-//                String capture = null;
-//
-//                launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-//                    if (result.getResultCode() == Activity.RESULT_OK) {
-//                        Intent data = result.getData();
-//                        Uri uri = data.getData();
-//                        try {
-//                            InputStream inputStream = activity.getContentResolver().openInputStream(uri);
-//                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//                            holder.imgAddPhoto.setImageBitmap(bitmap);
-//                        } catch (FileNotFoundException e) {
-//                            e.printStackTrace();
-//                        }
-
+                //open dialog
                 Dialog dialog = new Dialog(activity);
                 dialog.setContentView(R.layout.dialog_photo_rating);
 
                 LinearLayout llOpenCamera = dialog.findViewById(R.id.ll_OpenCamera);
                 LinearLayout llOpenGallery = dialog.findViewById(R.id.ll_OpenGallery);
 
+
+
                 llOpenCamera.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        capture = "camera";
+
+                        //open camera
                         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         activity.startActivityForResult(intent, 0);
-//                        launcher.launch(intent);
                         dialog.dismiss();
                     }
+
+
                 });
 
                 llOpenGallery.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        capture = "gallery";
+
                         Intent intent = new Intent(Intent.ACTION_PICK);
                         intent.setType("image/*");
                         activity.startActivityForResult(intent, 0);
-//                        launcher.launch(intent);
                         dialog.dismiss();
                     }
                 });
@@ -161,4 +150,7 @@ public class RatingAdapter extends BaseAdapter {
         ImageView imgProduct, imgAddPhoto;
         Button btnAddPhoto, btnRating;
     }
+
 }
+
+
