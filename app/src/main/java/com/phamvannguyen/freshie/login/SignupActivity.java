@@ -58,13 +58,6 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        binding.txtForgetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignupActivity.this, ForgotPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
         binding.txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

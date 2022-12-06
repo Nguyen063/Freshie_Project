@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.categories;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.widget.GridView;
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.databinding.FragmentCategoryBinding;
 import com.phamvannguyen.freshie.models.Product;
 
@@ -73,6 +75,13 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 loadListview("Perfume");
+            }
+        });
+        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CartActivity.class);
+                startActivity(intent);
             }
         });
     }

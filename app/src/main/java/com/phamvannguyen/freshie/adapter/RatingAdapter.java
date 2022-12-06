@@ -3,17 +3,30 @@ package com.phamvannguyen.freshie.adapter;
 import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.categories.CategoryAdapter;
+import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.models.Rating;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 public class RatingAdapter extends BaseAdapter {
@@ -71,9 +84,74 @@ public class RatingAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
 
+//                ActivityResultLauncher<Intent> launcher = null;
+//                String capture = null;
+//
+//                launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+//                    if (result.getResultCode() == Activity.RESULT_OK) {
+//                        Intent data = result.getData();
+//                        Uri uri = data.getData();
+//                        try {
+//                            InputStream inputStream = activity.getContentResolver().openInputStream(uri);
+//                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+//                            holder.imgAddPhoto.setImageBitmap(bitmap);
+//                        } catch (FileNotFoundException e) {
+//                            e.printStackTrace();
+//                        }
+
+                Dialog dialog = new Dialog(activity);
+                dialog.setContentView(R.layout.dialog_photo_rating);
+
+                LinearLayout llOpenCamera = dialog.findViewById(R.id.ll_OpenCamera);
+                LinearLayout llOpenGallery = dialog.findViewById(R.id.ll_OpenGallery);
+
+                llOpenCamera.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        capture = "camera";
+                        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                        activity.startActivityForResult(intent, 0);
+//                        launcher.launch(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                llOpenGallery.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        capture = "gallery";
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        activity.startActivityForResult(intent, 0);
+//                        launcher.launch(intent);
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
             }
 
         });
+
+//        holder.btnRating.setOnClickList
+//        ener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Dialog dialog = new Dialog(activity);
+//                dialog.setContentView(R.layout.dialog_rating_success);
+//
+//                Button btnshopNow = dialog.findViewById(R.id.btn_shopNow);
+//                btnshopNow.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Intent intent = new Intent(activity, CategoryFragment.class);
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//                dialog.show();
+//            }
+//        });
 
         return view;
     }

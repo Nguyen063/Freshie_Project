@@ -12,11 +12,11 @@
         android:src="@drawable/p_loading"/>
     <TextView
         android:id="@+id/txt_ProductName"
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Kem chống nắng Eucerin"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:maxLines="2"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="1000 đã bán"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:gravity="center"/>
 </LinearLayout>

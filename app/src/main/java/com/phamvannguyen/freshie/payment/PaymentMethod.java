@@ -47,10 +47,13 @@ public class PaymentMethod extends AppCompatActivity {
                     paymentMethod = binding.radATM.getText().toString();
                 }
 
-                if(paymentMethod != null){
+                if(paymentMethod != null) {
                     Intent intent = new Intent(PaymentMethod.this, Checkout.class);
                     intent.putExtra("paymentMethod", paymentMethod);
                     startActivity(intent);
+                }
+                else {
+                    Toast.makeText(PaymentMethod.this, "Vui lòng chọn phương thức thanh toán", Toast.LENGTH_SHORT).show();
                 }
             }
         });
