@@ -30,7 +30,6 @@ public class AccountActivity extends AppCompatActivity {
         categoryRecyclerAdapter.setData(getListCategoryRecyclerView());
         rcvCategoryRecyclerView.setAdapter(categoryRecyclerAdapter);
 
-
     }
     private List<CategoryRecyclerView> getListCategoryRecyclerView(){
         List<CategoryRecyclerView> listCategoryRecyclerView = new ArrayList<>();
