@@ -12,7 +12,7 @@
             android:id="@+id/img_productFlashSale"
             android:layout_width="150dp"
             android:layout_height="180dp"
-            android:src="@drawable/product_photo"
+            android:src="@drawable/p_loading"
             android:gravity="center_vertical"/>
         <LinearLayout
             android:layout_width="match_parent"
