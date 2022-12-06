@@ -1,5 +1,7 @@
 package com.phamvannguyen.freshie.categories;
 
+import static com.phamvannguyen.freshie.MainActivity.sendToProductDetail;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -96,10 +98,7 @@ public class CategoryFragment extends Fragment {
         binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), ProductDetailActivity.class);
-                intent.putExtra(ProductDetailActivity.INTENT_PRODUCT_ID, products.get(i).getProductID());
-                getActivity().startActivity(intent);
+                sendToProductDetail(products.get(i), getActivity());
             }
         });
     }

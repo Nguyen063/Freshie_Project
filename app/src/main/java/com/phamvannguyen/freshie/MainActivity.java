@@ -1,5 +1,9 @@
 package com.phamvannguyen.freshie;
 
+import static com.phamvannguyen.freshie.DataBaseHelper.TBL_PRODUCT;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -28,6 +32,7 @@ import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 
 import java.net.URL;
@@ -247,6 +252,14 @@ public class MainActivity extends AppCompatActivity {
         return product;
     }
 
+    public static void sendToProductDetail(Product p, Activity activity) {
+        Bundle  b = new Bundle();
+        b.putParcelable(ProductDetailActivity.INTENT_PRODUCT, p);
+        Intent intent = new Intent();
+        intent.setClass(activity, ProductDetailActivity.class);
+        intent.putExtras(b);
+        activity.startActivity(intent);
+    }
 }
 
 

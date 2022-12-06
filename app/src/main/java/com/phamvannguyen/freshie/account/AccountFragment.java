@@ -66,6 +66,14 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), CartActivity.class);
+//                intent.putExtra(INTENT_NAME, INTENT_CART);
+//                startActivity(intent);
+//            }
+//        });
 
         binding.btnChatting.setOnClickListener(new View.OnClickListener() {
             @Override
