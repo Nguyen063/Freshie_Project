@@ -3,11 +3,17 @@ package com.phamvannguyen.freshie.models;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 
-public class Product {
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+public class Product implements Parcelable {
     private DataBaseHelper db = MainActivity.db;
     int ProductID;
     String ProductName;
@@ -72,6 +78,37 @@ public class Product {
 //
 //
 //    }
+
+    protected Product(Parcel in) {
+        ProductID = in.readInt();
+        ProductName = in.readString();
+        Category = in.readString();
+        Brand = in.readString();
+        OriginalPrice = in.readDouble();
+        Price = in.readDouble();
+        Discount = in.readDouble();
+        Sold = in.readInt();
+        RatingAverage = in.readDouble();
+        RatingCount = in.readInt();
+        ImageUrl = in.readString();
+        ThumbUrl = in.readString();
+        IsDeal = in.readInt();
+        IsBestSeller = in.readInt();
+        IsNew = in.readInt();
+        Description = in.readString();
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public DataBaseHelper getDb() {
         return db;
@@ -226,4 +263,42 @@ public class Product {
     public String getFormattedDiscount (){
         return String.format("-%.0f%% ", Discount);
     }
+
+    public Bitmap getImageBitmap(){
+        InputStream inputStream = null;
+        try {
+            inputStream = new URL(ImageUrl).openStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(inputStream);
+            return myBitmap;
+        } catch (IOException e) {
+            // Log exception
+            return null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(ProductID);
+        parcel.writeString(ProductName);
+        parcel.writeString(Category);
+        parcel.writeString(Brand);
+        parcel.writeDouble(OriginalPrice);
+        parcel.writeDouble(Price);
+        parcel.writeDouble(Discount);
+        parcel.writeInt(Sold);
+        parcel.writeDouble(RatingAverage);
+        parcel.writeInt(RatingCount);
+        parcel.writeString(ImageUrl);
+        parcel.writeString(ThumbUrl);
+        parcel.writeInt(IsDeal);
+        parcel.writeInt(IsBestSeller);
+        parcel.writeInt(IsNew);
+        parcel.writeString(Description);
+    }
+
 }

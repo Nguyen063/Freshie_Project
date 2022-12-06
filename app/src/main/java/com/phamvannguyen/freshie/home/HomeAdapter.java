@@ -23,8 +23,8 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
                 return new NotificationsFragment();
             case 2:
                 return new CategoryFragment();
-            case 3:
-                return new AccountFragment();
+//            case 3:
+//                return new AccountFragment();
             default:
                 return new HomeFragment();
         }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -121,7 +123,7 @@ public class HomeFragment extends Fragment {
     private void listenEvents() {
 
 
-        ///-------Circle items section----------------
+        ///-------Click events on Circle items section----------------
         binding.txtDeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,7 +186,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //-----------------Category section-----------------
+
+        //-----------------TextView "Xem thêm" in Category section-----------------
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +212,48 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //-----------------GridView item click events-----------------
+        binding.gridFlashSale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(flashSale_list.get(i), getActivity());
+            }
+        });
+
+        binding.gridNewProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(newProduct_list.get(i), getActivity());
+
+            }
+        });
+        binding.gridForYou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(forYou_list.get(i), getActivity());
+
+            }
+        });
+        binding.gridBestseller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MainActivity.sendToProductDetail(bestSeller_list.get(i), getActivity());
+
+            }
+        });
+
+        //
     }
+
+
+
+
+
+
+
+
+
+
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();
 //        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_PRODUCT + " WHERE " + ColName +  Condition
