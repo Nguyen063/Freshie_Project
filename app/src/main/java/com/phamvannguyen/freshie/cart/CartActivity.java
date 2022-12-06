@@ -2,6 +2,7 @@ package com.phamvannguyen.freshie.cart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityCartBinding;
+import com.phamvannguyen.freshie.payment.Checkout;
+import com.phamvannguyen.freshie.payment.PaymentMethod;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -28,6 +31,18 @@ public class CartActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         loadData();
+
+        addEvents();
+    }
+
+    private void addEvents() {
+        binding.btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartActivity.this, Checkout.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadData() {

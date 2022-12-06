@@ -9,15 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cart.CartActivity;
 import com.phamvannguyen.freshie.databinding.FragmentCategoryBinding;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class CategoryFragment extends Fragment {
     private View view;
     private GridView gridView;
     static ArrayList<Product> products;
-    Product selectproduct;
+
     FragmentCategoryBinding binding;
     private DataBaseHelper db = MainActivity.db;
     public CategoryFragment() {
@@ -78,19 +77,13 @@ public class CategoryFragment extends Fragment {
                 loadListview("Perfume");
             }
         });
-        binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                selectproduct = products.get(i);
-                //Attach data
-//                intent.putExtra("image", selectproduct.getThumbUrl());
-//                intent.putExtra("name", selectproduct.getProductName());
-//                intent.putExtra("price", selectproduct.getPrice());
-
-                startActivity(intent);
-            }
-        });
+//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), CartActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void loadListview(String category) {
