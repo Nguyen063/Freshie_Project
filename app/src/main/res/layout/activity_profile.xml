@@ -169,30 +169,31 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
-                android:layout_marginStart="15dp"
                 android:columnCount="4"
                 android:rowCount="1"
                 >
                 <Button
                     android:id="@+id/btn_waitingconfirm"
-                    android:layout_width="96dp"
+                    android:layout_width="102dp"
                     android:layout_height="78dp"
                     android:text="Chờ xác nhận"
+                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="8sp"
+                    android:textSize="10sp"
                     android:textColor="@color/black"
-                    android:layout_marginEnd="5dp"
-                    android:layout_gravity="center"
+                    android:layout_marginEnd="3dp"
+                    android:layout_gravity="center_vertical"
                    android:drawableTop="@drawable/icon_calendarcheck_" />
                 <Button
                     android:id="@+id/btn_delivering"
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đang giao"
+                    android:textAllCaps="false"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/white"
-                    android:textSize="8sp"
-                    android:layout_marginEnd="5dp"
+                    android:textSize="10sp"
+                    android:layout_marginEnd="3dp"
                     android:textColor="@color/black"
                     android:drawableTop="@drawable/delivering"/>
                 <Button
@@ -200,9 +201,10 @@
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đã giao"
+                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="8sp"
-                    android:layout_marginEnd="5dp"
+                    android:textSize="10sp"
+                    android:layout_marginEnd="3dp"
                     android:textColor="@color/black"
                     android:layout_gravity="center"
                     android:drawableTop="@drawable/delivered"/>
@@ -211,10 +213,11 @@
                     android:layout_width="96dp"
                     android:layout_height="78dp"
                     android:text="Đã hủy"
+                    android:textAllCaps="false"
                     android:backgroundTint="@color/white"
-                    android:textSize="8sp"
+                    android:textSize="10sp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="3dp"
                     android:textColor="@color/black"
                     android:drawableTop="@drawable/canceled"/>
             </GridLayout>
@@ -262,6 +265,9 @@
                     android:src="@drawable/polygon2"
                     android:layout_marginEnd="15dp"
                     android:layout_gravity="center" />
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <ImageView
@@ -279,76 +285,8 @@
                 android:columnCount="3"
                 android:rowCount="1"
                 >
-                <Button
-                    android:id="@+id/btn_vichy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_marginEnd="3dp"
-                    android:backgroundTint="@color/white"
-                    android:drawableTop="@drawable/vichy"
-                    android:text="Giảm 100k"
-                    android:textColor="#F473B9"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btn_innisfree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GIẢM 30%"
-                    android:backgroundTint="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="3dp"
-                    android:textColor="#F473B9"
-                    android:drawableTop="@drawable/innisfree"/>
-                <Button
-                    android:id="@+id/btn_senka"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GIẢM 30K"
-                    android:backgroundTint="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="5dp"
-                    android:textColor="#F473B9"
-                    android:drawableTop="@drawable/senka"/>
             </GridLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:paddingEnd="5dp"
-                >
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="HSD: 31/12/2022"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginStart="10dp"
-                   />
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="HSD: 31/12/2022"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginStart="5dp"
-                    />
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="HSD: 31/12/2022"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginStart="5dp"
-                    />
-            </LinearLayout>
 
 
         </LinearLayout>

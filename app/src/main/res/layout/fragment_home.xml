@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".home.HomeFragment"
-    android:background="#F5F5F5"
-    android:id="@+id/fragment_home">
+    android:background="#F5F5F5">
 
 <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
@@ -66,6 +65,7 @@
                         android:layout_height="wrap_content"
                         android:text="Deals xịn"
                         android:drawableTop="@drawable/deals_xin"
+                        android:clickable="true"
                         android:gravity="center"/>
                     <TextView
                         android:id="@+id/txt_freshnow"
@@ -79,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HighEnd"
+                        android:clickable="true"
                         android:drawableTop="@drawable/highend"
                         android:gravity="center"/>
                     <TextView
@@ -86,6 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MyVoucher"
+                        android:clickable="true"
                         android:drawableTop="@drawable/myvoucher"
                         android:gravity="center"/>
                 </TableRow>
@@ -95,9 +97,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Danh mục"
+                        android:clickable="true"
                         android:drawableTop="@drawable/categories"
                         android:gravity="center"/>
                     <TextView
+                        android:clickable="true"
                         android:id="@+id/txt_order"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -105,6 +109,7 @@
                         android:drawableTop="@drawable/order"
                         android:gravity="center"/>
                     <TextView
+                        android:clickable="true"
                         android:id="@+id/txt_point"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -112,6 +117,7 @@
                         android:drawableTop="@drawable/point"
                         android:gravity="center"/>
                     <TextView
+                        android:clickable="true"
                         android:id="@+id/txt_freeship"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
