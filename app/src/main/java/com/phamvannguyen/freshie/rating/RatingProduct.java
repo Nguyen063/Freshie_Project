@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -37,35 +38,48 @@ public class RatingProduct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if(result.getResultCode() == RESULT_OK && result.getData() != null){
-                if(capture.equals("camera")){
-                    bitmap = (Bitmap) result.getData().getExtras().get("data");
-                }
-                else if(capture.equals("photo")){
-                    Uri uri = result.getData().getData();
-                    try {
-                        InputStream inputStream = getContentResolver().openInputStream(uri);
-                        bitmap = BitmapFactory.decodeStream(inputStream);
-//                        binding.imgPhoto.setImageBitmap(bitmap);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-
+//        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+//            if(result.getResultCode() == RESULT_OK && result.getData() != null){
+//                if(capture.equals("camera")){
+//                    bitmap = (Bitmap) result.getData().getExtras().get("data");
+//                }
+//                else if(capture.equals("photo")){
+//                    Uri uri = result.getData().getData();
+//                    try {
+//                        InputStream inputStream = getContentResolver().openInputStream(uri);
+//                        bitmap = BitmapFactory.decodeStream(inputStream);
+////                        binding.imgPhoto.setImageBitmap(bitmap);
+//                    } catch (FileNotFoundException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
 
 
         setContentView(R.layout.activity_rating);
         lvRating = findViewById(R.id.lv_rating);
 
         loadData();
+        addEvents();
 
 
 
     }
+
+    private void addEvents() {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if( resultCode == RESULT_OK && data != null){
+        bitmap = (Bitmap) data.getExtras().get("data");
+        }
+
+    }
+
 
     @Override
     protected void onResume() {
@@ -75,9 +89,9 @@ public class RatingProduct extends AppCompatActivity {
     }
 
     private void loadData() {
-        ratings = new ArrayList<>();
-        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
-        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
+        ratings = initialList();
+//        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
+//        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
 
         ratingAdapter = new RatingAdapter(RatingProduct.this, R.layout.item_rating, ratings);
         lvRating.setAdapter(ratingAdapter);
@@ -103,5 +117,11 @@ public class RatingProduct extends AppCompatActivity {
             }
         });
 
+    }
+    private  ArrayList<Rating> initialList(){
+        ArrayList<Rating> ratings = new ArrayList<>();
+        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
+        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
+        return ratings;
     }
 }

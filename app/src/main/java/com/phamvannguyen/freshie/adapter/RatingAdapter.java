@@ -88,6 +88,9 @@ public class RatingAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 //open dialog
+                Intent intent_p = new Intent();
+                intent_p.putExtra("position",i);
+
                 Dialog dialog = new Dialog(activity);
                 dialog.setContentView(R.layout.dialog_photo_rating);
 
