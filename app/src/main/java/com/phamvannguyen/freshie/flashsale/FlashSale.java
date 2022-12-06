@@ -44,7 +44,7 @@ public class FlashSale extends AppCompatActivity {
         lvFlashSale = findViewById(R.id.lv_flashsale);
 
         loadData();
-        countdown();
+//        countdown();
 
     }
 
