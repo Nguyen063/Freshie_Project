@@ -319,7 +319,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -330,7 +331,8 @@
                 android:layout_height="wrap_content"
                 android:text="Tổng cộng:"
                 android:textSize="18sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -347,7 +349,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:backgroundTint="@color/color_custom_pink"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"/>
         </LinearLayout>
     </LinearLayout>

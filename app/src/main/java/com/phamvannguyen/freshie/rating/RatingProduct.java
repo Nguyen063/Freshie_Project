@@ -143,7 +143,6 @@ public class RatingProduct extends AppCompatActivity {
     private  ArrayList<Rating> initialList(){
         ArrayList<Rating> ratings = new ArrayList<>();
         ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
-        ratings.add(new Rating(R.drawable.product_photo, "Kem dưỡng da Vitamin Tree Water-Gel",bitmap));
         return ratings;
     }
 }

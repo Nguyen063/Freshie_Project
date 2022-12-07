@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".product.ListProductActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:background="@color/color_custom_blue">
+        <!--        <androidx.appcompat.widget.SearchView-->
+        <!--            android:id="@+id/search_bar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:background="@drawable/border_radius_pink"-->
+        <!--            app:queryHint="Search"-->
+        <!--            android:layout_weight="1"/>-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/btn_cart"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:scaleX="1.5"-->
+        <!--            android:scaleY="1.5"-->
+        <!--            android:layout_weight="5"-->
+        <!--            android:src="@drawable/ic_baseline_shopping_cart_24"-->
+        <!--            android:backgroundTint="#00000000"-->
+        <!--            android:padding="2dp"/>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/category_title"
+            android:textAppearance="@style/white_title"
+            android:textColor="@color/color_custom_pink"
+            android:gravity="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginVertical="10dp">
+
+            <Button
+                android:id="@+id/btn_Skincare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_radius_pink"
+                app:backgroundTint="@color/color_custom_blue"
+                android:text="@string/skin_care"
+                android:padding="0dp"
+                android:layout_marginEnd="5dp"/>
+            <Button
+                android:id="@+id/btn_HairCare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_radius_pink"
+                app:backgroundTint="@color/color_custom_blue"
+                android:text="@string/hair_care"
+                android:padding="0dp"
+                android:layout_marginEnd="5dp"/>
+            <Button
+                android:id="@+id/btn_Makeup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="0dp"
+                android:background="@drawable/border_radius_pink"
+                app:backgroundTint="@color/color_custom_blue"
+                android:text="@string/makeup"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/btn_Perfume"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_radius_pink"
+                app:backgroundTint="@color/color_custom_blue"
+                android:text="@string/perfume"
+                android:padding="0dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_filtering"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="10dp"
+                android:weightSum="4"
+                >
+
+                <Button
+                    android:id="@+id/btn_outstanding"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:backgroundTint="#E8E8E8"
+                    android:text="Nổi bật"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btn_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:backgroundTint="#E8E8E8"
+                    android:text="Mới nhất"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btn_bestseller"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:padding="0dp"
+                    app:backgroundTint="#E8E8E8"
+                    android:text="Bán chạy"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="5dp"
+                    android:textAllCaps="false" />
+
+                <LinearLayout
+                    android:id="@+id/btn_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/shape_blue"
+                    android:layout_marginRight="5dp"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Giá"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:padding="0dp"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:src="@drawable/ic_baseline_arrow_downward_24"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gv_ListProduct"
+            android:numColumns="2"
+            android:horizontalSpacing="3dp"
+            android:verticalSpacing="3dp"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
