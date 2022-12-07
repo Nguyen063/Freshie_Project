@@ -5,6 +5,8 @@ import static com.phamvannguyen.freshie.MainActivity.sendToProductDetail;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
@@ -35,18 +38,22 @@ public class CategoryFragment extends Fragment {
     public static final String INTENT_DEALS = "Deals";
     FragmentCategoryBinding binding;
     private DataBaseHelper db = MainActivity.db;
+//    public CategoryFragment() {
+//        // Required empty public constructor
+//    }
+
     public CategoryFragment() {
         // Required empty public constructor
     }
 
 
-    public static CategoryFragment newInstance() {
-        Bundle args = new Bundle();
-        args.putString(INTENT_NAME, INTENT_DEALS);
-        CategoryFragment fragment = new CategoryFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static CategoryFragment newInstance(String filter) {
+//        Bundle args = new Bundle();
+//        args.putString(INTENT_NAME, filter);
+//        CategoryFragment fragment = new CategoryFragment();
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,18 +61,21 @@ public class CategoryFragment extends Fragment {
 
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
         view = binding.getRoot();
+        ;
         products = new ArrayList<Product>();
 
         gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
 
 //        loadbundle();
-        if(loadBundle()!=null){
+//        String filter = getArguments().getString(INTENT_NAME);
+//        if(filter!=null){
 
         loadListview("Skincare");
-        }
-        else {
-            loadListview("Makeup");
-        }
+//        }
+//        else {
+//            loadListview("Makeup");
+//            Toast.makeText(getActivity(),loadBundle(), Toast.LENGTH_SHORT).show();
+//        }
         addEvents();
         return view;
 
@@ -133,4 +143,15 @@ public class CategoryFragment extends Fragment {
 //        binding.btnHairCare.setBackgroundColor();
 
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+    public void displayReceivedData(String message)
+    {
+
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    };
 }

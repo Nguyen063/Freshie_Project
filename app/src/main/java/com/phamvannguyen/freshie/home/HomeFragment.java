@@ -47,6 +47,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private GridView gridView;
 
+    SendMessage SM;
     DataBaseHelper db = MainActivity.db;
     List<Product> flashSale_list, newProduct_list, bestSeller_list, forYou_list;
 
@@ -186,35 +187,32 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                List<Fragment> fragments = new Vector<Fragment>();
-//
-////for each fragment you want to add to the pager
-//                Bundle page = new Bundle();
-//                page.putString(CategoryFragment.INTENT_NAME,"flash sale" );
-//                fragments.add(Fragment.instantiate(this,CategoryFragment.class.getName(),page));
-//
-////after adding all the fragments write the below lines
-//
-//                this.  = new HomeAdapter(getActivity().getSupportFragmentManager(), fragments);
-//
-//                viewPager.setAdapter();
+               SM.sendData("Flash sale");
+               viewPager.setCurrentItem(2);
+
+            }
+        });
+        binding.txtViewNewest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragmentA = new CategoryFragment();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.main_viewpager,fragmentA,"tag_fragment_category")
+                        .addToBackStack("tag_fragment_home").commit();
             }
         });
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle page = new Bundle();
+                page.putString(CategoryFragment.INTENT_NAME, "makeup");
                 CategoryFragment fragment = new CategoryFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString(CategoryFragment.INTENT_NAME, "best seller");
-                fragment.setArguments(bundle);
-            }
-        });
-        binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getActivity(), CategoryFragment.class);
-                intent.putExtra(INTENT_NAME,INTENT_BEST_SELLER );
-                startActivity(intent);
+                FragmentTransaction transaction = getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_home, fragment);
+                transaction.commit();
+//                fragmentA.setArguments(page);
+//                viewPager.setCurrentItem(2);
             }
         });
         //-----------------GridView item click events-----------------
@@ -247,7 +245,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
         //
+    }
+    public interface SendMessage {
+        void sendData(String message);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            SM = (SendMessage) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Error in retrieving data. Please try again");
+        }
     }
 //    public  List<Product> getListItem(String ColName, String Condition){
 //        List<Product> list = new ArrayList<>();

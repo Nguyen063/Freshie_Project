@@ -27,10 +27,13 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.phamvannguyen.freshie.account.AccountActivity;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
+import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
+import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
@@ -40,12 +43,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HomeFragment.SendMessage  {
 
     ActivityMainBinding binding;
     public static ViewPager viewPager;
     private BottomNavigationView bottomNavigationView;
     public static DataBaseHelper db;
+    TabLayout tabLayout;
 
     static Handler mainHandler = new Handler();
 
@@ -87,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
+
+
+
+
     }
 
 
@@ -98,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         HomeAdapter homeAdapter = new HomeAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter((homeAdapter));
         CategoryAdapter categoryAdapter = new CategoryAdapter();
+
 
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -164,6 +173,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static Bitmap convertByteArrayToBitmap(byte[] bytes) {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+    }
+
+    @Override
+    public void sendData(String message) {
+        String tag = "android:switcher:" + R.id.main_viewpager + ":" + 2;
+        CategoryFragment f = (CategoryFragment) getSupportFragmentManager().findFragmentByTag("tag_fragment_category");
+        f.displayReceivedData(message);
     }
 
 
@@ -261,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(b);
         activity.startActivity(intent);
     }
+
 }
 
 
