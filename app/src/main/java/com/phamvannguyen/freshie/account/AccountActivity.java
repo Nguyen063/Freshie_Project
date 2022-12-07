@@ -16,6 +16,7 @@ import com.phamvannguyen.freshie.account.itemrecycleview.ItemRecycler;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityAccountBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.login.ChangePassword;
 import com.phamvannguyen.freshie.login.LoginActivity;
 import com.phamvannguyen.freshie.order.delivered;
 import com.phamvannguyen.freshie.order.delivering;
@@ -81,7 +82,7 @@ public class AccountActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-        binding.llViewProduct.setOnClickListener(v -> {
+        binding.llViewedProduct.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, Watched.class);
             startActivity(intent);
         });
