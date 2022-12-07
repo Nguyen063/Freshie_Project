@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/imv_CommentPhoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/anhspcuakhach"
+        android:padding="5dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_star_rate_24"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_star_rate_24"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_star_rate_24"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_star_rate_24"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_star_half_24"/>
+        <TextView
+            android:id="@+id/txt_CustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Nguyen Thanh Phat"
+            android:textColor="@color/color_custom_blue"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_CustomerComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đây là comment của khách hàng."
+        android:padding="5dp"/>
+
+</LinearLayout>
