@@ -203,7 +203,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle page = new Bundle();
-                page.putString(CategoryFragment.INTENT_NAME, "makeup");
+//                page.putString(CategoryFragment.INTENT_NAME, "makeup");
                 CategoryFragment fragment = new CategoryFragment();
                 FragmentTransaction transaction = getFragmentManager()
                         .beginTransaction()

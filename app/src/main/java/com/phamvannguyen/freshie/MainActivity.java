@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Send
     public void sendData(String message) {
         String tag = "android:switcher:" + R.id.main_viewpager + ":" + 2;
         CategoryFragment f = (CategoryFragment) getSupportFragmentManager().findFragmentByTag("tag_fragment_category");
-        f.displayReceivedData(message);
+//        f.displayReceivedData(message);
     }
 
 
