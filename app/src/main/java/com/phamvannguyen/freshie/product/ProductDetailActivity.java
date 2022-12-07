@@ -13,11 +13,15 @@ import android.widget.Button;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.adapter.CommentAdapter;
 import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityProductDetailBinding;
+import com.phamvannguyen.freshie.models.Comment;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
+
+import java.util.ArrayList;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
@@ -37,11 +41,19 @@ public class ProductDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         loadProductDetail();
-
+        loadComment();
         addEvents();
         countdown();
         back();
 
+    }
+
+    private void loadComment() {
+        ArrayList<Comment> CommentList = new ArrayList<>();
+        CommentList.add(new Comment(R.drawable.anhspcuakhach, "Đỗ Huỳnh Thảo Vy","Sản phẩm dưỡng thê quá đi thoiiii"));
+
+        CommentAdapter commentAdapter = new CommentAdapter(ProductDetailActivity.this, R.layout.item_comment, CommentList);
+        binding.lvComment.setAdapter(commentAdapter);
     }
 
     private void back() {
