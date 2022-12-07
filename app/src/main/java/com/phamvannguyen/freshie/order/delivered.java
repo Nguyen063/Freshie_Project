@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 import com.phamvannguyen.freshie.payment.Checkout;
@@ -29,7 +30,7 @@ public class delivered extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_delivered, container, false);
         ListView lvWaitConfirm = view.findViewById(R.id.lv_delivered);
-        ArrayList<Product> orders = new ArrayList<>();
+        ArrayList<CartModel> orders = new ArrayList<>();
 //        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
 //        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
 

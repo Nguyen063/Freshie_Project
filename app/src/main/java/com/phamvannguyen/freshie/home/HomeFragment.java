@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment {
         loadData();
         listenEvents();
         countdown();
+        binding.txtViewNewest.performClick();
 
         return view;
     }

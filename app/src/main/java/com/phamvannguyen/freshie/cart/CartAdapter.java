@@ -8,9 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftAdapter;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftModel;
@@ -64,8 +66,8 @@ public class CartAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         CartModel cartModel = cartList.get(i);
-        holder.imvCartProduct.setImageResource(cartModel.getCartProduct());
-        holder.txtCartproductName.setText(cartModel.getCartproductName());
+        new MainActivity.FetchImage(cartModel.getThumbUrl(),holder.imvCartProduct).start();
+        holder.txtCartproductName.setText(cartModel.getProductName());
         holder.txtCartproductPrice.setText(String.valueOf(cartModel.getFormattedPrice()));
         holder.txtQuantity.setText(String.valueOf(cartModel.getQuantity()));
         holder.btnInc.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +76,8 @@ public class CartAdapter extends BaseAdapter {
                 quantity = Integer.parseInt(holder.txtQuantity.getText().toString());
                 quantity++;
                 holder.txtQuantity.setText(String.valueOf(quantity));
+                cartModel.setQuantity(quantity);
+
             }
         });
         holder.btnDec.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +87,8 @@ public class CartAdapter extends BaseAdapter {
                 if (quantity > 1) {
                     quantity--;
                     holder.txtQuantity.setText(String.valueOf(quantity));
+                    cartModel.setQuantity(quantity);
+                    Toast.makeText(activity, String.valueOf(cartModel.getQuantity()), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -96,6 +102,12 @@ public class CartAdapter extends BaseAdapter {
         TextView txtCartproductName, txtCartproductPrice, txtQuantity;
         Button btnInc, btnDec;
 
+    }
+
+
+    public interface OnClickListener {
+        void onIncClick(View view, int position);
+        void onDecClick(View view, int position);
     }
 }
 

@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 
@@ -71,7 +72,7 @@ public class NotRatingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_not_rating, container, false);
         ListView lvNotRating = view.findViewById(R.id.lv_NotRating);
-        ArrayList<Product> notRatings = new ArrayList<>();
+        ArrayList<CartModel> notRatings = new ArrayList<>();
 //        notRatings.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,3));
 //        notRatings.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
 

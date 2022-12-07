@@ -1,40 +1,16 @@
 package com.phamvannguyen.freshie.cart;
 
-public class CartModel {
-    int cartProduct;
-    String cartproductName;
-    double cartproductPrice;
+import android.os.Parcel;
+
+import com.phamvannguyen.freshie.models.ProductBase;
+
+public class CartModel extends ProductBase  {
     int quantity;
 
-    public CartModel(int cartProduct, String cartproductName, double cartproductPrice, int quantity) {
-        this.cartProduct = cartProduct;
-        this.cartproductName = cartproductName;
-        this.cartproductPrice = cartproductPrice;
+
+    public CartModel(int productID, String productName, double originalPrice, double price, String thumbUrl, int quantity) {
+        super(productID, productName, originalPrice, price,thumbUrl);
         this.quantity = quantity;
-    }
-
-    public int getCartProduct() {
-        return cartProduct;
-    }
-
-    public void setCartProduct(int cartProduct) {
-        this.cartProduct = cartProduct;
-    }
-
-    public String getCartproductName() {
-        return cartproductName;
-    }
-
-    public void setCartproductName(String cartproductName) {
-        this.cartproductName = cartproductName;
-    }
-
-    public double getCartproductPrice() {
-        return cartproductPrice;
-    }
-
-    public void setCartproductPrice(Double cartproductPrice) {
-        this.cartproductPrice = cartproductPrice;
     }
 
     public int getQuantity() {
@@ -44,13 +20,6 @@ public class CartModel {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-    public String getFormattedPrice() {
-        return  String.format("%,.0f đ", cartproductPrice );
-
-    }
-
-
 }
 
 
