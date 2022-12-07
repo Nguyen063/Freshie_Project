@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 
 public class CustomerService extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_center);
+        setContentView(R.layout.activity_customer_service);
 
         back();
     }

@@ -38,6 +38,7 @@ public class Watched extends AppCompatActivity {
         gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
         products = new ArrayList<Product>();
 
+
         back();
     }
 

@@ -58,7 +58,8 @@
                     android:text="20%"
                     android:background="#F473B9"
                     android:layout_marginLeft="10dp"
-                    android:padding="3dp"/>
+                    android:padding="3dp"
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -72,14 +73,8 @@
                 android:text="Kết thúc"
                 android:textSize="10sp"
                 android:textColor="@color/white"
-                android:layout_marginLeft="80dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kết thúc"
-                android:textSize="10sp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="80dp"/>
+                android:layout_marginLeft="50dp"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -518,12 +513,14 @@
         android:layout_margin="5dp"
         android:background="@color/white"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <ListView
+            android:id="@+id/lv_Comment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"/>
             <ImageView
+                android:id="@+id/img_ReviewPhoto"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/anhspcuakhach"/>
@@ -606,40 +603,44 @@
                     android:textColor="@color/color_custom_blue"
                     android:paddingLeft="15dp"/>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chân ái của mình luôn, cấp ẩm khá tốt, sáng ngủ dậy thấy mặt có đổ dầu thật nhưng khi rửa mặt xong thì da rất mướt, ban ngày thì nên bôi lớp mỏng thôi vì nó thấm ko được nhanh lắm, nhìn chung thì da mình da dầu sử dụng loại này thấy cực kì ổn luôn"
-                android:textSize="15sp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Chân ái của mình luôn, cấp ẩm khá tốt, sáng ngủ dậy thấy mặt có đổ dầu thật nhưng khi rửa mặt xong thì da rất mướt, ban ngày thì nên bôi lớp mỏng thôi vì nó thấm ko được nhanh lắm, nhìn chung thì da mình da dầu sử dụng loại này thấy cực kì ổn luôn"-->
+<!--                android:textSize="15sp"/>-->
+<!--        </LinearLayout>-->
+<!--        <View-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:background="#c5c5c5"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/btn_XemThem"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Xem thêm"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textColor="@color/color_custom_pink"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:paddingBottom="5dp"/>-->
+<!--    </LinearLayout>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="DÀNH CHO BẠN"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/color_custom_pink"/>-->
+<!--    <GridView-->
+<!--        android:id="@+id/gv_foryou"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1200dp"-->
+<!--        android:numColumns="2"/>-->
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->
         </LinearLayout>
-        <View
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="#c5c5c5"/>
-        <TextView
-            android:id="@+id/btn_XemThem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xem thêm"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/color_custom_pink"
-            android:layout_gravity="center"
-            android:paddingBottom="5dp"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="DÀNH CHO BẠN"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/color_custom_pink"/>
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="2"/>
-</LinearLayout>
+        </LinearLayout>
 </ScrollView>

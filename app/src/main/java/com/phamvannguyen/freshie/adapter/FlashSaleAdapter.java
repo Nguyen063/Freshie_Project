@@ -4,7 +4,6 @@ import static java.lang.String.valueOf;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +16,11 @@ import android.widget.TextView;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.flashsale.FlashSale;
-import com.phamvannguyen.freshie.models.FlashSales;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class FlashSaleAdapter extends BaseAdapter {
@@ -88,9 +86,10 @@ public class FlashSaleAdapter extends BaseAdapter {
         holder.btnbuyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+//                Bundle b = new Bundle();
+//                b.putSerializable(Checkout.INTENT_PRODUCT, (Serializable) flashSale);
                 Intent intent = new Intent(activity, Checkout.class);
-                intent.putExtra("productId", flashSale.getProductID());
+//                intent.putExtras(b);
                 activity.startActivity(intent);
             }
         });

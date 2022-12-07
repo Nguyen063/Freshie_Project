@@ -21,6 +21,7 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
@@ -139,7 +140,7 @@ public class RatingAdapter extends BaseAdapter {
                 btnshopNow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(activity, CategoryFragment.class);
+                        Intent intent = new Intent(activity, MainActivity.class);
                         activity.startActivity(intent);
                         dialog.dismiss();
                     }

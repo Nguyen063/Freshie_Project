@@ -30,128 +30,128 @@ import java.util.ArrayList;
 public class CategoryFragment extends Fragment {
 
 
-    private View view;
-    private GridView gridView;
-    static ArrayList<Product> products;
-
-    public static final String INTENT_NAME = "CategoryFragment";
-    public static final String INTENT_DEALS = "Deals";
-    FragmentCategoryBinding binding;
-    private DataBaseHelper db = MainActivity.db;
+//    private View view;
+//    private GridView gridView;
+//    static ArrayList<Product> products;
+//
+//    public static final String INTENT_NAME = "CategoryFragment";
+//    public static final String INTENT_DEALS = "Deals";
+//    FragmentCategoryBinding binding;
+//    private DataBaseHelper db = MainActivity.db;
+////    public CategoryFragment() {
+////        // Required empty public constructor
+////    }
+//
 //    public CategoryFragment() {
 //        // Required empty public constructor
 //    }
-
-    public CategoryFragment() {
-        // Required empty public constructor
-    }
-
-
-//    public static CategoryFragment newInstance(String filter) {
-//        Bundle args = new Bundle();
-//        args.putString(INTENT_NAME, filter);
-//        CategoryFragment fragment = new CategoryFragment();
-//        fragment.setArguments(args);
-//        return fragment;
+//
+//
+////    public static CategoryFragment newInstance(String filter) {
+////        Bundle args = new Bundle();
+////        args.putString(INTENT_NAME, filter);
+////        CategoryFragment fragment = new CategoryFragment();
+////        fragment.setArguments(args);
+////        return fragment;
+////    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+////        view = inflater.inflate(R.layout.fragment_category, container, false);
+//
+//        binding = FragmentCategoryBinding.inflate(inflater, container, false);
+//        view = binding.getRoot();
+//        ;
+//        products = new ArrayList<Product>();
+//
+//        gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
+//
+////        loadbundle();
+////        String filter = getArguments().getString(INTENT_NAME);
+////        if(filter!=null){
+//
+//        loadListview("Skincare");
+////        }
+////        else {
+////            loadListview("Makeup");
+////            Toast.makeText(getActivity(),loadBundle(), Toast.LENGTH_SHORT).show();
+////        }
+//        addEvents();
+//        return view;
+//
 //    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-//        view = inflater.inflate(R.layout.fragment_category, container, false);
-
-        binding = FragmentCategoryBinding.inflate(inflater, container, false);
-        view = binding.getRoot();
-        ;
-        products = new ArrayList<Product>();
-
-        gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
-
-//        loadbundle();
-//        String filter = getArguments().getString(INTENT_NAME);
-//        if(filter!=null){
-
-        loadListview("Skincare");
+//
+//    private String loadBundle() {
+//        Bundle bundle = this.getArguments();
+//        if (bundle != null) {
+//          return  bundle.getString(INTENT_NAME);
 //        }
-//        else {
-//            loadListview("Makeup");
-//            Toast.makeText(getActivity(),loadBundle(), Toast.LENGTH_SHORT).show();
-//        }
-        addEvents();
-        return view;
-
-    }
-
-    private String loadBundle() {
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-          return  bundle.getString(INTENT_NAME);
-        }
-        else return null;
-    }
-
-    private void addEvents() {
-        binding.btnHairCare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadListview("Hair");
-            }
-        });
-        binding.btnMakeup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadListview("Makeup");
-            }
-        });
-        binding.btnSkincare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadListview("Skincare");
-            }
-
-        });
-        binding.btnPerfume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadListview("Perfume");
-            }
-        });
-//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+//        else return null;
+//    }
+//
+//    private void addEvents() {
+//        binding.btnHairCare.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), CartActivity.class);
-//                startActivity(intent);
+//                loadListview("Hair");
 //            }
 //        });
-        binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                sendToProductDetail(products.get(i), getActivity());
-            }
-        });
-    }
-
-    private void loadListview(String category) {
-
-
-        products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = '" + category + "'");
-
-        CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
-        gridView.setAdapter(adapter);
-    }
-
-    private void setInitialColor(Button btn) {
-//        binding.btnHairCare.setBackgroundColor();
-
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-    public void displayReceivedData(String message)
-    {
-
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-    };
+//        binding.btnMakeup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loadListview("Makeup");
+//            }
+//        });
+//        binding.btnSkincare.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loadListview("Skincare");
+//            }
+//
+//        });
+//        binding.btnPerfume.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loadListview("Perfume");
+//            }
+//        });
+////        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                Intent intent = new Intent(getActivity(), CartActivity.class);
+////                startActivity(intent);
+////            }
+////        });
+//        binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                sendToProductDetail(products.get(i), getActivity());
+//            }
+//        });
+//    }
+//
+//    private void loadListview(String category) {
+//
+//
+//        products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = '" + category + "'");
+//
+//        CategoryAdapter adapter = new CategoryAdapter(getActivity(), R.layout.item_category, products);
+//        gridView.setAdapter(adapter);
+//    }
+//
+//    private void setInitialColor(Button btn) {
+////        binding.btnHairCare.setBackgroundColor();
+//
+//    }
+//
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//    }
+//    public void displayReceivedData(String message)
+//    {
+//
+//        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+//    };
 }

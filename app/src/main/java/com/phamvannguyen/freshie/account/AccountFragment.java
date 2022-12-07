@@ -190,5 +190,6 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
     }
 }

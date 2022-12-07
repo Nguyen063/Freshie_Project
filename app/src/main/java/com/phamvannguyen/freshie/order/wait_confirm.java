@@ -46,7 +46,6 @@ public class wait_confirm extends Fragment {
             }
         });
 
-
         return view;
     }
 }
