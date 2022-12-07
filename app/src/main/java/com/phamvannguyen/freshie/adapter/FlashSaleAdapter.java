@@ -5,16 +5,19 @@ import static java.lang.String.valueOf;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.FlashSales;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
@@ -65,6 +68,7 @@ public class FlashSaleAdapter extends BaseAdapter {
             holder.ratingCount = view.findViewById(R.id.txt_ratingCountFlashSale);
             holder.soldCount = view.findViewById(R.id.txt_soldCountFlashSale);
             holder.btnbuyNow = view.findViewById(R.id.btn_buyNow);
+            holder.llFlashSale = view.findViewById(R.id.ll_flashsale);
             view.setTag(holder);
         }
         else {
@@ -91,6 +95,18 @@ public class FlashSaleAdapter extends BaseAdapter {
             }
         });
 
+        holder.llFlashSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle b = new Bundle();
+                b.putParcelable(ProductDetailActivity.INTENT_PRODUCT, flashSale);
+                Intent intent = new Intent();
+                intent.setClass(activity, ProductDetailActivity.class);
+                intent.putExtras(b);
+                activity.startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -98,5 +114,6 @@ public class FlashSaleAdapter extends BaseAdapter {
         ImageView productThumbnail;
         TextView productName, productPrice, productDiscount, ratingValue, ratingCount, soldCount;
         Button btnbuyNow;
+        LinearLayout llFlashSale;
     }
 }

@@ -3,13 +3,19 @@ package com.phamvannguyen.freshie.flashsale;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+
+import android.view.View;
+import android.widget.AdapterView;
+
 import android.view.MenuItem;
+
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +27,7 @@ import com.phamvannguyen.freshie.databinding.ActivityFlashSaleBinding;
 import com.phamvannguyen.freshie.models.FlashSales;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.text.BreakIterator;
@@ -43,10 +50,36 @@ public class FlashSale extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash_sale);
 
-        lvFlashSale = findViewById(R.id.lv_flashsale);
+        binding = ActivityFlashSaleBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+//        lvFlashSale = findViewById(R.id.lv_flashsale);
         loadData();
+
+        addEvents();
+//        countdown();
+        setContentView(view);
+
+    }
+
+    private void addEvents() {
+
+        binding.lvFlashsale.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                MainActivity.sendToProductDetail(flashSales.get(i),FlashSale.this);
+                Bundle b = new Bundle();
+                b.putParcelable(ProductDetailActivity.INTENT_PRODUCT, flashSales.get(i));
+                Intent intent = new Intent(FlashSale.this, ProductDetailActivity.class);
+//                intent.setClass(FlashSale.this, ProductDetailActivity.class);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
+
         back();
 //        countdown();
+
     }
 
     public void countdown() {
@@ -89,10 +122,16 @@ public class FlashSale extends AppCompatActivity {
         flashSales = MainActivity.getListWhere(DataBaseHelper.COL_IS_DEAL + " = "+ 1);
 
         flashSaleAdapter = new FlashSaleAdapter(this,R.layout.item_flashsale,flashSales);
-        lvFlashSale.setAdapter(flashSaleAdapter);
+        binding.lvFlashsale.setAdapter(flashSaleAdapter);
     }
-    public void buyNow(FlashSales flashSales){
-        Intent intent = new Intent(this, Checkout.class);
-        startActivity(intent);
-    }
+
+//    public static void sendToProductDetail(Product p, Activity activity) {
+//        Bundle  b = new Bundle();
+//        b.putParcelable(ProductDetailActivity.INTENT_PRODUCT, p);
+//        Intent intent = new Intent();
+//        intent.setClass(activity, ProductDetailActivity.class);
+//        intent.putExtras(b);
+//        activity.startActivity(intent);
+//    }
+
 }

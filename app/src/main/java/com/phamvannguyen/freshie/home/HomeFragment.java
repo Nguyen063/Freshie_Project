@@ -56,7 +56,8 @@ public class HomeFragment extends Fragment {
     private SliderView sliderView;
     int [] images = {
             R.drawable.banner1,
-            R.drawable.banner2
+            R.drawable.banner2,
+            R.drawable.banner3,
     };
     public static final String INTENT_NAME = "HomeFragment";
     public static final String INTENT_DEALS = "Deals";
