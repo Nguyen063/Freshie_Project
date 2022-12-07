@@ -28,7 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String TBL_PRODUCT = "product";
     public static final String COL_ID = "ProductId";
     public static final String COL_NAME = "ProductName";
-    public static final String COL_CATEGORY = "Category";
+    public static final String COL_CATEGORY = "CategoryProduct";
     public static final String COL_BRAND ="Brand";
     public static final String COL_ORIGINAL_PRICE = "OriginalPrice";
     public static final String COL_PRICE = "Price";

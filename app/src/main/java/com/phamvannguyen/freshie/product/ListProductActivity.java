@@ -23,7 +23,7 @@ import java.util.List;
 public class ListProductActivity extends AppCompatActivity {
 
     ActivityListProductBinding binding;
-    public static final String INTENT_CATEGORY = "Category";
+    public static final String INTENT_CATEGORY = "CategoryProduct";
     public static final String INTENT_BRAND = "Brand";
     public static final String INTENT_SEARCH = "search";
     public static final String INTENT_IS_DEAL = "is_deal";

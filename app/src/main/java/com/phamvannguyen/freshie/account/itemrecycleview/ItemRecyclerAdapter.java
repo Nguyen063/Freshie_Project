@@ -49,7 +49,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     public class VoucherBrandViewHolder extends RecyclerView.ViewHolder {
         private ImageView imvVoucherBrand;
-        private TextView txtVoucherValue, txtVoucherValid, txtProductPricerecycler;
+        private TextView txtVoucherValue, txtVoucherValid;
 
 
         public VoucherBrandViewHolder(@NonNull View itemView) {

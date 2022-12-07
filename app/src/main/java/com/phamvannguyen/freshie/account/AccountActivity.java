@@ -51,11 +51,11 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        binding.imageButtonEditProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, EditProfile.class);
-            startActivity(intent);
-            finish();
-        });
+//        binding.imageButtonEditProfile.setOnClickListener(v -> {
+//            Intent intent = new Intent(AccountActivity.this, EditProfile.class);
+//            startActivity(intent);
+//            finish();
+//        });
         binding.llVieworder.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
             startActivity(intent);
@@ -91,11 +91,11 @@ public class AccountActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-        binding.llSettingprofile.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, EditProfile.class);
-            startActivity(intent);
-            finish();
-        });
+//        binding.llSettingprofile.setOnClickListener(v -> {
+//            Intent intent = new Intent(AccountActivity.this, EditProfile.class);
+//            startActivity(intent);
+//            finish();
+//        });
         binding.llHelpcenter.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, CustomerService.class);
             startActivity(intent);

@@ -55,7 +55,7 @@ public class Product extends ProductBase implements Parcelable {
 //                    String description) {
 //        ProductID = productID;
 //        ProductName = productName;
-//        Category = category;
+//        CategoryProduct = category;
 //        Brand = brand;
 //        OriginalPrice = originalPrice;
 //        Price = price;
@@ -78,7 +78,7 @@ public class Product extends ProductBase implements Parcelable {
 //
 //        c.moveToFirst();
 //        ProductName = c.getString(1);
-//        Category = c.getString(2);
+//        CategoryProduct = c.getString(2);
 //        Brand = c.getString(3);
 //        OriginalPrice = c.getDouble(4);
 //        Price = c.getDouble(5);
