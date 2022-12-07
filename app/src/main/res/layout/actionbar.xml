@@ -2,17 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/color_custom_blue">
 
     <ImageButton
         android:id="@+id/Back_Home"
-        android:src="@drawable/ic_home_black_24dp"
+        android:src="@drawable/freshie2"
         android:background="?attr/actionBarItemBackground"
-        android:layout_width="50dp"
+        android:layout_width="45dp"
+        android:padding="5dp"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:scaleType="centerInside"
+        android:gravity="center_vertical"/>
+
 
     <SearchView
 

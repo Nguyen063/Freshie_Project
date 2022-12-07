@@ -30,21 +30,21 @@ import java.util.ArrayList;
 public class CategoryFragment extends Fragment {
 
 
-//    private View view;
+   private View view;
 //    private GridView gridView;
 //    static ArrayList<Product> products;
 //
 //    public static final String INTENT_NAME = "CategoryFragment";
 //    public static final String INTENT_DEALS = "Deals";
-//    FragmentCategoryBinding binding;
+    FragmentCategoryBinding binding;
 //    private DataBaseHelper db = MainActivity.db;
 ////    public CategoryFragment() {
 ////        // Required empty public constructor
 ////    }
 //
-//    public CategoryFragment() {
-//        // Required empty public constructor
-//    }
+    public CategoryFragment() {
+        // Required empty public constructor
+    }
 //
 //
 ////    public static CategoryFragment newInstance(String filter) {
@@ -54,33 +54,20 @@ public class CategoryFragment extends Fragment {
 ////        fragment.setArguments(args);
 ////        return fragment;
 ////    }
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-////        view = inflater.inflate(R.layout.fragment_category, container, false);
-//
-//        binding = FragmentCategoryBinding.inflate(inflater, container, false);
-//        view = binding.getRoot();
-//        ;
-//        products = new ArrayList<Product>();
-//
-//        gridView = (GridView) view.findViewById(R.id.gv_ListProduct);
-//
-////        loadbundle();
-////        String filter = getArguments().getString(INTENT_NAME);
-////        if(filter!=null){
-//
-//        loadListview("Skincare");
-////        }
-////        else {
-////            loadListview("Makeup");
-////            Toast.makeText(getActivity(),loadBundle(), Toast.LENGTH_SHORT).show();
-////        }
-//        addEvents();
-//        return view;
-//
-//    }
-//
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+//        view = inflater.inflate(R.layout.fragment_category, container, false);
+
+        binding = FragmentCategoryBinding.inflate(inflater, container, false);
+        view = binding.getRoot();
+
+
+        return view;
+
+
+    }
+
 //    private String loadBundle() {
 //        Bundle bundle = this.getArguments();
 //        if (bundle != null) {
