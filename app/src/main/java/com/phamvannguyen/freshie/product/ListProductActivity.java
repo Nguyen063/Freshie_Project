@@ -3,6 +3,7 @@ package com.phamvannguyen.freshie.product;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +26,7 @@ public class ListProductActivity extends AppCompatActivity {
     ActivityListProductBinding binding;
     public static final String INTENT_CATEGORY = "Category";
     public static final String INTENT_BRAND = "Brand";
-    public static final String INTENT_SEARCH = "search";
+    public static final String INTENT_SEARCH = "ProductName";
     public static final String INTENT_IS_DEAL = "is_deal";
     public static final String INTENT_IS_NEW = "is_new";
     public static final String INTENT_IS_BEST_SELLER = "is_best_seller";
@@ -36,9 +37,6 @@ public class ListProductActivity extends AppCompatActivity {
             add(INTENT_CATEGORY);
             add(INTENT_BRAND);
             add(INTENT_SEARCH);
-            add(INTENT_IS_DEAL);
-            add(INTENT_IS_NEW);
-            add(INTENT_IS_BEST_SELLER);
         }
     };
     //Create list string from INTENT
@@ -53,7 +51,6 @@ public class ListProductActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         loadData();
         addEvents();
-//        filterList();
 
     }
 
@@ -159,11 +156,23 @@ public class ListProductActivity extends AppCompatActivity {
         products = new ArrayList<>();
         for (String item : list) {
             if (getIntent().hasExtra(item)) {
-                filter = getIntent().getStringExtra(item);
-                products = MainActivity.getListWhere(item + " = '" + filter + "'");
+                if(!item.equals(INTENT_SEARCH)){
+                    filter = getIntent().getStringExtra(item);
+                    products = MainActivity.getListWhere(item + " ='" + filter + "'");
+                    binding.txtTitle.setText(filter);
+                }
+                else{
+                    filter = getIntent().getStringExtra(item);
+                    products = MainActivity.getListWhere(item + " LIKE '%" + filter + "%'");
+                    TextView txtTitle = binding.txtTitle;
+                    txtTitle.setText("Kết quả tìm kiếm" + " '" + filter + "'");
+                    txtTitle.setTextSize(14);
+                    txtTitle.setTextColor(Color.parseColor("#000000"));
+                }
                 break;
             }
         }
+
        updateGridView(products);
     }
 
