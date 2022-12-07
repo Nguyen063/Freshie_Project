@@ -27,6 +27,7 @@
             android:text="Tên sản phẩm"
             android:layout_marginRight="5dp"
             android:textSize="18sp"
+            android:maxLines="2"
             android:textColor="@color/black"
             android:layout_marginBottom="5dp"
             />
@@ -63,6 +64,7 @@
                 android:textStyle="bold"
                 android:scaleX="1"
                 android:scaleY="1"
+                android:onClick="onCartDecrease"
                 />
             <TextView
                 android:id="@+id/txt_quantity"
@@ -88,6 +90,7 @@
                 android:scaleY="1"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:onClick="onCartIncrease"
                 />
 
 

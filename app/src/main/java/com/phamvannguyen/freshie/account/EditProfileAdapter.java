@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.phamvannguyen.freshie.MainActivity;
@@ -50,8 +51,8 @@ public class EditProfileAdapter extends BaseAdapter {
             holder.txtUserName = view.findViewById(R.id.txt_userName);
             holder.txtUserEmail = view.findViewById(R.id.txt_userEmail);
             holder.txtUserPhone = view.findViewById(R.id.txt_userPhone);
-            holder.txtUserGender = view.findViewById(R.id.txt_userGender);
             holder.txtUserAddress = view.findViewById(R.id.txt_userAddress);
+            holder.radGender = view.findViewById(R.id.rad_gender);
             view.setTag(holder);
             return null;
         } else {
@@ -61,7 +62,7 @@ public class EditProfileAdapter extends BaseAdapter {
         holder.txtUserName.setText(editProfileModel.getUserName());
         holder.txtUserEmail.setText(editProfileModel.getUserEmail());
         holder.txtUserPhone.setText(editProfileModel.getUserPhone());
-        holder.txtUserGender.setText(editProfileModel.getUserGender());
+        //Gender
         holder.txtUserAddress.setText(editProfileModel.getUserAddress());
         holder.imvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +76,9 @@ public class EditProfileAdapter extends BaseAdapter {
 
 
     public static class ViewHolder{
-        TextView txtUserName, txtUserEmail, txtUserPhone, txtUserGender, txtUserAddress ;
+        TextView txtUserName, txtUserEmail, txtUserPhone, txtUserAddress ;
         ImageView imvEdit;
+        RadioGroup radGender;
 
 
     }

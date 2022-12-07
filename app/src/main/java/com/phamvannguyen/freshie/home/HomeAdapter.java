@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.phamvannguyen.freshie.account.AccountFragment;
 import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.categories.CategoryFragment;
 import com.phamvannguyen.freshie.notifications.NotificationsFragment;

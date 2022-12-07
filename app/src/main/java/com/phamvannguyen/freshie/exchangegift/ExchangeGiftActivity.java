@@ -50,7 +50,7 @@ public class ExchangeGiftActivity extends AppCompatActivity {
 
     public void back() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("ExchangeGiftActivity");
+        actionBar.setTitle("Điểm của tôi");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);

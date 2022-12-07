@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
+    private View view;
     private FragmentNotificationsBinding binding;
     public NotificationsFragment(){
 
@@ -26,7 +27,7 @@ public class NotificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notifications, container, false);
+        view = inflater.inflate(R.layout.fragment_notifications, container, false);
         ListView lvNotification = view.findViewById(R.id.lv_notification);
         ArrayList<Notification> notifications = new ArrayList<>();
 
@@ -47,7 +48,10 @@ public class NotificationsFragment extends Fragment {
                 notifications.add(new Notification("Khuyến mãi","Khuyến mãi 20% cho đơn hàng trên 500k","12/12/2020"));
                 notifications.add(new Notification("Khuyến mãi","Khuyến mãi 20% cho đơn hàng trên 500k","12/12/2020"));
                 adapter.notifyDataSetChanged();
+                btnPromotion.setBackgroundColor(getResources().getColor(R.color.color_custom_pink));
+                btnYourNoti.setBackgroundColor(getResources().getColor(R.color.color_custom_blue));
             }
+
         });
 
         btnYourNoti.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +62,8 @@ public class NotificationsFragment extends Fragment {
                 notifications.add(new Notification("Thông báo","Đơn hàng #123456789 của bạn đã được giao","12/12/2020"));
                 notifications.add(new Notification("Thông báo","Đơn hàng của bạn đã được giao","12/12/2020"));
                 adapter.notifyDataSetChanged();
+                btnPromotion.setBackgroundColor(getResources().getColor(R.color.color_custom_blue));
+                btnYourNoti.setBackgroundColor(getResources().getColor(R.color.color_custom_pink));
             }
         });
 

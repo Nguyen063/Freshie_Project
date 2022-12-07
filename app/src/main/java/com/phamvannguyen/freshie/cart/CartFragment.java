@@ -4,10 +4,14 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
@@ -22,6 +26,9 @@ public class CartFragment extends Fragment {
     FragmentCartBinding binding;
     CartAdapter adapter;
     ArrayList<CartModel> cartList;
+    Product p;
+    Button btnInc, btnDec;
+    double total = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,50 +43,57 @@ public class CartFragment extends Fragment {
     }
 
     private void addEvents() {
+        binding.lvProductCart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+            }
+
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
+            }
+        });
         binding.btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Checkout.INTENT_PRODUCT, (Parcelable) cartList);
                 Intent intent = new Intent(getActivity(), Checkout.class);
+                intent.putExtra(Checkout.INTENT_PRODUCT, bundle);
                 startActivity(intent);
             }
         });
+
+
     }
 
     private void loadData() {
         cartList = new ArrayList<>();
-        cartList.add(new CartModel(R.drawable.vitamintree,
-                "Kem dưỡng da Vitamin Tree Water-Gel",
-                350000.0, 1));
-        cartList.add(new CartModel(R.drawable.banobagi_cart,
-                "Mặt nạ BNBG Whitening Stem Cell Collagen",
-                180000.0, 1));
-        cartList.add(new CartModel(R.drawable.vichymineral89,
-                "Dưỡng chất cô đặc Vichy Mineral 89 – 75ml",
-                980000.0, 1));
-        cartList.add(new CartModel(R.drawable.serumlancome,
-                "Tinh Chất Hỗ Trợ Dưỡng Ẩm & Trẻ Hóa Da Lancôme 100ml",
-                990000.0, 1));
-        cartList.add(new CartModel(R.drawable.tonerklairs,
-                "Nước Hoa Hồng Klairs Không Mùi Cho Da Nhạy Cảm 180ml",
-                245000.0, 1));
-        cartList.add(new CartModel(R.drawable.lotionlancome,
-                "Nước Hoa Hồng Lancome Tonique Confort Toner 125ml",
-                570000.0, 1));
-        cartList.add(new CartModel(R.drawable.esteelauder,
-                "Kem Dưỡng Phục Hồi Da Vùng Mắt Estée Lauder 15ml",
-                860000.0, 1));
-        cartList.add(new CartModel(R.drawable.goohndoc,
-                "Serum dưỡng mờ thâm GoodnDoc Hydra B5 75ml",
-                680000.0, 1));
-        cartList.add(new CartModel(R.drawable.pair,
-                "Kem Hỗ Trợ Cải Thiện Mụn Pair Nhật Bản 14g",
-                125000.0, 1));
-        cartList.add(new CartModel(R.drawable.tonerkiehls,
-                "Nước Cân Bằng Hoa Cúc Kiehl’s 500ml",
-                880000.0, 1));
-
-//        adapter = new CartAdapter(this, R.layout.item_list_product_cart, cartList);
+        for (int i = 1; i < 5; i++) {
+            p =  MainActivity.getProductWithId(i);
+            cartList.add( new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),i));
+        }
+        adapter = new CartAdapter(getActivity(), R.layout.item_list_product_cart, cartList);
         binding.lvProductCart.setAdapter(adapter);
 
+        ////---Update total price
+
+       updateTotalPrice();
+    }
+    public void updateTotalPrice(){
+        for (CartModel item : cartList) {
+            total += item.getPrice() * item.getQuantity();
+        }
+        binding.txtCartTotalPrice.setText(String.format("%,.0f đ", total));
+    }
+    public void onCartDecrease(){
+        updateTotalPrice();
+    }
+    public void onCartIncrease(){
+        updateTotalPrice();
     }
 }

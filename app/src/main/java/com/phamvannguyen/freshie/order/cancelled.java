@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 import com.phamvannguyen.freshie.payment.Checkout;
@@ -31,7 +32,7 @@ public class cancelled extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cancelled, container, false);
         ListView lvWaitConfirm = view.findViewById(R.id.lv_cancelled);
-        ArrayList<Product> orders = new ArrayList<>();
+        ArrayList<CartModel> orders = new ArrayList<>();
 
 
         byte[] image = null;

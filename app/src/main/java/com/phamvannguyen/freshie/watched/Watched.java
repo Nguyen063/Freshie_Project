@@ -44,7 +44,7 @@ public class Watched extends AppCompatActivity {
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Product Watched");
+        actionBar.setTitle("Sản phẩm đã xem");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);

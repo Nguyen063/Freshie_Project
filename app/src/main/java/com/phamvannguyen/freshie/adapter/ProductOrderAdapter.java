@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductOrder;
 
@@ -21,9 +22,9 @@ public class ProductOrderAdapter extends BaseAdapter {
 
     Activity activity;
     int item_layout;
-    List<Product> ProductList;
+    List<CartModel> ProductList;
 
-    public ProductOrderAdapter(Activity activity, int item_layout, List<Product> ProductList) {
+    public ProductOrderAdapter(Activity activity, int item_layout, List<CartModel> ProductList) {
         this.activity = activity;
         this.item_layout = item_layout;
         this.ProductList = ProductList;
@@ -65,12 +66,12 @@ public class ProductOrderAdapter extends BaseAdapter {
 
         if (ProductList.size() == 0) {
 
-            Product product = ProductList.get(i);
-            holder.txtName.setText(product.getProductName());
-            holder.txtPrice.setText(product.getFormattedPrice());
-            holder.txtNum.setText("1");
-            holder.txtName.setText(product.getProductName());
-            new MainActivity.FetchImage(product.getThumbUrl(), holder.imgProduct).start();
+            CartModel notRating = ProductList.get(i);
+            holder.txtName.setText(notRating.getProductName());
+            holder.txtPrice.setText(notRating.getFormattedPrice());
+            holder.txtNum.setText(notRating.getQuantity());
+            holder.txtName.setText(notRating.getProductName());
+            new MainActivity.FetchImage(notRating.getThumbUrl(), holder.imgProduct).start();
 
 
         }
