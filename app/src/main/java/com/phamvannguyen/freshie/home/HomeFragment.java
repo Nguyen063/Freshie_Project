@@ -182,7 +182,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //-----------------Category section-----------------
+        //-----------------CategoryProduct section-----------------
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
