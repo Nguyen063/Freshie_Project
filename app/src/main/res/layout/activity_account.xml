@@ -15,44 +15,76 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:background="@color/white"
-            android:padding="10dp"
             android:layout_gravity="right"
-            android:layout_marginTop="10dp">
+           >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleY="0.8"
+                android:scaleX="0.8"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/profile_avatar"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center_vertical"
                 android:backgroundTint="@color/white">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profile_avatar"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="22sp"
-                    android:text="Nguyễn Thành Phát"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center"
-                    />
-                <ImageButton
-                    android:id="@+id/imageButton_editProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/editpen_black"
-                    android:backgroundTint="@color/white"
-                    android:layout_gravity="center"
-                    android:scaleX="1.2"
-                    android:scaleY="1.2"
-                    />
 
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="right">-->
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/btn_cart"-->
+<!--                        android:src="@drawable/icon_cart"-->
+<!--                        android:background="?attr/actionBarItemBackground"-->
+<!--                        android:layout_width="?attr/actionBarSize"-->
+<!--                        android:layout_height="?attr/actionBarSize" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/btn_chatting"-->
+<!--                        android:background="?attr/actionBarItemBackground"-->
+<!--                        android:layout_width="?attr/actionBarSize"-->
+<!--                        android:layout_height="?attr/actionBarSize"-->
+<!--                        android:src="@drawable/icon_chatting"-->
+<!--                        android:layout_marginRight="10dp"/>-->
+
+<!--                </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Nguyễn Thành Phát"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        />
+                    <ImageButton
+                        android:id="@+id/imageButton_editProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/editpen_black"
+                        android:backgroundTint="@color/white"
+                        android:layout_gravity="center"
+                        android:scaleX="1.2"
+                        android:scaleY="1.2"
+                        />
+                </LinearLayout>
 
             </LinearLayout>
+
+
         </LinearLayout>
 
 
@@ -178,14 +210,15 @@
             android:layout_gravity="right"
             android:layout_marginTop="10dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_categoryRecyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </RelativeLayout>
+            </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -438,7 +471,7 @@
                 <TextView
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:text="Thiết lập tài khoản"
+                    android:text="Đổi mật khẩu"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:layout_gravity="center"/>

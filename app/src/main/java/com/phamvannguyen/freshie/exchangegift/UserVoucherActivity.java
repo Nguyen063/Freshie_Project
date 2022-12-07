@@ -80,7 +80,7 @@ public class UserVoucherActivity extends AppCompatActivity {
                 "Giảm 50K cho đơn từ 500K",
                 "HSD: 31/12/2022"));
 
-        adapter = new ExchangeGiftAdapter(this, R.layout.item_list_voucher, exchangeGiftList);
+        adapter = new ExchangeGiftAdapter(this, R.layout.item_user_voucher, exchangeGiftList);
         binding.lvVoucher.setAdapter(adapter);
 
     }

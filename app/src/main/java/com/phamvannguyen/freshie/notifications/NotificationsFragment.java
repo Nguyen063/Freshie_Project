@@ -48,7 +48,10 @@ public class NotificationsFragment extends Fragment {
                 notifications.add(new Notification("Khuyến mãi","Khuyến mãi 20% cho đơn hàng trên 500k","12/12/2020"));
                 notifications.add(new Notification("Khuyến mãi","Khuyến mãi 20% cho đơn hàng trên 500k","12/12/2020"));
                 adapter.notifyDataSetChanged();
+                btnPromotion.setBackgroundColor(getResources().getColor(R.color.color_custom_pink));
+                btnYourNoti.setBackgroundColor(getResources().getColor(R.color.color_custom_blue));
             }
+
         });
 
         btnYourNoti.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +62,8 @@ public class NotificationsFragment extends Fragment {
                 notifications.add(new Notification("Thông báo","Đơn hàng #123456789 của bạn đã được giao","12/12/2020"));
                 notifications.add(new Notification("Thông báo","Đơn hàng của bạn đã được giao","12/12/2020"));
                 adapter.notifyDataSetChanged();
+                btnPromotion.setBackgroundColor(getResources().getColor(R.color.color_custom_blue));
+                btnYourNoti.setBackgroundColor(getResources().getColor(R.color.color_custom_pink));
             }
         });
 

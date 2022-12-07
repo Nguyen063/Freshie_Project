@@ -228,7 +228,7 @@
             android:id="@+id/btn_Buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mua với voucher"
+            android:text="Mua ngay"
             android:textSize="15dp"
             android:textColor="@color/white"
             android:backgroundTint="#F473B9"
