@@ -42,8 +42,9 @@ public class ListProductActivity extends AppCompatActivity {
         }
     };
     //Create list string from INTENT
-    ArrayList<Product> products;
+    ArrayList<Product> products, filterProducts;
 
+    CategoryAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +53,38 @@ public class ListProductActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         loadData();
         addEvents();
+//        filterList();
+
     }
 
+//    private void filterList() {
+//
+//        if(products.size() != 0)
+//        {
+//          filterBy();
+//        }
+//        else
+//        {
+//            binding.txtNoData.setVisibility(View.VISIBLE);
+//        }
+//
+//    }
+
+    private void filterBy(String feature){
+        filterProducts = products;
+        for (int i = 0; i < products.size(); i++) {
+            if (feature == "Nổi bật" && products.get(i).getIsDeal() == 0) {
+                filterProducts.remove(i);
+            }
+            else if (feature == "Mới nhất" && products.get(i).getIsNew() == 0) {
+                filterProducts.remove(i);
+            }
+            else if (feature == "Bán chạy" && products.get(i).getIsBestSeller() == 0) {
+                filterProducts.remove(i);
+            }
+        }
+
+    }
     private void addEvents() {
         binding.gvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,6 +95,62 @@ public class ListProductActivity extends AppCompatActivity {
                 bundle.putParcelable(ProductDetailActivity.INTENT_PRODUCT, product);
                 intent.putExtras(bundle);
                 startActivity(intent);
+            }
+        });
+        binding.btnHairCare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = 'Chăm sóc tóc'");
+                updateGridView(products);
+            }
+        });
+        binding.btnSkincare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = 'Chăm sóc da mặt'");
+                updateGridView(products);
+            }
+        });
+        binding.btnMakeup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = 'Trang điểm'");
+                updateGridView(products);
+            }
+        });
+        binding.btnPerfume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                products = MainActivity.getListWhere(DataBaseHelper.COL_CATEGORY + " = 'Nước hoa'");
+                updateGridView(products);
+            }
+        });
+        if (products.size() == 0) {
+            binding.txtNoData.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.txtNoData.setVisibility(View.GONE);
+        }
+
+        binding.btnNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterBy(binding.btnNew.getText().toString());
+                updateGridView(filterProducts);
+            }
+        });
+        binding.btnBestseller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterBy(binding.btnBestseller.getText().toString());
+                updateGridView(filterProducts);
+            }
+        });
+        binding.btnOutstanding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterBy(binding.btnOutstanding.getText().toString());
+                updateGridView(filterProducts);
             }
         });
     }
@@ -77,11 +164,11 @@ public class ListProductActivity extends AppCompatActivity {
                 break;
             }
         }
-        if (products.size() == 0) {
-            binding.txtNoData.setVisibility(View.VISIBLE);
-        }
-        CategoryAdapter adapter = new CategoryAdapter(this,R.layout.item_category, products);
-        binding.gvListProduct.setAdapter(adapter);
+       updateGridView(products);
     }
 
+    private void updateGridView(ArrayList<Product> products) {
+        adapter = new CategoryAdapter(this,R.layout.item_category, products);
+        binding.gvListProduct.setAdapter(adapter);
+    }
 }

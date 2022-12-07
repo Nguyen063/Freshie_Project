@@ -100,6 +100,7 @@ ArrayList<Integer> brands = new ArrayList<Integer>(){
             });
         }
 
+
     }
     public void intentToProduct(String name, String value){
         Intent intent = new Intent(getActivity(), ListProductActivity.class);
