@@ -10,18 +10,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.phamvannguyen.freshie.R;
 
 import java.util.List;
 
-public class ExchangeGiftAdapter extends BaseAdapter {
+public class MyVoucherAdapter extends BaseAdapter {
     Activity activity;
     int item_layout;
     List<ExchangeGiftModel> exchangeGiftList;
 
-    public ExchangeGiftAdapter(Activity activity, int item_layout, List<ExchangeGiftModel> exchangeGiftList) {
+    public MyVoucherAdapter(Activity activity, int item_layout, List<ExchangeGiftModel> exchangeGiftList) {
         this.activity = activity;
         this.item_layout = item_layout;
         this.exchangeGiftList = exchangeGiftList;
@@ -56,7 +54,6 @@ public class ExchangeGiftAdapter extends BaseAdapter {
             holder.txtVoucherTime = view.findViewById(R.id.txt_voucherTime);
             holder.btnMyPoint = view.findViewById(R.id.btn_myPoint);
             holder.btnMyVoucher = view.findViewById(R.id.btn_myVoucher);
-            holder.btn_voucherPoint = view.findViewById(R.id.btn_voucherPoint);
 
             view.setTag(holder);
         } else {
@@ -67,13 +64,12 @@ public class ExchangeGiftAdapter extends BaseAdapter {
             holder.txtVoucherSale.setText(exchangeGiftModel.getVoucherSale());
             holder.txtVoucherCondition.setText(exchangeGiftModel.getVoucherCondition());
             holder.txtVoucherTime.setText(exchangeGiftModel.getVoucherTime());
-            holder.btn_voucherPoint.setText(String.valueOf(exchangeGiftModel.getVoucherPoint()));
             return view;
         }
 
     private static class ViewHolder {
         ImageView imvVoucherImage;
         TextView txtVoucherSale, txtVoucherCondition, txtVoucherTime;
-        Button btnMyPoint, btnMyVoucher, btn_voucherPoint;
+        Button btnMyPoint, btnMyVoucher;
     }
 }

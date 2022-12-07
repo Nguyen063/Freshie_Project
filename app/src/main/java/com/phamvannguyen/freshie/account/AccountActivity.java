@@ -1,5 +1,8 @@
 package com.phamvannguyen.freshie.account;
 
+import static com.phamvannguyen.freshie.MainActivity.viewPager;
+import static com.phamvannguyen.freshie.MainActivity.viewPager2;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -135,7 +138,7 @@ public class AccountActivity extends AppCompatActivity {
         });
         binding.btnDelivering.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
-            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
+//            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
             startActivity(intent);
         });
         binding.btnDelivered.setOnClickListener(v -> {

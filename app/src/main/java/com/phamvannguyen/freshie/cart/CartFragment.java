@@ -61,7 +61,7 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Checkout.INTENT_PRODUCT, (Parcelable) cartList);
+//                bundle.putParcelable(Checkout.INTENT_PRODUCT, (Parcelable) cartList);
                 Intent intent = new Intent(getActivity(), Checkout.class);
                 intent.putExtra(Checkout.INTENT_PRODUCT, bundle);
                 startActivity(intent);

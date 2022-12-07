@@ -26,6 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.phamvannguyen.freshie.account.AccountActivity;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Send
 
     ActivityMainBinding binding;
     public static ViewPager viewPager;
+    public static ViewPager2 viewPager2;
     private BottomNavigationView bottomNavigationView;
     public static DataBaseHelper db;
     TabLayout tabLayout;

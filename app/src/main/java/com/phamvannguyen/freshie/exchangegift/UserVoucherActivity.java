@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class UserVoucherActivity extends AppCompatActivity {
 
     ActivityUserVoucherBinding binding;
-    ExchangeGiftAdapter adapter;
+    MyVoucherAdapter adapter;
     ArrayList<ExchangeGiftModel> exchangeGiftList;
     Button button;
 
@@ -34,7 +34,7 @@ public class UserVoucherActivity extends AppCompatActivity {
     }
     private void back() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Product Watched");
+        actionBar.setTitle("Voucher của tôi");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
@@ -66,21 +66,21 @@ public class UserVoucherActivity extends AppCompatActivity {
         exchangeGiftList = new ArrayList<>();
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.vichy,"Giảm 100k",
                 "Giảm tối đa 100K cho đơn từ 500K",
-                "HSD: 31/12/2022"));
+                "HSD: 31/12/2022", 200));
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.innisfree,"Giảm 30%",
                 "Giảm 30% tối đa 100K cho đơn từ 600K",
-                "HSD: 31/12/2022"));
+                "HSD: 31/12/2022", 500));
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.senka,"Giảm 30k",
                 "Giảm 30K cho đơn từ 500K",
-                "HSD: 31/12/2022"));
+                "HSD: 31/12/2022", 300));
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.anessa,"Giảm 100k",
                 "Giảm 50K cho đơn từ 500K",
-                "HSD: 31/12/2022"));
+                "HSD: 31/12/2022",400));
         exchangeGiftList.add(new ExchangeGiftModel(R.drawable.anessa,"Giảm 100k",
                 "Giảm 50K cho đơn từ 500K",
-                "HSD: 31/12/2022"));
+                "HSD: 31/12/2022",200));
 
-        adapter = new ExchangeGiftAdapter(this, R.layout.item_user_voucher, exchangeGiftList);
+        adapter = new MyVoucherAdapter(this, R.layout.item_user_voucher, exchangeGiftList);
         binding.lvVoucher.setAdapter(adapter);
 
     }
