@@ -41,6 +41,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_IS_DEAL = "is_deal";
     public static final String COL_IS_BEST_SELLER = "is_best_seller";
     public static final String COL_IS_NEW = "is_new";
+    //user database
+    public static final String DB_USER = "editProfileModelList.sqlite";
+    public static final String TBL_USER = "UserInfo";
+    public static final String COL_UserName = "UserName";
+    public static final String COL_UserEmail = "UserEmail";
+    public static final String COL_UserPhone = "UserPhone";
+    public static final String COL_UserAddress = "UserAddress";
+    public static final String COL_UserGender = "UserGender";
+
+
 
     private Context mycontext;
     private String DB_PATH = "/data/data/com.phamvannguyen.freshie/databases/";
@@ -144,4 +154,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    public void execSql(String s) {
+        SQLiteDatabase db = getWritableDatabase();
+    }
 }
