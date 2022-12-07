@@ -209,6 +209,13 @@ public class HomeFragment extends Fragment {
 //                        .beginTransaction()
 //                        .replace(R.id.fragment_home, fragment);
 //                transaction.commit();
+                Bundle page = new Bundle();
+//                page.putString(CategoryFragment.INTENT_NAME, "makeup");
+                CategoryFragment fragment = new CategoryFragment();
+                FragmentTransaction transaction = getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_home, fragment);
+                transaction.commit();
 //                fragmentA.setArguments(page);
 //                viewPager.setCurrentItem(2);
             }
