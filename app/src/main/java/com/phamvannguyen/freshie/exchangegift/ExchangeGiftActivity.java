@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityExchangeGiftBinding;
 import java.util.ArrayList;
@@ -20,7 +24,9 @@ public class ExchangeGiftActivity extends AppCompatActivity {
     ActivityExchangeGiftBinding binding;
     ExchangeGiftAdapter adapter;
     ArrayList<ExchangeGiftModel> exchangeGiftList;
+    ExchangeGiftModel exchangeGiftModel;
     Button button;
+    TextView textView;
 
 
     @Override
@@ -45,7 +51,6 @@ public class ExchangeGiftActivity extends AppCompatActivity {
 //            }
         loadData();
         addEvent();
-
 
     }
 
@@ -72,7 +77,27 @@ public class ExchangeGiftActivity extends AppCompatActivity {
         binding.lvVoucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//             Click
+                int b = exchangeGiftList.get(i).getVoucherPoint();
+                int totalPoint = Integer.parseInt(binding.txtTotalPoint.getText().toString());
+                if (b<=totalPoint){
+                    totalPoint = totalPoint - b;
+                    Dialog dialog = new Dialog(ExchangeGiftActivity.this);
+                    dialog.setContentView(R.layout.dialog_exvoucher_success);
+                    Button btnOk = dialog.findViewById(R.id.btn_Ok_ex_voucher);
+                    btnOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                           dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                    binding.txtTotalPoint.setText(String.valueOf(totalPoint));
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Bạn không đủ điểm để đổi điểm",Toast.LENGTH_SHORT).show();
 
+                }
             }
         });
     }

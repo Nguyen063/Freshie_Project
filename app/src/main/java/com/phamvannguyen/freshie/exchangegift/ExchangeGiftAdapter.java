@@ -1,6 +1,7 @@
 package com.phamvannguyen.freshie.exchangegift;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,18 +63,33 @@ public class ExchangeGiftAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-            ExchangeGiftModel exchangeGiftModel = exchangeGiftList.get(i);
-            holder.imvVoucherImage.setImageResource(exchangeGiftModel.getVoucherGift());
-            holder.txtVoucherSale.setText(exchangeGiftModel.getVoucherSale());
-            holder.txtVoucherCondition.setText(exchangeGiftModel.getVoucherCondition());
-            holder.txtVoucherTime.setText(exchangeGiftModel.getVoucherTime());
-            holder.btn_voucherPoint.setText(String.valueOf(exchangeGiftModel.getVoucherPoint()));
-            return view;
-        }
+        ExchangeGiftModel exchangeGiftModel = exchangeGiftList.get(i);
+        holder.imvVoucherImage.setImageResource(exchangeGiftModel.getVoucherGift());
+        holder.txtVoucherSale.setText(exchangeGiftModel.getVoucherSale());
+        holder.txtVoucherCondition.setText(exchangeGiftModel.getVoucherCondition());
+        holder.txtVoucherTime.setText(exchangeGiftModel.getVoucherTime());
+        holder.btn_voucherPoint.setText(String.valueOf(exchangeGiftModel.getVoucherPoint()));
+        return view;
+
+//        holder.btn_voucherPoint.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String b = holder.btn_voucherPoint.getText().toString();
+////                int myVoucher = Integer.parseInt(b);
+//                if (myVoucher > 300) {
+//                    Dialog dialog = new Dialog(activity);
+//                    dialog.setContentView(R.layout.dialog_photo_rating);
+//                }
+//
+//            }
+//        });
+//
+    }
 
     private static class ViewHolder {
         ImageView imvVoucherImage;
-        TextView txtVoucherSale, txtVoucherCondition, txtVoucherTime;
-        Button btnMyPoint, btnMyVoucher, btn_voucherPoint;
+        TextView txtVoucherSale, txtVoucherCondition, txtVoucherTime,btn_voucherPoint;
+        Button btnMyPoint, btnMyVoucher;
     }
+
 }
