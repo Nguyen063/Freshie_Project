@@ -7,9 +7,9 @@
 
     <ImageButton
         android:id="@+id/Back_Home"
-        android:src="@drawable/ic_home_black_24dp"
-        android:background="?attr/actionBarItemBackground"
-        android:layout_width="50dp"
+        android:src="@drawable/freshie2"
+        android:background="@drawable/freshie2"
+        android:layout_width="30dp"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"/>

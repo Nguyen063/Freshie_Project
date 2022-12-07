@@ -22,8 +22,7 @@
         android:textColor="@color/color_custom_pink"
         android:background="@drawable/border_radius_pink"
         android:padding="10dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_gravity="center"/>
 
         <TableLayout
             android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                 android:id="@+id/txt_skincare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Skincare"
+                android:text="Chăm sóc da mặt"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -43,7 +42,7 @@
                 android:id="@+id/txt_makeup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Make up"
+                android:text="Trang điểm"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -55,7 +54,7 @@
                     android:id="@+id/txt_perfume"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Perfume"
+                    android:text="Nước hoa"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:gravity="center"
@@ -64,7 +63,7 @@
                     android:id="@+id/txt_haircare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Perfume"
+                    android:text="Chăm sóc tóc"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:gravity="center"
@@ -81,7 +80,8 @@
         android:background="@drawable/border_radius_pink"
         android:padding="10dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
