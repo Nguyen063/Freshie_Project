@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,10 @@
     tools:context=".categories.CategoryFragment"
     android:padding="10dp"
     android:background="#F5F5F5">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,13 +25,52 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-<!--        4 icon cho 4 danh muc -->
-    </LinearLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+        <TableRow android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/txt_skincare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skincare"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:drawableTop="@drawable/ic_skincare" />
+            <TextView
+                android:id="@+id/txt_makeup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make up"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:drawableTop="@drawable/ic_makeup"/>
 
+        </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/txt_perfume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perfume"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/ic_perfume"/>
+                <TextView
+                    android:id="@+id/txt_haircare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perfume"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/ic_haircare"/>
+            </TableRow>
+        </TableLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +87,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edt_curve_white_bg"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -58,29 +100,215 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="*">
-            <TableRow>
+            <TableRow android:layout_marginTop="10dp">
                 <TextView
+                    android:id="@+id/txt_Anessa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dưỡng ẩm"
+                    android:text="ANESSA"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_custom_blue"/>
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logoanessa" />
                 <TextView
+                    android:id="@+id/txt_innisfree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Trị mụn"
+                    android:text="Innisfree"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_custom_blue"/>
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logoinnisfree"/>
                 <TextView
+                    android:id="@+id/txt_LaRochePosay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Trị nám"
+                    android:text="La Roche-posay"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/color_custom_blue"/>
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logolaroche"/>
+            </TableRow>
+            <TableRow android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/txt_loreal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L'oreal"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logoloreal" />
+                <TextView
+                    android:id="@+id/txt_sunplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunplay"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logosunplay"/>
+                <TextView
+                    android:id="@+id/txt_senka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Senka"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logosenka"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_curve_white_bg"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trang điểm"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_custom_blue"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+            <TableRow android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/txt_bbia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BBIA"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logobbia" />
+                <TextView
+                    android:id="@+id/txt_maybelline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maybelline"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logomaybeline"/>
+                <TextView
+                    android:id="@+id/txt_milaganics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milaganics"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logomilaganics"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_curve_white_bg"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chăm sóc tóc"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_custom_blue"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+                <TableRow android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/txt_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLEAR"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:drawableTop="@drawable/logoclear"/>
+                    <TextView
+                        android:id="@+id/txt_dove"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dove"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:drawableTop="@drawable/logodove"/>
+                    <TextView
+                        android:id="@+id/txt_tresemme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TRESemme"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:drawableTop="@drawable/logotresemme"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_curve_white_bg"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chăm sóc tóc"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_custom_blue"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+            <TableRow android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/txt_xmen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLEAR"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logoxmen"/>
+                <TextView
+                    android:id="@+id/txt_versace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dove"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logoversace"/>
+                <TextView
+                    android:id="@+id/txt_charme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRESemme"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/logocharme"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>
