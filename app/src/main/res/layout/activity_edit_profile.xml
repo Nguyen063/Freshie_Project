@@ -45,7 +45,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
+                <EditText
                     android:id="@+id/txt_userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,11 +57,6 @@
                     android:textColor="@color/black"
                     android:textSize="26sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/editpen_black" />
             </LinearLayout>
 
             <TextView
@@ -87,17 +82,39 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
+                android:text="Họ tên:"
+                android:textColor="@color/black"
+                android:textSize="19sp" />
+
+            <EditText
+                android:id="@+id/edt_Name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="Nguyễn Thành Phát"
+                android:textSize="18sp"
+                android:background="@drawable/border_radius_gray_edt"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="Email:"
                 android:textColor="@color/black"
                 android:textSize="19sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_userEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:text="contact@gmail.com"
+                android:background="@drawable/border_radius_gray_edt"
                 android:textSize="18sp"
                 android:paddingLeft="10dp" />
 
@@ -112,7 +129,7 @@
                 android:textColor="@color/black"
                 android:textSize="19sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_userPhone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -122,23 +139,44 @@
                 android:text="0321345678"
                 android:paddingLeft="10dp" />
             <TextView
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:paddingBottom="5dp"
+                android:padding="5dp"
                 android:text="Giới tính:"
                 android:textColor="@color/black"
                 android:textSize="19sp" />
-            <TextView
-                android:id="@+id/txt_userGender"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:textSize="18sp"
-                android:text="Nữ"
-                android:paddingLeft="10dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/rad_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rad_Nam"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Nam"/>
+
+                    <RadioButton
+                        android:id="@+id/rad_Nu"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Nữ"/>
+
+                    <RadioButton
+                        android:id="@+id/rad_Other"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Khác"/>
+
+                </RadioGroup>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -153,11 +191,11 @@
             <EditText
                 android:id="@+id/txt_userAddress"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="5dp"
                 android:textSize="18sp"
+                android:background="@drawable/border_radius_gray_edt"
                 android:text="1A1, đường Nguyễn Ảnh Thủ, ấp Vạn Hạnh,xã Trung Chánh, huyện Hóc Môn, TP.HCM"
                 android:paddingLeft="10dp"
                 />
@@ -166,92 +204,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thay đổi mật khẩu"
-                android:textSize="22sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:paddingLeft="15dp"
-                android:paddingBottom="5dp"
-                android:layout_marginTop="10dp"
-                />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/line"
-                android:scaleX="2"
-                android:scaleY="1"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nhập mật khẩu hiện tại của bạn:"
-                android:textSize="19sp"
-                android:textColor="@color/black"
-                android:paddingLeft="20dp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                />
-            <EditText
-                android:id="@+id/edt_userPassword"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/border_radius_gray_edt" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nhập mật khẩu mới:"
-                android:textSize="19sp"
-                android:textColor="@color/black"
-                android:paddingLeft="20dp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                />
-            <EditText
-                android:id="@+id/edt_userNewPassword"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/border_radius_gray_edt" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nhập lại mật khẩu mới:"
-                android:textSize="19sp"
-                android:textColor="@color/black"
-                android:paddingLeft="20dp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                />
-            <EditText
-                android:id="@+id/edt_userNewPasswordAgain"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:paddingLeft="10dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/border_radius_gray_edt" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             >
+
             <Button
                 android:id="@+id/btn_profileCancel"
                 android:layout_width="160dp"

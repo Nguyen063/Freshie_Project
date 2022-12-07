@@ -9,6 +9,7 @@ import androidx.core.view.AccessibilityDelegateCompat;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.RadioGroup;
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityEditProfileBinding;
+import com.phamvannguyen.freshie.watched.Watched;
 
 import java.util.ArrayList;
 
@@ -36,11 +38,15 @@ public class EditProfile extends AppCompatActivity {
         //setContentView(R.layout.activity_edit_profile);
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        loadData();
+//        loadData();
 
-
-
-
+        binding.btnProfileCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditProfile.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadData() {

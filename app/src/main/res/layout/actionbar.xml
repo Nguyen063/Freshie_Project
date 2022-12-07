@@ -20,15 +20,16 @@
         android:gravity="center_vertical"/>
 
 
-    <SearchView
+    <android.widget.SearchView
 
         android:layout_height="45dp"
         android:layout_marginVertical="5dp"
         android:layout_width="match_parent"
-        android:id="@+id/text_appname"
+        android:id="@+id/text_search"
         android:layout_toRightOf="@+id/Back_Home"
         android:layout_toLeftOf="@id/line1"
         android:background="@drawable/border_radius_pink" />
+
 <LinearLayout
     android:id="@+id/line1"
     android:layout_width="wrap_content"

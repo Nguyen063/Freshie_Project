@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
-//import com.phamvannguyen.freshie.account.AccountFragment;
 import com.phamvannguyen.freshie.models.Product;
 
 import java.util.List;

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,6 +27,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.phamvannguyen.freshie.account.AccountActivity;
@@ -35,6 +37,7 @@ import com.phamvannguyen.freshie.databinding.ActivityMainBinding;
 import com.phamvannguyen.freshie.home.HomeAdapter;
 import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.product.ListProductActivity;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Send
 
     ActivityMainBinding binding;
     public static ViewPager viewPager;
+    public static ViewPager2 viewPager2;
     private BottomNavigationView bottomNavigationView;
     public static DataBaseHelper db;
     TabLayout tabLayout;
@@ -91,9 +95,27 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Send
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
+        searchProduct();
 
+    }
 
+    private void searchProduct() {
 
+        SearchView searchView = findViewById(R.id.text_search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                Intent intent = new Intent(MainActivity.this, ListProductActivity.class);
+                intent.putExtra(ListProductActivity.INTENT_SEARCH, s);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
 
     }
 
