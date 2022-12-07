@@ -13,46 +13,63 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class Product implements Parcelable {
+public class Product extends ProductBase implements Parcelable {
     private DataBaseHelper db = MainActivity.db;
-    int ProductID;
-    String ProductName;
+//    int ProductID;
+//    String ProductName;
     String Category;
     String Brand;
-    double OriginalPrice;
-    double Price;
+//    double OriginalPrice;
+//    double Price;
     double Discount;
     int Sold;
     double RatingAverage;
     int RatingCount;
     String ImageUrl;
-    String ThumbUrl;
+//    String ThumbUrl;
     int IsDeal;
     int IsBestSeller;
     int IsNew;
     String Description;
 
-    public Product( int productID, String productName, String category,
-                   String brand, double originalPrice, double price,  int sold, double ratingAverage,
-                   int ratingCount, String imageUrl, String thumbUrl, int isDeal, int isBestSeller, int isNew,
-                    String description) {
-        ProductID = productID;
-        ProductName = productName;
+    public Product(int productID, String productName,  String category, String brand, double originalPrice, double price, int sold, double ratingAverage,
+                   int ratingCount, String imageUrl, String thumbUrl, int isDeal, int isBestSeller, int isNew, String description) {
+        super(productID, productName, originalPrice, price, thumbUrl);
         Category = category;
         Brand = brand;
-        OriginalPrice = originalPrice;
-        Price = price;
-        Discount = (OriginalPrice - Price)/OriginalPrice * 100;
+        Discount = (originalPrice - price) / originalPrice * 100;
         Sold = sold;
-        RatingAverage = ratingAverage/10;
+        RatingAverage = ratingAverage;
         RatingCount = ratingCount;
         ImageUrl = imageUrl;
-        ThumbUrl = thumbUrl;
+//        ThumbUrl = thumbUrl;
         IsDeal = isDeal;
         IsBestSeller = isBestSeller;
         IsNew = isNew;
         Description = description;
     }
+
+    //    public Product( int productID, String productName, String category,
+//                   String brand, double originalPrice, double price,  int sold, double ratingAverage,
+//                   int ratingCount, String imageUrl, String thumbUrl, int isDeal, int isBestSeller, int isNew,
+//                    String description) {
+//        ProductID = productID;
+//        ProductName = productName;
+//        Category = category;
+//        Brand = brand;
+//        OriginalPrice = originalPrice;
+//        Price = price;
+//        Discount = (OriginalPrice - Price)/OriginalPrice * 100;
+//        Sold = sold;
+//        RatingAverage = ratingAverage/10;
+//        RatingCount = ratingCount;
+//        ImageUrl = imageUrl;
+//        ThumbUrl = thumbUrl;
+//        IsDeal = isDeal;
+//        IsBestSeller = isBestSeller;
+//        IsNew = isNew;
+//        Description = description;
+//    }
 
 
     //    public Product(int productID) {
@@ -79,36 +96,9 @@ public class Product implements Parcelable {
 //
 //    }
 
-    protected Product(Parcel in) {
-        ProductID = in.readInt();
-        ProductName = in.readString();
-        Category = in.readString();
-        Brand = in.readString();
-        OriginalPrice = in.readDouble();
-        Price = in.readDouble();
-        Discount = in.readDouble();
-        Sold = in.readInt();
-        RatingAverage = in.readDouble();
-        RatingCount = in.readInt();
-        ImageUrl = in.readString();
-        ThumbUrl = in.readString();
-        IsDeal = in.readInt();
-        IsBestSeller = in.readInt();
-        IsNew = in.readInt();
-        Description = in.readString();
-    }
 
-    public static final Creator<Product> CREATOR = new Creator<Product>() {
-        @Override
-        public Product createFromParcel(Parcel in) {
-            return new Product(in);
-        }
 
-        @Override
-        public Product[] newArray(int size) {
-            return new Product[size];
-        }
-    };
+
 
     public DataBaseHelper getDb() {
         return db;
@@ -119,21 +109,6 @@ public class Product implements Parcelable {
     }
 
 
-    public int getProductID() {
-        return ProductID;
-    }
-
-    public void setProductID(int productID) {
-        ProductID = productID;
-    }
-
-    public String getProductName() {
-        return ProductName;
-    }
-
-    public void setProductName(String productName) {
-        ProductName = productName;
-    }
 
     public String getCategory() {
         return Category;
@@ -149,22 +124,6 @@ public class Product implements Parcelable {
 
     public void setBrand(String brand) {
         Brand = brand;
-    }
-
-    public double getOriginalPrice() {
-        return OriginalPrice;
-    }
-
-    public void setOriginalPrice(double originalPrice) {
-        OriginalPrice = originalPrice;
-    }
-
-    public double getPrice() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
-        Price = price;
     }
 
     public double getDiscount() {
@@ -254,12 +213,7 @@ public class Product implements Parcelable {
     public void setRatingCount(int ratingCount) {
         RatingCount = ratingCount;
     }
-    public String getFormattedPrice() {
-        return String.format("%,.0f đ", Price);
-    }
-    public String getFormattedOriginalPrice (){
-        return String.format("%,.0f đ", OriginalPrice);
-    }
+
     public String getFormattedDiscount (){
         return String.format("-%.0f%% ", Discount);
     }
@@ -276,13 +230,7 @@ public class Product implements Parcelable {
         }
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i){
         parcel.writeInt(ProductID);
         parcel.writeString(ProductName);
         parcel.writeString(Category);
@@ -299,6 +247,25 @@ public class Product implements Parcelable {
         parcel.writeInt(IsBestSeller);
         parcel.writeInt(IsNew);
         parcel.writeString(Description);
+    }
+    protected Product(Parcel in) {
+        super(in);
+        ProductID = in.readInt();
+        ProductName = in.readString();
+        Category = in.readString();
+        Brand = in.readString();
+        OriginalPrice = in.readDouble();
+        Price = in.readDouble();
+        Discount = in.readDouble();
+        Sold = in.readInt();
+        RatingAverage = in.readDouble();
+        RatingCount = in.readInt();
+        ImageUrl = in.readString();
+        ThumbUrl = in.readString();
+        IsDeal = in.readInt();
+        IsBestSeller = in.readInt();
+        IsNew = in.readInt();
+        Description = in.readString();
     }
 
 }

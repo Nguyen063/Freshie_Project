@@ -86,8 +86,8 @@ public class CategoryAdapter extends BaseAdapter {
         holder.txtPrice.setText(String.valueOf(p.getFormattedPrice()));
         holder.txtDiscount.setText(String.valueOf(p.getFormattedDiscount()));
         holder.txtRatingAverage.setText(String.valueOf(p.getRatingAverage()));
-        holder.txtRatingCount.setText( String.valueOf(p.getRatingCount()));
-        holder.txtSold.setText(String.valueOf(p.getSold()));
+        holder.txtRatingCount.setText( "(" + p.getRatingCount() +")");
+        holder.txtSold.setText("Đã bán "+ p.getSold());
 
 //        holder.imgProduct.setImageBitmap(p.getThumb());
         new MainActivity.FetchImage( p.getThumbUrl(), holder.imgProduct).start();

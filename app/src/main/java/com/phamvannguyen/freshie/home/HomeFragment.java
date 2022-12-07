@@ -46,6 +46,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private GridView gridView;
+    private View view;
 
     SendMessage SM;
     DataBaseHelper db = MainActivity.db;
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        view = binding.getRoot();
 
 //        View view = inflater.inflate(R.layout.fragment_home, container, false);
         SliderView sliderView = (SliderView) view.findViewById(R.id.slide_view);
@@ -94,6 +95,7 @@ public class HomeFragment extends Fragment {
         loadData();
         listenEvents();
         countdown();
+//        binding.txtViewNewest.performClick();
 
         return view;
     }
@@ -202,15 +204,7 @@ public class HomeFragment extends Fragment {
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle page = new Bundle();
-//                page.putString(CategoryFragment.INTENT_NAME, "makeup");
-                CategoryFragment fragment = new CategoryFragment();
-                FragmentTransaction transaction = getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_home, fragment);
-                transaction.commit();
-//                fragmentA.setArguments(page);
-//                viewPager.setCurrentItem(2);
+//
             }
         });
         //-----------------GridView item click events-----------------
