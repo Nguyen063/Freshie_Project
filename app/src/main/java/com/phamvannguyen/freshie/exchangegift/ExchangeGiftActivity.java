@@ -29,6 +29,7 @@ public class ExchangeGiftActivity extends AppCompatActivity {
         binding = ActivityExchangeGiftBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         back();
 
 //        @Override
