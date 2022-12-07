@@ -34,17 +34,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="22sp"
-                    android:text="Brooklyn Simmons"
+                    android:text="Nguyễn Thành Phát"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     />
-                <ImageView
-                    android:id="@+id/imv_edit_profile"
+                <ImageButton
+                    android:id="@+id/imageButton_editProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/editprofile"
+                    android:src="@drawable/editpen_black"
+                    android:backgroundTint="@color/white"
                     android:layout_gravity="center"
                     android:scaleX="1.2"
                     android:scaleY="1.2"
@@ -78,23 +79,31 @@
                     android:paddingLeft="10dp"
                     android:layout_marginEnd="120dp"
                     />
-                <TextView
-                    android:id="@+id/txt_vieworder"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="#9E9E9E"
-                    android:text="Xem tất cả đơn hàng"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:gravity="right" />
-                <ImageView
-                    android:id="@+id/imv_viewproduct"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/polygon2"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center" />
+                    android:orientation="horizontal"
+                    android:id="@+id/ll_vieworder"
+                    >
+                    <TextView
+                        android:id="@+id/txt_vieworder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#9E9E9E"
+                        android:text="Xem tất cả đơn hàng"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:gravity="right" />
+                    <ImageView
+                        android:id="@+id/imv_viewproduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/polygon2"
+                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <ImageView
@@ -109,7 +118,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
-                android:layout_marginStart="15dp"
                 android:columnCount="4"
                 android:rowCount="1"
                 >
@@ -239,24 +247,31 @@
                     android:paddingLeft="10dp"
                     android:layout_marginEnd="75dp"
                     />
-                <TextView
-                    android:id="@+id/txt_view_buyed_product"
+                <LinearLayout
+                    android:id="@+id/ll_view_buyed_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="#9E9E9E"
-                    android:text="Xem tất cả sản phẩm đã mua"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:gravity="right"
-                    />
-                <ImageView
-                    android:id="@+id/imv_view_buyed_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/polygon2"
-                    android:layout_marginEnd="15dp"
-                    android:layout_gravity="center" />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txt_view_buyed_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#9E9E9E"
+                        android:text="Xem tất cả sản phẩm đã mua"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:gravity="right"
+                        />
+                    <ImageView
+                        android:id="@+id/imv_view_buyed_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/polygon2"
+                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <ImageView
