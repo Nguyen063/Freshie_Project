@@ -61,13 +61,9 @@ public class HomeFragment extends Fragment {
     };
     public static final String INTENT_NAME = "HomeFragment";
     public static final String INTENT_DEALS = "Deals";
-    public static final String INTENT_FRESH_NOW = "Fresh now";
-    public static final String INTENT_HIGH_END = "HIgh end";
     public static final String INTENT_MY_VOUCHER = "My voucher";
-    public static final String INTENT_CATEGORY = "Category";
     public static final String INTENT_ORDER = "Order";
     public static final String INTENT_POINT = "Point";
-    public static final String INTENT_FREE_SHIP = "Free ship";
     public static final String INTENT_NEW = "New";
     public static final String INTENT_BEST_SELLER = "Best seller";
 
@@ -190,6 +186,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                SM.sendData("Flash sale");
                viewPager.setCurrentItem(2);
+
 
             }
         });

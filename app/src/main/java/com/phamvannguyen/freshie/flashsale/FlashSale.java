@@ -3,11 +3,7 @@ package com.phamvannguyen.freshie.flashsale;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -17,20 +13,15 @@ import android.widget.AdapterView;
 import android.view.MenuItem;
 
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.FlashSaleAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityFlashSaleBinding;
-import com.phamvannguyen.freshie.models.FlashSales;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.payment.Checkout;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
-import java.io.ByteArrayOutputStream;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class FlashSale extends AppCompatActivity {

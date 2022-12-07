@@ -39,8 +39,8 @@ public class CartFragment extends Fragment {
         binding.btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(.this, Checkout.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), Checkout.class);
+                startActivity(intent);
             }
         });
     }

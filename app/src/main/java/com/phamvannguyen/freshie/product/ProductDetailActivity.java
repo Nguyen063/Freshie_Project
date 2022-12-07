@@ -9,15 +9,21 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.cart.CartFragment;
+import com.phamvannguyen.freshie.categories.CategoryAdapter;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityProductDetailBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
@@ -29,6 +35,9 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     ActivityProductDetailBinding binding;
 
+    List<Product> forYou_list;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +46,20 @@ public class ProductDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         loadProductDetail();
+        loadDataGridView();
 
         addEvents();
         countdown();
         back();
+
+    }
+
+    private void loadDataGridView() {
+
+        forYou_list = new ArrayList<>();
+        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+        CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
+        binding.gvForyou.setAdapter(forYouAdapter);
 
     }
 
@@ -91,8 +110,6 @@ public class ProductDetailActivity extends AppCompatActivity {
        binding.txtPrice.setText(product.getFormattedPrice());
        binding.txtOriginalPrice.setText(product.getFormattedOriginalPrice());
        binding.txtDiscount.setText(product.getFormattedDiscount());
-
-
 
     }
 

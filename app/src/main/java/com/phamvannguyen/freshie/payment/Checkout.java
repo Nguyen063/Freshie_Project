@@ -38,6 +38,8 @@ public class Checkout extends AppCompatActivity {
     ProductOrderAdapter productOrderAdapter;
     ArrayList<Product> orders = new ArrayList<>();
 
+    public static final String INTENT_PRODUCT = "Product Parcelable";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,16 +157,14 @@ public class Checkout extends AppCompatActivity {
 
     private void loadData() {
 
-        Intent intent = getIntent();
-        int id = intent.getIntExtra("productId", 0);
-//        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-
         binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
 
+//
+//        Bundle b = getIntent().getExtras();
+//        orders = b.getParcelableArrayList(INTENT_PRODUCT);
+
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("productId", 0);
 
         orders = MainActivity.getListWhere(DataBaseHelper.COL_ID + " = " + id);
 

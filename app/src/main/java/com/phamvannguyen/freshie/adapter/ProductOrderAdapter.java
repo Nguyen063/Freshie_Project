@@ -65,12 +65,12 @@ public class ProductOrderAdapter extends BaseAdapter {
 
         if (ProductList.size() == 0) {
 
-            Product notRating = ProductList.get(i);
-            holder.txtName.setText(notRating.getProductName());
-            holder.txtPrice.setText(notRating.getFormattedPrice());
+            Product product = ProductList.get(i);
+            holder.txtName.setText(product.getProductName());
+            holder.txtPrice.setText(product.getFormattedPrice());
             holder.txtNum.setText("1");
-            holder.txtName.setText(notRating.getProductName());
-//            new MainActivity.FetchImage(notRating.getThumbUrl(), holder.imgProduct).start();
+            holder.txtName.setText(product.getProductName());
+            new MainActivity.FetchImage(product.getThumbUrl(), holder.imgProduct).start();
 
 
         }
