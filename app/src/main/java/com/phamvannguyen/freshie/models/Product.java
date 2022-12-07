@@ -230,5 +230,42 @@ public class Product extends ProductBase implements Parcelable {
         }
     }
 
+    public void writeToParcel(Parcel parcel, int i){
+        parcel.writeInt(ProductID);
+        parcel.writeString(ProductName);
+        parcel.writeString(Category);
+        parcel.writeString(Brand);
+        parcel.writeDouble(OriginalPrice);
+        parcel.writeDouble(Price);
+        parcel.writeDouble(Discount);
+        parcel.writeInt(Sold);
+        parcel.writeDouble(RatingAverage);
+        parcel.writeInt(RatingCount);
+        parcel.writeString(ImageUrl);
+        parcel.writeString(ThumbUrl);
+        parcel.writeInt(IsDeal);
+        parcel.writeInt(IsBestSeller);
+        parcel.writeInt(IsNew);
+        parcel.writeString(Description);
+    }
+    protected Product(Parcel in) {
+        super(in);
+        ProductID = in.readInt();
+        ProductName = in.readString();
+        Category = in.readString();
+        Brand = in.readString();
+        OriginalPrice = in.readDouble();
+        Price = in.readDouble();
+        Discount = in.readDouble();
+        Sold = in.readInt();
+        RatingAverage = in.readDouble();
+        RatingCount = in.readInt();
+        ImageUrl = in.readString();
+        ThumbUrl = in.readString();
+        IsDeal = in.readInt();
+        IsBestSeller = in.readInt();
+        IsNew = in.readInt();
+        Description = in.readString();
+    }
 
 }
