@@ -167,7 +167,11 @@ public class AccountActivity extends AppCompatActivity {
         listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
         listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
 
+
 //        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+
+        listCategoryRecyclerView.add(new CategoryRecyclerView(listItemRecycler));
+
 
 
         return listCategoryRecyclerView;

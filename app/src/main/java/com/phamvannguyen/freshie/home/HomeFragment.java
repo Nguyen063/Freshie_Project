@@ -28,6 +28,7 @@ import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ListProductActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -177,8 +178,9 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               SM.sendData("Flash sale");
-               viewPager.setCurrentItem(2);
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
 
 
             }
@@ -186,16 +188,18 @@ public class HomeFragment extends Fragment {
         binding.txtViewNewest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragmentA = new CategoryFragment();
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.main_viewpager,fragmentA,"tag_fragment_category")
-                        .addToBackStack("tag_fragment_home").commit();
+                intent = new Intent(getActivity(), ListProductActivity.class);
+                intent.putExtra(ListProductActivity.INTENT_IS_NEW, "Sản phẩm mới");
+                startActivity(intent);
             }
         });
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
+                intent = new Intent(getActivity(), ListProductActivity.class);
+                intent.putExtra(ListProductActivity.INTENT_IS_DEAL, "Sản phẩm bán chạy");
+                startActivity(intent);
+
             }
         });
         //-----------------GridView item click events-----------------
