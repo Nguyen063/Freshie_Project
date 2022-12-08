@@ -224,7 +224,13 @@ public class ProductDetailActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
+            binding.btnChatNow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ProductDetailActivity.this, CustomerService.class);
+                    startActivity(intent);
+                }
+            });
 //            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
@@ -232,6 +238,13 @@ public class ProductDetailActivity extends AppCompatActivity {
 //                }
 //            });
 
+            binding.btnBuy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
+                    startActivity(intent);
+                }
+            });
 
         }
 
