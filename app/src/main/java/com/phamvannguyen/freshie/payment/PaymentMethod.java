@@ -1,9 +1,11 @@
 package com.phamvannguyen.freshie.payment;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -25,6 +27,25 @@ public class PaymentMethod extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         addEvents();
+        back();
+    }
+
+    private void back() {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setTitle("Phương thức thanh toán");
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayUseLogoEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    this.finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
     }
 
     private void addEvents() {

@@ -1,5 +1,7 @@
 package com.phamvannguyen.freshie.home;
 
+import static com.phamvannguyen.freshie.MainActivity.viewPager2;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -178,6 +180,12 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//               SM.sendData("Flash sale");
+//               viewPager2.setCurrentItem(2);
+                    intent = new Intent(getActivity(), FlashSale.class);
+                    intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                    startActivity(intent);
+
                 intent = new Intent(getActivity(), FlashSale.class);
                 intent.putExtra(INTENT_NAME, INTENT_DEALS);
                 startActivity(intent);
@@ -197,6 +205,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 intent = new Intent(getActivity(), ListProductActivity.class);
+
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
+
                 intent.putExtra(ListProductActivity.INTENT_IS_DEAL, "Sản phẩm bán chạy");
                 startActivity(intent);
 

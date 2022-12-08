@@ -170,8 +170,10 @@ public class AccountActivity extends AppCompatActivity {
 
 //        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
 
-        listCategoryRecyclerView.add(new CategoryRecyclerView(listItemRecycler));
 
+//        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+
+        listCategoryRecyclerView.add(new CategoryRecyclerView(listItemRecycler));
 
 
         return listCategoryRecyclerView;
