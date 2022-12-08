@@ -180,7 +180,7 @@
         android:background="@color/white"
         android:gravity="center">
         <LinearLayout
-            android:id="@+id/btnChatNow"
+            android:id="@+id/btn_ChatNow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
