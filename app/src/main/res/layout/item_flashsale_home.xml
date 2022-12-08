@@ -18,8 +18,7 @@
         android:text="300000"
         android:textSize="18sp"
         android:textColor="@color/color_custom_pink"
-        android:textStyle="bold"
-        android:drawableEnd="@drawable/vnd"/>
+        android:textStyle="bold"/>
     <ImageView
         android:layout_width="130dp"
         android:layout_height="wrap_content"

@@ -61,7 +61,7 @@ public class FlashSaleHomeAdapter extends BaseAdapter {
         }
 
         Product product = flashSaleList.get(i);
-        holder.txtProductPrice.setText(toString().valueOf(product.getPrice()));
+        holder.txtProductPrice.setText(product.getFormattedPrice());
         new MainActivity.FetchImage( product.getThumbUrl(), holder.imgProductThumb).start();
 
         return view;
