@@ -93,7 +93,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
 
-        listCategoryProduct.add(new CategoryProduct("Sản phẩm nổi bật khác", listItemProduct));
+        listCategoryProduct.add(new CategoryProduct(listItemProduct));
         return listCategoryProduct;
 
 
