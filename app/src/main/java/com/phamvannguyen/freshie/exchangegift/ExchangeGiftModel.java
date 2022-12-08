@@ -8,7 +8,7 @@ public class ExchangeGiftModel {
     int voucherPoint;
 
     public ExchangeGiftModel(int voucherGift, String voucherSale, String voucherCondition,
-                             String voucherTime) {
+                             String voucherTime, int voucherPoint ) {
         this.voucherGift = voucherGift;
         this.voucherSale = voucherSale;
         this.voucherCondition = voucherCondition;
@@ -55,5 +55,4 @@ public class ExchangeGiftModel {
     public void setVoucherPoint(int voucherPoint) {
         this.voucherPoint = voucherPoint;
     }
-
 }

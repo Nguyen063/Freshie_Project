@@ -2,6 +2,8 @@ package com.phamvannguyen.freshie.product;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -24,6 +26,9 @@ import com.phamvannguyen.freshie.models.Comment;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.models.ProductBase;
 import com.phamvannguyen.freshie.payment.Checkout;
+import com.phamvannguyen.freshie.product.categoryproduct.CategoryProduct;
+import com.phamvannguyen.freshie.product.categoryproduct.CategoryProductAdapter;
+import com.phamvannguyen.freshie.product.itemproduct.ItemProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +42,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     Product product;
 
     ActivityProductDetailBinding binding;
+//    private RecyclerView rcvCategoryProduct;
+    private CategoryProductAdapter categoryProductAdapter;
 
     List<Product> forYou_list;
 
@@ -54,6 +61,27 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     }
 
+    private List<CategoryProduct> getListCategoryProduct() {
+        List<CategoryProduct> listCategoryProduct = new ArrayList<>();
+        List<ItemProduct> listItemProduct = new ArrayList<>();
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+        listCategoryProduct.add(new CategoryProduct("Sản phẩm nổi bật khác", listItemProduct));
+        return listCategoryProduct;
+
+
+}
+
     private void loadProductDetail() {
         Bundle bundle = getIntent().getExtras();
         bundleProduct = bundle.getParcelable(INTENT_PRODUCT);
@@ -70,15 +98,26 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     }
 
-    private void loadDataGridView() {
+        private void loadDataGridView () {
 
-        forYou_list = new ArrayList<>();
-        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
-        CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
-//        binding.gvForyou.setAdapter(forYouAdapter);
+//            rcvCategoryProduct = findViewById(R.id.rcv_categoryProduct);
+            categoryProductAdapter = new CategoryProductAdapter(this);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            binding.rcvCategoryProduct.setLayoutManager(linearLayoutManager);
+
+
+            forYou_list = new ArrayList<>();
+            forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+
+            CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
+            categoryProductAdapter.setData(getListCategoryProduct());
+            binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
 
 
 
-}
+
+
+        }
 
     }
