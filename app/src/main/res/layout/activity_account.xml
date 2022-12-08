@@ -77,28 +77,24 @@
                     android:text="Đơn hàng"
                     android:textStyle="bold"
                     android:paddingLeft="10dp"
-                    android:layout_marginEnd="120dp"
                     />
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:gravity="right"
                     android:id="@+id/ll_vieworder"
                     >
                     <TextView
-                        android:id="@+id/txt_vieworder"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="22dp"
                         android:textSize="16sp"
                         android:textColor="#9E9E9E"
-                        android:text="Xem tất cả đơn hàng"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="5dp"
-                        android:gravity="right" />
+                        android:text="Xem tất cả đơn hàng "
+                        android:layout_gravity="right" />
                     <ImageView
-                        android:id="@+id/imv_viewproduct"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="10dp"
                         android:src="@drawable/polygon2"
                         android:layout_marginEnd="15dp"
                         android:layout_gravity="center" />
@@ -182,7 +178,7 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="5dp">
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textColor="@color/black"
@@ -193,29 +189,24 @@
                     />
                 <LinearLayout
                     android:id="@+id/ll_view_all_Voucher"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="right"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:textSize="16sp"
                         android:textColor="#9E9E9E"
                         android:text="Xem tất cả mã giảm"
-                        android:layout_marginEnd="5dp"
-                        android:layout_gravity="center"
+                        android:layout_gravity="right"
                         />
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/polygon2"
-                        android:layout_marginEnd="15dp"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="right" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -283,17 +274,14 @@
                     />
                 <LinearLayout
                     android:id="@+id/ll_view_buyed_product"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="right"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
                         android:textSize="16sp"
                         android:textColor="#9E9E9E"
                         android:text="Sản phẩm đã mua"

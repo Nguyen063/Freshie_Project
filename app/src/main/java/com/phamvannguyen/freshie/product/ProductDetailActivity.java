@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
@@ -63,7 +64,9 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadProductDetail();
         loadDataGridView();
         back();
+
         addEvents();
+
 
 
     }
@@ -169,6 +172,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
         binding.txtProductName.setText(product.getProductName());
         binding.txtPrice.setText(product.getFormattedPrice());
+        binding.txtOriginalPrice.setText(product.getFormattedOriginalPrice());
         binding.txtDiscount.setText(product.getFormattedDiscount());
         binding.txtDescription.setText(product.getDescription());
         binding.txtSold.setText(product.getSold() + " đã bán");
@@ -178,11 +182,11 @@ public class ProductDetailActivity extends AppCompatActivity {
         private void loadDataGridView () {
 
 //            rcvCategoryProduct = findViewById(R.id.rcv_categoryProduct);
+
             categoryProductAdapter = new CategoryProductAdapter(this);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
             binding.rcvCategoryProduct.setLayoutManager(linearLayoutManager);
-
 
             forYou_list = new ArrayList<>();
             forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
@@ -190,10 +194,42 @@ public class ProductDetailActivity extends AppCompatActivity {
             CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
             categoryProductAdapter.setData(getListCategoryProduct());
             binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
+            binding.gvForyou.setAdapter(forYouAdapter);
 
-
-
-
+//            adapter = new CategoryAdapter(this,R.layout.item_category, forYou_list);
+//            binding.gvForyou.setAdapter(adapter);
+//
+//
+            binding.gvForyou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(ProductDetailActivity.this, ProductDetailActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(INTENT_PRODUCT, forYou_list.get(position));
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
+            binding.btnChatNow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ProductDetailActivity.this, CustomerService.class);
+                    startActivity(intent);
+                }
+            });
+            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
+                }
+            });
+            binding.btnBuy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
+                    startActivity(intent);
+                }
+            });
 
         }
 

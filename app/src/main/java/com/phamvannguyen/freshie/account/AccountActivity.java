@@ -51,6 +51,7 @@ public class AccountActivity extends AppCompatActivity {
 
         binding = ActivityAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         categoryRecyclerAdapter = new CategoryRecyclerAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
 
@@ -61,7 +62,6 @@ public class AccountActivity extends AppCompatActivity {
         displayActionBar();
 
         addEvents();
-
 
     }
 
@@ -77,10 +77,6 @@ public class AccountActivity extends AppCompatActivity {
     private void addEvents() {
         binding.imageButtonEditProfile.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, EditProfile.class);
-            startActivity(intent);
-        });
-        binding.llVieworder.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, order.class);
             startActivity(intent);
         });
         binding.btnWaitingconfirm.setOnClickListener(v -> {
@@ -130,10 +126,7 @@ public class AccountActivity extends AppCompatActivity {
         binding.llVieworder.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, Watched.class);
             startActivity(intent);
-        });
-        binding.llViewedProduct.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, Watched.class);
-            startActivity(intent);
+
         });
         binding.llViewAllVoucher.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, UserVoucherActivity.class);
@@ -166,6 +159,12 @@ public class AccountActivity extends AppCompatActivity {
         listItemRecycler.add(new ItemRecycler(R.drawable.innisfree, "Giảm 30%"));
         listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
         listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
+
+
+//        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+
+
+//        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
 
         listCategoryRecyclerView.add(new CategoryRecyclerView(listItemRecycler));
 
