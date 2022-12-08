@@ -51,6 +51,7 @@ public class AccountActivity extends AppCompatActivity {
 
         binding = ActivityAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         categoryRecyclerAdapter = new CategoryRecyclerAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
 
@@ -61,7 +62,6 @@ public class AccountActivity extends AppCompatActivity {
         displayActionBar();
 
         addEvents();
-
 
     }
 
