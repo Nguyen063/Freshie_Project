@@ -64,21 +64,15 @@ public class ProductOrderAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        if (ProductList.size() == 0) {
 
             CartModel notRating = ProductList.get(i);
             holder.txtName.setText(notRating.getProductName());
             holder.txtPrice.setText(notRating.getFormattedPrice());
-            holder.txtNum.setText(notRating.getQuantity());
+            holder.txtNum.setText(String.valueOf(notRating.getQuantity()));
             holder.txtName.setText(notRating.getProductName());
             new MainActivity.FetchImage(notRating.getThumbUrl(), holder.imgProduct).start();
 
 
-        }
-//        else {
-//            holder.txtName.setText("Không có sản phẩm nào");
-//            Toast.makeText(activity, "Không có sản phẩm nào", Toast.LENGTH_SHORT).show();
-//        }
 
         return view;
     }

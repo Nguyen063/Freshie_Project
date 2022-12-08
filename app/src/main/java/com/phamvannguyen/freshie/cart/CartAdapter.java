@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cache.cacheCart;
+import com.phamvannguyen.freshie.databinding.FragmentCartBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftAdapter;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftModel;
 import com.phamvannguyen.freshie.models.Product;
@@ -24,7 +26,7 @@ public class CartAdapter extends BaseAdapter {
     int item_layout;
     List<CartModel> cartList;
     int quantity = 0;
-
+    double total = 0;
 
     public CartAdapter(Activity activity, int item_layout, List<CartModel> cartList) {
         this.activity = activity;
@@ -65,7 +67,8 @@ public class CartAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        CartModel cartModel = cartList.get(i);
+
+        CartModel cartModel = cacheCart.cartList.get(i);
         new MainActivity.FetchImage(cartModel.getThumbUrl(),holder.imvCartProduct).start();
         holder.txtCartproductName.setText(cartModel.getProductName());
         holder.txtCartproductPrice.setText(String.valueOf(cartModel.getFormattedPrice()));
@@ -73,25 +76,69 @@ public class CartAdapter extends BaseAdapter {
         holder.btnInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quantity = Integer.parseInt(holder.txtQuantity.getText().toString());
-                quantity++;
-                holder.txtQuantity.setText(String.valueOf(quantity));
-                cartModel.setQuantity(quantity);
+//                quantity = Integer.parseInt(holder.txtQuantity.getText().toString());
+//                quantity++;
+//                holder.txtQuantity.setText(String.valueOf(quantity));
+//                cartModel.setQuantity(quantity);
+
+                //Test cacheCart: Increase quantity of product in cart at position i
+                //increase quantity of cartModel
+                cartModel.setQuantity(cartModel.getQuantity() + 1);
+                //update quantity of cartModel in cacheCart
+                cacheCart.updateCart(cartModel);
+                //update totalValue of all product in cart in cacheCart
+                cacheCart.updateTotalValue();
+                //update quantity of cartModel on View
+                holder.txtQuantity.setText(String.valueOf(cartModel.getQuantity()));
+                notifyDataSetChanged();
+
+                //update totalValue of all product in cart on View
+                TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
+                txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
 
             }
+
         });
         holder.btnDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               quantity = Integer.parseInt(holder.txtQuantity.getText().toString());
-                if (quantity > 1) {
-                    quantity--;
-                    holder.txtQuantity.setText(String.valueOf(quantity));
-                    cartModel.setQuantity(quantity);
-                    Toast.makeText(activity, String.valueOf(cartModel.getQuantity()), Toast.LENGTH_SHORT).show();
+//               quantity = Integer.parseInt(holder.txtQuantity.getText().toString());
+//                if (quantity > 1) {
+//                    quantity--;
+//                    holder.txtQuantity.setText(String.valueOf(quantity));
+//                    cartModel.setQuantity(quantity);
+//                }
+
+                //Test cacheCart: Decrease quantity of product in cart at position i
+                if (cartModel.getQuantity() > 1){
+                    //decrease quantity of cartModel
+                    cartModel.setQuantity(cartModel.getQuantity() - 1);
+                    //update quantity of cartModel in cacheCart
+                    cacheCart.updateCart(cartModel);
+                    //update totalValue of all product in cart in cacheCart
+                    cacheCart.updateTotalValue();
+                    //update quantity of cartModel on View
+                    holder.txtQuantity.setText(String.valueOf(cartModel.getQuantity()));
+                    notifyDataSetChanged();
+
+                    //update totalValue of all product in cart on View
+                    TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
+                    txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+
                 }
+                else{
+                    cacheCart.removeCart(cartModel);
+                    //update totalValue of all product in cart in cacheCart
+                    cacheCart.updateTotalValue();
+                    //update totalValue of all product in cart on View
+                    TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
+                    txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+                    notifyDataSetChanged();
+                }
+
             }
         });
+
 
         return view;
     }
@@ -108,6 +155,13 @@ public class CartAdapter extends BaseAdapter {
     public interface OnClickListener {
         void onIncClick(View view, int position);
         void onDecClick(View view, int position);
+    }
+    private double countTotal() {
+        total = 0;
+        for (int i = 0; i < cartList.size(); i++) {
+            total += cartList.get(i).getQuantity() * cartList.get(i).getPrice();
+        }
+        return total;
     }
 }
 

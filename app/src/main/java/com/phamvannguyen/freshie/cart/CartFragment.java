@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.cache.cacheCart;
 import com.phamvannguyen.freshie.databinding.FragmentCartBinding;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
@@ -42,28 +43,38 @@ public class CartFragment extends Fragment {
         return view;
     }
 
+    public void updateTotalValue() {
+//        total = 0;
+//        for (int i = 0; i < cartList.size(); i++) {
+//            total += cartList.get(i).getQuantity() * cartList.get(i).getPrice();
+//        }
+//        binding.txtCartTotalPrice.setText(total + "");
+
+        //Test cacheCart: Update total value
+        cacheCart.updateTotalValue();
+        binding.txtCartTotalPrice.setText(cacheCart.total + "");
+    }
+
     private void addEvents() {
         binding.lvProductCart.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
             }
-
         });
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
             }
         });
         binding.btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
+//                Bundle bundle = new Bundle();
 //                bundle.putParcelable(Checkout.INTENT_PRODUCT, (Parcelable) cartList);
+//                Intent intent = new Intent(getActivity(), Checkout.class);
+//                intent.putExtra(Checkout.INTENT_PRODUCT, bundle);
+//                startActivity(intent);
                 Intent intent = new Intent(getActivity(), Checkout.class);
-                intent.putExtra(Checkout.INTENT_PRODUCT, bundle);
                 startActivity(intent);
             }
         });
@@ -73,12 +84,19 @@ public class CartFragment extends Fragment {
 
     private void loadData() {
         cartList = new ArrayList<>();
-        for (int i = 1; i < 5; i++) {
-            p =  MainActivity.getProductWithId(i);
-            cartList.add( new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),i));
+        if (cacheCart.cartList.size() == 0) {
+            for (int i = 1; i < 5; i++) {
+                p =  MainActivity.getProductWithId(i);
+                cartList.add( new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
+                cacheCart.addCart(new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
+            }
+            cacheCart.updateTotalValue();
         }
-        adapter = new CartAdapter(getActivity(), R.layout.item_list_product_cart, cartList);
+
+
+        adapter = new CartAdapter(getActivity(), R.layout.item_list_product_cart, cacheCart.cartList);
         binding.lvProductCart.setAdapter(adapter);
+
 
         ////---Update total price
 
