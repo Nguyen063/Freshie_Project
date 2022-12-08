@@ -210,10 +210,6 @@ public class ProductDetailActivity extends AppCompatActivity {
             binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
             binding.gvForyou.setAdapter(forYouAdapter);
 
-//            adapter = new CategoryAdapter(this,R.layout.item_category, forYou_list);
-//            binding.gvForyou.setAdapter(adapter);
-//
-//
             binding.gvForyou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -224,28 +220,5 @@ public class ProductDetailActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-            binding.btnChatNow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ProductDetailActivity.this, CustomerService.class);
-                    startActivity(intent);
-                }
-            });
-//            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
-//                }
-//            });
-
-            binding.btnBuy.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
-                    startActivity(intent);
-                }
-            });
-
         }
-
     }

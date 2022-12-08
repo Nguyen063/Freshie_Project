@@ -88,8 +88,6 @@ public class Checkout extends AppCompatActivity {
             product = MainActivity.getProductWithId(product.getProductID());
 //            product = MainActivity.getProductWithId(p.getProductID());
             binding.txtToPay.setText(String.format("%,.0f ₫", product.getPrice()));
-            binding.txtTotalPrice.setText(String.format("%,.0f ₫", product.getPrice()));
-            binding.txtPlaceOrderPrice.setText(String.format("%,.0f ₫", product.getPrice()));
 
             orders.add(new CartModel(product.getProductID(),product.getProductName(),product.getPrice(),product.getOriginalPrice(),product.getThumbUrl(), 1));
 
