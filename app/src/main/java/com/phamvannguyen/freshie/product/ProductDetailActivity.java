@@ -59,6 +59,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadComment();
         loadProductDetail();
         loadDataGridView();
+        back();
 
 
     }
@@ -104,7 +105,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
 
-        listCategoryProduct.add(new CategoryProduct("Sản phẩm nổi bật khác", listItemProduct));
+        listCategoryProduct.add(new CategoryProduct( listItemProduct));
         return listCategoryProduct;
 
 
@@ -141,10 +142,6 @@ public class ProductDetailActivity extends AppCompatActivity {
             CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
             categoryProductAdapter.setData(getListCategoryProduct());
             binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
-
-
-
-
 
         }
 

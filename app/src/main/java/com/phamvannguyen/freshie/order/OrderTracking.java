@@ -2,6 +2,7 @@ package com.phamvannguyen.freshie.order;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.phamvannguyen.freshie.R;
+import com.phamvannguyen.freshie.account.AccountActivity;
 import com.phamvannguyen.freshie.databinding.ActivityOderTrackingBinding;
 import com.phamvannguyen.freshie.rating.RatingHistory;
 
 public class OrderTracking extends AppCompatActivity {
 
     ActivityOderTrackingBinding binding;
+    AdapterTablayoutOrder adapterTablayoutOrder = new AdapterTablayoutOrder(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +26,12 @@ public class OrderTracking extends AppCompatActivity {
 
         binding = ActivityOderTrackingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         addEvents();
         back();
 
     }
+
+
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
@@ -67,5 +71,9 @@ public class OrderTracking extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
     }
 }

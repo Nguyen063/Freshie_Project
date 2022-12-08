@@ -16,8 +16,10 @@ import com.phamvannguyen.freshie.account.itemrecycleview.ItemRecycler;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityAccountBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.login.ChangePassword;
 import com.phamvannguyen.freshie.login.LoginActivity;
+import com.phamvannguyen.freshie.order.OrderTracking;
 import com.phamvannguyen.freshie.order.delivered;
 import com.phamvannguyen.freshie.order.delivering;
 import com.phamvannguyen.freshie.order.order;
@@ -33,6 +35,11 @@ public class AccountActivity extends AppCompatActivity {
     private RecyclerView rcvCategoryRecyclerView;
     private CategoryRecyclerAdapter categoryRecyclerAdapter;
     ImageButton imageButton;
+    public static final int INTENT_WAITING_CONFIRM = 0;
+    public static final int INTENT_ON_DELIVERY = 1;
+    public static final int INTENT_RECEIVED = 2;
+    public static final int INTENT_CANCELED = 3;
+    public static final String INTENT_NAME = "Account activity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,13 +75,13 @@ public class AccountActivity extends AppCompatActivity {
         });
         binding.btnDelivering.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
-            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
+            intent.putExtra(INTENT_NAME, INTENT_ON_DELIVERY);
 //            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
             startActivity(intent);
         });
         binding.btnDelivered.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
-            intent.putExtra(INTENT_NAME, INTENT_DELIVERED);
+            intent.putExtra(INTENT_NAME, INTENT_RECEIVED);
             startActivity(intent);
         });
         binding.rcvCategoryRecyclerview.setOnClickListener(v -> {
