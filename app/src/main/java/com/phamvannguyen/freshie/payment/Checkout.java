@@ -77,7 +77,7 @@ public class Checkout extends AppCompatActivity {
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Check Out");
+        actionBar.setTitle("Thanh toán");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);

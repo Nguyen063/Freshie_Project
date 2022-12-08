@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageButton;
 
 import com.phamvannguyen.freshie.R;
@@ -18,9 +16,9 @@ import com.phamvannguyen.freshie.account.itemrecycleview.ItemRecycler;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityAccountBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
+import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.login.ChangePassword;
 import com.phamvannguyen.freshie.login.LoginActivity;
-
 import com.phamvannguyen.freshie.order.order;
 import com.phamvannguyen.freshie.rating.RatingHistory;
 import com.phamvannguyen.freshie.watched.Watched;
@@ -100,28 +98,45 @@ public class AccountActivity extends AppCompatActivity {
             intent.putExtra(INTENT_NAME, INTENT_DELIVERED);
             startActivity(intent);
         });
+        binding.btnCanceled.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountActivity.this, order.class);
+            intent.putExtra(INTENT_NAME, INTENT_CANCELLED);
+            startActivity(intent);
+        });
         binding.rcvCategoryRecyclerview.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, ExchangeGiftActivity.class);
+            startActivity(intent);
+        });
+        binding.llViewBuyedProduct.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountActivity.this, Watched.class);
+            startActivity(intent);
+        });
+            binding.llHelpcenter.setOnClickListener(v -> {
+                Intent intent = new Intent(AccountActivity.this, CustomerService.class);
+                startActivity(intent);
+            });
+            binding.llLogOut.setOnClickListener(v -> {
+                Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
+                startActivity(intent);
+            });
+        binding.llMyrating.setOnClickListener( v -> {
+                Intent intent = new Intent(AccountActivity.this, RatingHistory.class);
+                startActivity(intent);
+        });
+        binding.llSettingprofile.setOnClickListener( v -> {
+            Intent intent = new Intent(AccountActivity.this, ChangePassword.class);
+            startActivity(intent);
+        });
+        binding.llVieworder.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountActivity.this, Watched.class);
             startActivity(intent);
         });
         binding.llViewedProduct.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, Watched.class);
             startActivity(intent);
         });
-        binding.llMyrating.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, RatingHistory.class);
-            startActivity(intent);
-        });
-        binding.llSettingprofile.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, ChangePassword.class);
-            startActivity(intent);
-        });
-        binding.llHelpcenter.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, CustomerService.class);
-            startActivity(intent);
-        });
-        binding.llLogOut.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
+        binding.llViewAllVoucher.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountActivity.this, UserVoucherActivity.class);
             startActivity(intent);
         });
 
@@ -142,8 +157,23 @@ public class AccountActivity extends AppCompatActivity {
         listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
         listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
 
+        listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.innisfree, "Giảm 30%"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
 
-        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+        listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.innisfree, "Giảm 30%"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
+        listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
+
+
+//        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+
+
+//        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
+
+        listCategoryRecyclerView.add(new CategoryRecyclerView(listItemRecycler));
 
 
         return listCategoryRecyclerView;

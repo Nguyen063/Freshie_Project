@@ -10,14 +10,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lưu thông tin thành công"
+        android:text="Đổi mật khẩu thành công"
         android:layout_gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="22sp"
         android:layout_weight="1"/>
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_backProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"

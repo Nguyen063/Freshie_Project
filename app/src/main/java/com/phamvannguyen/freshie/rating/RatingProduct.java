@@ -72,7 +72,7 @@ public class RatingProduct extends AppCompatActivity {
     private void back() {
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Rating Product");
+        actionBar.setTitle("Đánh giá sản phẩm");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);

@@ -33,11 +33,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:text="Nguyễn Thành Phát"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center"
                     />
                 <ImageButton
@@ -86,7 +86,6 @@
                     android:id="@+id/ll_vieworder"
                     >
                     <TextView
-                        android:id="@+id/txt_vieworder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -96,7 +95,6 @@
                         android:layout_marginEnd="5dp"
                         android:gravity="right" />
                     <ImageView
-                        android:id="@+id/imv_viewproduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/polygon2"
@@ -175,8 +173,50 @@
             android:orientation="vertical"
             android:background="@color/white"
             android:padding="5dp"
-            android:layout_gravity="right"
             android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:text="Mã giảm giá"
+                    android:textStyle="bold"
+                    android:paddingLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/ll_view_all_Voucher"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#9E9E9E"
+                        android:text="Xem tất cả mã giảm"
+                        android:layout_marginEnd="5dp"
+                        android:layout_gravity="center"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/polygon2"
+                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -230,33 +270,35 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="5dp">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:text="Mua lại"
                     android:textStyle="bold"
                     android:paddingLeft="10dp"
-                    android:layout_marginEnd="75dp"
+                    android:layout_marginEnd="10dp"
                     />
                 <LinearLayout
                     android:id="@+id/ll_view_buyed_product"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    >
                     <TextView
-                        android:id="@+id/txt_view_buyed_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:textColor="#9E9E9E"
-                        android:text="Xem tất cả sản phẩm đã mua"
-                        android:layout_gravity="center"
+                        android:text="Sản phẩm đã mua"
                         android:layout_marginEnd="5dp"
-                        android:gravity="right"
+                        android:layout_gravity="center"
                         />
                     <ImageView
-                        android:id="@+id/imv_view_buyed_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/polygon2"

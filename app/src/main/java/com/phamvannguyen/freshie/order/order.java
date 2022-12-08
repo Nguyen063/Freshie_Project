@@ -49,7 +49,7 @@ public class order extends AppCompatActivity {
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Order");
+        actionBar.setTitle("Đơn hàng");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);

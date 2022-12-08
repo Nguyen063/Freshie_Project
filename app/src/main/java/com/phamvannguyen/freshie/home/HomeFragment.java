@@ -1,5 +1,7 @@
 package com.phamvannguyen.freshie.home;
 
+import static com.phamvannguyen.freshie.MainActivity.viewPager2;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
@@ -26,6 +29,8 @@ import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ListProductActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -108,25 +113,25 @@ public class HomeFragment extends Fragment {
 
         //flash sale gridView
         flashSale_list = new ArrayList<>();
-        flashSale_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
+        flashSale_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1 LIMIT 4");
         FlashSaleHomeAdapter flashSaleHomeAdapter = new FlashSaleHomeAdapter(getActivity(), R.layout.item_flashsale_home, flashSale_list);
         binding.gridFlashSale.setAdapter(flashSaleHomeAdapter);
 
         //---new arrivals gridView
         newProduct_list = new ArrayList<>();
-        newProduct_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
+        newProduct_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1 LIMIT 4");
         NewProductHomeAdapter newProductAdapter = new NewProductHomeAdapter(getActivity(), R.layout.item_newproduct_home, newProduct_list);
         binding.gridNewProduct.setAdapter(newProductAdapter);
 
         //---best seller gridView
         bestSeller_list = new ArrayList<>();
-        bestSeller_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+        bestSeller_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1 LIMIT 4");
         BestSellerHomeAdapter bestSellerAdapter = new BestSellerHomeAdapter(getActivity(), R.layout.item_bestseller_home, bestSeller_list);
         binding.gridBestseller.setAdapter(bestSellerAdapter);
 
         //---For you gridView
         forYou_list = new ArrayList<>();
-        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1 LIMIT 4");
         CategoryAdapter forYouAdapter = new CategoryAdapter(getActivity(), R.layout.item_category, forYou_list);
         binding.gridForYou.setAdapter(forYouAdapter);
 
@@ -157,7 +162,7 @@ public class HomeFragment extends Fragment {
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), com.phamvannguyen.freshie.order.order.class);
+                intent = new Intent(getActivity(), order.class);
                 intent.putExtra(INTENT_NAME, INTENT_ORDER);
                 startActivity(intent);
             }
@@ -175,8 +180,15 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               SM.sendData("Flash sale");
-               viewPager.setCurrentItem(2);
+//               SM.sendData("Flash sale");
+//               viewPager2.setCurrentItem(2);
+                    intent = new Intent(getActivity(), FlashSale.class);
+                    intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                    startActivity(intent);
+
+                intent = new Intent(getActivity(), FlashSale.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
 
 
             }
@@ -184,16 +196,22 @@ public class HomeFragment extends Fragment {
         binding.txtViewNewest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragmentA = new CategoryFragment();
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.main_viewpager,fragmentA,"tag_fragment_category")
-                        .addToBackStack("tag_fragment_home").commit();
+                intent = new Intent(getActivity(), ListProductActivity.class);
+                intent.putExtra(ListProductActivity.INTENT_IS_NEW, "Sản phẩm mới");
+                startActivity(intent);
             }
         });
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
+                intent = new Intent(getActivity(), ListProductActivity.class);
+
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
+
+                intent.putExtra(ListProductActivity.INTENT_IS_DEAL, "Sản phẩm bán chạy");
+                startActivity(intent);
+
             }
         });
         //-----------------GridView item click events-----------------

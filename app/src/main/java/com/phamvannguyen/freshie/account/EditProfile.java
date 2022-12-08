@@ -36,7 +36,6 @@ public class EditProfile extends AppCompatActivity {
     EditProfileAdapter adapter;
     ArrayList<EditProfile> editProfiles;
 
-    ViewPager viewPager = MainActivity.viewPager;
 
 
     @Override
@@ -59,11 +58,11 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(EditProfile.this);
                 dialog.setContentView(R.layout.dialog_saveprofile_success);
-                Button btnBackHome = dialog.findViewById(R.id.btn_backHome);
+                Button btnBackHome = dialog.findViewById(R.id.btn_back);
                 btnBackHome.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(EditProfile.this, MainActivity.class);
+                        Intent intent = new Intent(EditProfile.this, AccountActivity.class);
                         startActivity(intent);
                     }
                 }); dialog.show();

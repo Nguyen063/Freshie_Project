@@ -39,10 +39,14 @@ public class ListProductActivity extends AppCompatActivity {
             add(INTENT_CATEGORY);
             add(INTENT_BRAND);
             add(INTENT_SEARCH);
+            add(INTENT_IS_DEAL);
+            add(INTENT_IS_NEW);
+            add(INTENT_IS_BEST_SELLER);
         }
     };
     //Create list string from INTENT
-    ArrayList<Product> products, filterProducts;
+    ArrayList<Product> products = new ArrayList<>();
+    ArrayList<Product> filterProducts = new ArrayList<>();
 
     CategoryAdapter adapter;
     @Override
@@ -73,32 +77,24 @@ public class ListProductActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void filterList() {
-//
-//        if(products.size() != 0)
-//        {
-//          filterBy();
-//        }
-//        else
-//        {
-//            binding.txtNoData.setVisibility(View.VISIBLE);
-//        }
-//
-//    }
+
 
     private void filterBy(String feature){
-        filterProducts = products;
-        for (int i = 0; i < products.size(); i++) {
-            if (feature == "Nổi bật" && products.get(i).getIsDeal() == 0) {
-                filterProducts.remove(i);
+
+        filterProducts = new ArrayList<>();
+            if (feature == "Nổi bật" ) {
+               filterProducts = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
             }
-            else if (feature == "Mới nhất" && products.get(i).getIsNew() == 0) {
-                filterProducts.remove(i);
+            else if (feature == "Mới nhất" ) {
+                filterProducts = MainActivity.getListWhere(DataBaseHelper.COL_ID + " > 0 ORDER BY " + DataBaseHelper.COL_ID + " DESC");
             }
-            else if (feature == "Bán chạy" && products.get(i).getIsBestSeller() == 0) {
-                filterProducts.remove(i);
+            else if (feature == "Bán chạy" ) {
+                filterProducts = MainActivity.getListWhere(DataBaseHelper.COL_IS_NEW + " = 1 ORDER BY " + DataBaseHelper.COL_SOLD + " DESC");
             }
-        }
+            else if (feature  ==  "Giá"){
+                filterProducts = MainActivity.getListWhere(DataBaseHelper.COL_ID + " > 0 ORDER BY " + DataBaseHelper.COL_PRICE + " DESC");
+            }
+
 
     }
     private void addEvents() {
@@ -151,21 +147,28 @@ public class ListProductActivity extends AppCompatActivity {
         binding.btnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filterBy(binding.btnNew.getText().toString());
+                filterBy("Mới nhất");
                 updateGridView(filterProducts);
             }
         });
         binding.btnBestseller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filterBy(binding.btnBestseller.getText().toString());
+                filterBy("Bán chạy");
                 updateGridView(filterProducts);
             }
         });
         binding.btnOutstanding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filterBy(binding.btnOutstanding.getText().toString());
+                filterBy("Nổi bật");
+                updateGridView(filterProducts);
+            }
+        });
+        binding.btnPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterBy("Giá");
                 updateGridView(filterProducts);
             }
         });
@@ -175,18 +178,23 @@ public class ListProductActivity extends AppCompatActivity {
         products = new ArrayList<>();
         for (String item : list) {
             if (getIntent().hasExtra(item)) {
-                if(!item.equals(INTENT_SEARCH)){
-                    filter = getIntent().getStringExtra(item);
-                    products = MainActivity.getListWhere(item + " ='" + filter + "'");
-                    binding.txtTitle.setText(filter);
-                }
-                else{
+                if(item.equals(INTENT_SEARCH)){
                     filter = getIntent().getStringExtra(item);
                     products = MainActivity.getListWhere(item + " LIKE '%" + filter + "%'");
                     TextView txtTitle = binding.txtTitle;
                     txtTitle.setText("Kết quả tìm kiếm" + " '" + filter + "'");
                     txtTitle.setTextSize(14);
                     txtTitle.setTextColor(Color.parseColor("#000000"));
+                }
+                else if(item.equals(INTENT_BRAND)||item.equals(INTENT_CATEGORY)){
+                    filter = getIntent().getStringExtra(item);
+                    products = MainActivity.getListWhere(item + " ='" + filter + "'");
+                    binding.txtTitle.setText(filter);
+                }
+                else{
+                    filter = getIntent().getStringExtra(item);
+                   products = MainActivity.getListWhere(item + " = 1");
+                   binding.txtTitle.setText(filter);
                 }
                 break;
             }
