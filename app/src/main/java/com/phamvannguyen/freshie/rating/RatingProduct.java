@@ -111,10 +111,7 @@ public class RatingProduct extends AppCompatActivity {
                 }
             }
         }
-
-
     }
-
 
     @Override
     protected void onResume() {
