@@ -5,22 +5,11 @@ import com.phamvannguyen.freshie.account.itemrecycleview.ItemRecycler;
 import java.util.List;
 
 public class CategoryRecyclerView {
-    private String categoryName;
     private List<ItemRecycler> itemRecyclerList;
 
-    public CategoryRecyclerView(String categoryName, List<ItemRecycler> itemRecyclerList) {
-        this.categoryName = categoryName;
+    public CategoryRecyclerView(List<ItemRecycler> itemRecyclerList) {
         this.itemRecyclerList = itemRecyclerList;
     }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
     public List<ItemRecycler> getItemRecyclerList() {
         return itemRecyclerList;
     }

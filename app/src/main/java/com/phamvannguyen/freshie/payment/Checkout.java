@@ -19,7 +19,7 @@ import com.phamvannguyen.freshie.cache.cacheCart;
 import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
-import com.phamvannguyen.freshie.exchangegift.order.order;
+import com.phamvannguyen.freshie.order.order;
 
 import java.util.ArrayList;
 

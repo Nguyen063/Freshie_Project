@@ -40,7 +40,6 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         if (categoryRecyclerView == null) {
             return;
         }
-        holder.txtCategoryName.setText(categoryRecyclerView.getCategoryName());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,RecyclerView.HORIZONTAL,false);
         holder.rcvItemReCycle.setLayoutManager(linearLayoutManager);
 
@@ -59,12 +58,10 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
     }
 
     public class CategoryRecyclerViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtCategoryName;
         private RecyclerView rcvItemReCycle;
 
         public CategoryRecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCategoryName = itemView.findViewById(R.id.txt_categoryName);
             rcvItemReCycle = itemView.findViewById(R.id.rcv_itemRecycler);
 
         }

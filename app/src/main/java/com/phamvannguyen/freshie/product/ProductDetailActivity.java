@@ -104,7 +104,21 @@ public class ProductDetailActivity extends AppCompatActivity {
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
 
-        listCategoryProduct.add(new CategoryProduct("Sản phẩm nổi bật khác", listItemProduct));
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+
+        listCategoryProduct.add(new CategoryProduct(listItemProduct));
         return listCategoryProduct;
 
 

@@ -27,7 +27,7 @@ import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.exchangegift.order.order;
+import com.phamvannguyen.freshie.order.order;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;

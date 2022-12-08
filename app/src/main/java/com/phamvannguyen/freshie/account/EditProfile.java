@@ -36,7 +36,6 @@ public class EditProfile extends AppCompatActivity {
     EditProfileAdapter adapter;
     ArrayList<EditProfile> editProfiles;
 
-    ViewPager viewPager = MainActivity.viewPager;
 
 
     @Override
