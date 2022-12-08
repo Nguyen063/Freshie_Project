@@ -137,7 +137,9 @@
                 android:layout_marginEnd="15dp"
                 android:textSize="18sp"
                 android:text="0321345678"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:background="@drawable/border_radius_gray_edt"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

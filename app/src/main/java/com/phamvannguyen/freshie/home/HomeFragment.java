@@ -2,20 +2,16 @@ package com.phamvannguyen.freshie.home;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
@@ -32,11 +28,6 @@ import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.order.order;
-import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
-import com.phamvannguyen.freshie.categories.CategoryAdapter;
-import com.phamvannguyen.freshie.categories.CategoryFragment;
-import com.phamvannguyen.freshie.databinding.FragmentHomeBinding;
-import com.phamvannguyen.freshie.models.Product;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;

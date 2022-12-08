@@ -40,13 +40,14 @@ public class ProductDetailActivity extends AppCompatActivity {
     public static final String INTENT_PRODUCT = "Product Parcelable";
     ProductBase bundleProduct;
     Product product;
+    Comment comment;
 
     ActivityProductDetailBinding binding;
 //    private RecyclerView rcvCategoryProduct;
     private CategoryProductAdapter categoryProductAdapter;
 
     List<Product> forYou_list;
-
+    List<Comment> commentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,37 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding = ActivityProductDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        loadComment();
         loadProductDetail();
         loadDataGridView();
 
 
+    }
+
+    private void loadComment() {
+        List<Comment> commentList = new ArrayList<>();
+        commentList.add(new Comment(R.drawable.vitamintree, "Ank Nguỹn", "comment này mang tính chất nhận xu xin đừng đọc hue hue"));
+        commentList.add(new Comment(R.drawable.anhspcuakhach, "Đỗ Huỳnh Thảo Vy", "Cái sản phẩm này sử dụng keo ly quáaaa. Mình dùng mà da mặt phải gọi là mãi mận, mãi đỉnh lun ý."));
+
+        CommentAdapter commentAdapter = new CommentAdapter(this,R.layout.item_comment,commentList);
+        binding.lvComment.setAdapter(commentAdapter);
+    }
+    public void back() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Chi tiết sản phẩm");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private List<CategoryProduct> getListCategoryProduct() {
@@ -75,6 +103,20 @@ public class ProductDetailActivity extends AppCompatActivity {
         listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
+
+        listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
+        listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
+
 
         listCategoryProduct.add(new CategoryProduct(listItemProduct));
         return listCategoryProduct;

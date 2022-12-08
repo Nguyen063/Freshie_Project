@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.phamvannguyen.freshie.R;
-import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 
 public class order extends AppCompatActivity {
 

@@ -13,11 +13,7 @@ import android.widget.ListView;
 
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
-import com.phamvannguyen.freshie.cart.CartAdapter;
 import com.phamvannguyen.freshie.cart.CartModel;
-import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.models.ProductOrder;
-import com.phamvannguyen.freshie.rating.RatingProduct;
 
 import java.util.ArrayList;
 

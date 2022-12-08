@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,21 +13,14 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.phamvannguyen.freshie.DataBaseHelper;
-import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.cache.cacheCart;
 import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
-import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
-import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.models.ProductOrder;
-import com.phamvannguyen.freshie.order.OrderTracking;
 import com.phamvannguyen.freshie.order.order;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Checkout extends AppCompatActivity {

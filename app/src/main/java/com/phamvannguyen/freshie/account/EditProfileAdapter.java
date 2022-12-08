@@ -18,13 +18,6 @@ public class EditProfileAdapter extends BaseAdapter {
     EditProfile activity;
     int item_layout;
     List<EditProfileModel> editProfileModelList;
-    ;
-
-    public EditProfileAdapter(EditProfile activity, int item_layout, List<EditProfileModel> editProfileModelList) {
-        this.activity = activity;
-        this.item_layout = item_layout;
-        this.editProfileModelList = editProfileModelList;
-    }
 
     @Override
     public int getCount() {
@@ -43,44 +36,18 @@ public class EditProfileAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
-        if (view == null) {
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(item_layout, null);
-            holder.txtUserName = view.findViewById(R.id.txt_userName);
-            holder.txtUserEmail = view.findViewById(R.id.txt_userEmail);
-            holder.txtUserPhone = view.findViewById(R.id.txt_userPhone);
-            holder.txtUserAddress = view.findViewById(R.id.txt_userAddress);
-            holder.radGender = view.findViewById(R.id.rad_gender);
-            view.setTag(holder);
-            return null;
-        } else {
-            holder = (ViewHolder) view.getTag();
-        }
-        EditProfileModel editProfileModel = editProfileModelList.get(i);
-        holder.txtUserName.setText(editProfileModel.getUserName());
-        holder.txtUserEmail.setText(editProfileModel.getUserEmail());
-        holder.txtUserPhone.setText(editProfileModel.getUserPhone());
-
-        //Gender
-        holder.txtUserAddress.setText(editProfileModel.getUserAddress());
-        holder.imvEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.openEditDialog(editProfileModel);
-            }
-        });
-        return view;
+        return null;
     }
 
-
-
-    public static class ViewHolder{
-        TextView txtUserName, txtUserEmail, txtUserPhone, txtUserAddress ;
-        ImageView imvEdit;
-        RadioGroup radGender;
-
-
+    public EditProfileAdapter(EditProfile activity, int item_layout, List<EditProfileModel> editProfileModelList) {
+        this.activity = activity;
+        this.item_layout = item_layout;
+        this.editProfileModelList = editProfileModelList;
     }
 }
+
+
+
+
+
+

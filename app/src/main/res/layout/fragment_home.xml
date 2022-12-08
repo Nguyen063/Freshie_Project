@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="FLASH SALE"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="@color/color_custom_blue"
                         android:layout_margin="10dp" />
@@ -121,10 +121,10 @@
                         android:id="@+id/txtCount_Down"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="10dp"
                         android:layout_gravity="center"
                         android:textColor="@color/color_custom_pink"
-                        android:textSize="15sp"
+                        android:textSize="18sp"
                         android:text="0 : 0 : 0s"
                         android:textStyle="bold" />
                     <TextView
