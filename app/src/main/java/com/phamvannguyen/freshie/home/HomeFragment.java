@@ -1,5 +1,7 @@
 package com.phamvannguyen.freshie.home;
 
+import static com.phamvannguyen.freshie.MainActivity.viewPager2;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +30,7 @@ import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ListProductActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -177,9 +180,11 @@ public class HomeFragment extends Fragment {
         binding.txtViewFlashSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               SM.sendData("Flash sale");
-               viewPager.setCurrentItem(2);
-
+//               SM.sendData("Flash sale");
+//               viewPager2.setCurrentItem(2);
+                    intent = new Intent(getActivity(), FlashSale.class);
+                    intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                    startActivity(intent);
 
             }
         });
@@ -195,7 +200,9 @@ public class HomeFragment extends Fragment {
         binding.txtViewBestSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
+                intent = new Intent(getActivity(), ListProductActivity.class);
+                intent.putExtra(INTENT_NAME, INTENT_DEALS);
+                startActivity(intent);
             }
         });
         //-----------------GridView item click events-----------------

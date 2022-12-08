@@ -59,6 +59,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadComment();
         loadProductDetail();
         loadDataGridView();
+        back();
 
 
     }
