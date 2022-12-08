@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.order;
+package com.phamvannguyen.freshie.exchangegift.order;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;

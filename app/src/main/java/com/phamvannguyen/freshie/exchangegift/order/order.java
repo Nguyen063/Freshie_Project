@@ -49,11 +49,7 @@ public class order extends AppCompatActivity {
                     break;
             }
         }).attach();
-
-//        loadIntent();
     }
-
-
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();

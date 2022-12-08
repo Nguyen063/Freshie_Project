@@ -32,14 +32,23 @@ import java.util.List;
 
 public class AccountActivity extends AppCompatActivity {
     ActivityAccountBinding binding;
+    public static final String INTENT_NAME = "AccountFragment";
+    public static final String INTENT_CART = "Cart";
+    public static final String INTENT_CUSTOMER_SERVICE = "CustomerService";
+    public static final String INTENT_SETTING = "Setting";
+    public static final String INTENT_ORDERS = "Orders";
+    public static final String INTENT_WAITING_CONFIRM = "WaitingConfirm";
+    public static final String INTENT_DELIVERING = "Delivering";
+    public static final String INTENT_DELIVERED = "Delivered";
+    public static final String INTENT_CANCELLED = "Cancelled";
+    public static final String INTENT_VOUCHER = "Voucher";
+    public static final String INTENT_REBUY = "Rebuy";
+    public static final String INTENT_WATCHED = "Watched";
+    public static final String INTENT_RATING = "Rating";
+    public static final String INTENT_LOGOUT = "Logout";
     private RecyclerView rcvCategoryRecyclerView;
     private CategoryRecyclerAdapter categoryRecyclerAdapter;
     ImageButton imageButton;
-    public static final int INTENT_WAITING_CONFIRM = 0;
-    public static final int INTENT_ON_DELIVERY = 1;
-    public static final int INTENT_RECEIVED = 2;
-    public static final int INTENT_CANCELED = 3;
-    public static final String INTENT_NAME = "Account activity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +84,12 @@ public class AccountActivity extends AppCompatActivity {
         });
         binding.btnDelivering.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
-            intent.putExtra(INTENT_NAME, INTENT_ON_DELIVERY);
-//            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
+            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
             startActivity(intent);
         });
         binding.btnDelivered.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
-            intent.putExtra(INTENT_NAME, INTENT_RECEIVED);
+            intent.putExtra(INTENT_NAME, INTENT_DELIVERED);
             startActivity(intent);
         });
         binding.rcvCategoryRecyclerview.setOnClickListener(v -> {
