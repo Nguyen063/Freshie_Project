@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
@@ -41,12 +42,13 @@ public class ProductDetailActivity extends AppCompatActivity {
     ProductBase bundleProduct;
     Product product;
     Comment comment;
+    CategoryAdapter adapter;
 
     ActivityProductDetailBinding binding;
 //    private RecyclerView rcvCategoryProduct;
     private CategoryProductAdapter categoryProductAdapter;
 
-    List<Product> forYou_list;
+    List<Product> forYou_list = new ArrayList<>();
     List<Comment> commentList;
 
     @Override
@@ -143,23 +145,20 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         private void loadDataGridView () {
 
-//            rcvCategoryProduct = findViewById(R.id.rcv_categoryProduct);
-            categoryProductAdapter = new CategoryProductAdapter(this);
-
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-            binding.rcvCategoryProduct.setLayoutManager(linearLayoutManager);
-
-
-            forYou_list = new ArrayList<>();
-            forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
-
-            CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
-            categoryProductAdapter.setData(getListCategoryProduct());
-            binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
-
-
-
-
+//            adapter = new CategoryAdapter(this,R.layout.item_category, forYou_list);
+//            binding.gvForyou.setAdapter(adapter);
+//
+//
+//            binding.gvForyou.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    Intent intent = new Intent(ProductDetailActivity.this, ProductDetailActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putParcelable(INTENT_PRODUCT, forYou_list.get(position));
+//                    intent.putExtras(bundle);
+//                    startActivity(intent);
+//                }
+//            });
 
         }
 
