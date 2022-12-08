@@ -59,7 +59,7 @@ public class CommentAdapter extends BaseAdapter {
         Comment comment = CommentList.get(i);
         holder.commentPhoto.setImageResource(comment.getCommentPhoto());
         holder.customerName.setText(comment.getCustomerName());
-        holder.customerComment.setText(comment.getCustomerComment());
+        holder.customerComment.setText(comment.getCommentContent());
 
         return view;
     }

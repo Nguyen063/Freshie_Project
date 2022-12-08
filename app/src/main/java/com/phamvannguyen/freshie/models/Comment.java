@@ -3,12 +3,12 @@ package com.phamvannguyen.freshie.models;
 public class Comment {
     int commentPhoto;
     String customerName;
-    String customerComment;
+    String CommentContent;
 
-    public Comment(int commentPhoto, String customerName, String customerComment){
+    public Comment(int commentPhoto, String customerName, String commentContent) {
         this.commentPhoto = commentPhoto;
         this.customerName = customerName;
-        this.customerComment = customerComment;
+        CommentContent = commentContent;
     }
 
     public int getCommentPhoto() {
@@ -27,11 +27,11 @@ public class Comment {
         this.customerName = customerName;
     }
 
-    public String getCustomerComment() {
-        return customerComment;
+    public String getCommentContent() {
+        return CommentContent;
     }
 
-    public void setCustomerComment(String customerComment) {
-        this.customerComment = customerComment;
+    public void setCommentContent(String commentContent) {
+        CommentContent = commentContent;
     }
 }

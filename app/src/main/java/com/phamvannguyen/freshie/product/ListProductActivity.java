@@ -1,10 +1,12 @@
 package com.phamvannguyen.freshie.product;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -51,7 +53,24 @@ public class ListProductActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         loadData();
         addEvents();
-
+        back();
+    }
+    public void back() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Danh sách sản phẩm");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 //    private void filterList() {

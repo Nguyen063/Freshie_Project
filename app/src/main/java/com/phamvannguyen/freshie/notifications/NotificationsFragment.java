@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class NotificationsFragment extends Fragment {
 
     private View view;
-    private FragmentNotificationsBinding binding;
+    FragmentNotificationsBinding binding;
     public NotificationsFragment(){
 
     }
