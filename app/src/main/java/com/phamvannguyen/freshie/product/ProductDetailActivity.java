@@ -122,6 +122,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
         binding.txtProductName.setText(product.getProductName());
         binding.txtPrice.setText(product.getFormattedPrice());
+        binding.txtOriginalPrice.setText(product.getFormattedOriginalPrice());
         binding.txtDiscount.setText(product.getFormattedDiscount());
         binding.txtDescription.setText(product.getDescription());
         binding.txtSold.setText(product.getSold() + " đã bán");
@@ -135,7 +136,6 @@ public class ProductDetailActivity extends AppCompatActivity {
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
             binding.rcvCategoryProduct.setLayoutManager(linearLayoutManager);
-
 
             forYou_list = new ArrayList<>();
             forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
