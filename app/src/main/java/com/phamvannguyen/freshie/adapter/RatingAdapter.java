@@ -36,6 +36,7 @@ public class RatingAdapter extends BaseAdapter {
     Activity activity;
     int item_layout;
     List<Rating> ratingList;
+    public static int capture;
 
     public RatingAdapter(Activity activity, int item_layout, List<Rating> ratingList) {
         this.activity = activity;
@@ -103,7 +104,7 @@ public class RatingAdapter extends BaseAdapter {
                 llOpenCamera.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        capture =0;
                         //open camera
                         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         activity.startActivityForResult(intent, 0);
@@ -117,7 +118,7 @@ public class RatingAdapter extends BaseAdapter {
                 llOpenGallery.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        capture =1;
                         Intent intent = new Intent(Intent.ACTION_PICK);
                         intent.setType("image/*");
                         activity.startActivityForResult(intent, 0);

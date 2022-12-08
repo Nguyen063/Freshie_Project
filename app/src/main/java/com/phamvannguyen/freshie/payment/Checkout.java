@@ -21,7 +21,10 @@ import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
+import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.models.ProductBase;
 import com.phamvannguyen.freshie.order.order;
+import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,7 @@ public class Checkout extends AppCompatActivity {
     ActivityCheckoutBinding binding;
     Spinner spinnerProvince, spinnerDistrict, spinnerTown;
 
+    ProductBase product;
     ProductOrderAdapter productOrderAdapter;
     ArrayList<CartModel> orders = new ArrayList<CartModel>();
     public static final String INTENT_PRODUCT = "INTENT_PRODUCT";
@@ -66,14 +70,34 @@ public class Checkout extends AppCompatActivity {
     private void loadData() {
 
         orders = CartFragment.cartList;
+        if(orders != null){
+            binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
+            binding.txtTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+            binding.txtToPay.setText(String.format("%,.0f ₫", cacheCart.total));
+            binding.txtPlaceOrderPrice.setText(String.format("%,.0f ₫", cacheCart.total));
 
-        binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
-        binding.txtTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
-        binding.txtToPay.setText(String.format("%,.0f ₫", cacheCart.total));
-        binding.txtPlaceOrderPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+            productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
+            binding.lvOrder.setAdapter(productOrderAdapter);
+        }
+        else{
 
-        productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
-        binding.lvOrder.setAdapter(productOrderAdapter);
+            orders = new ArrayList<>();
+            Bundle bundle = getIntent().getExtras();
+            product = (ProductBase) bundle.getParcelable(INTENT_PRODUCT);
+            binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
+            product = MainActivity.getProductWithId(product.getProductID());
+//            product = MainActivity.getProductWithId(p.getProductID());
+            binding.txtToPay.setText(String.format("%,.0f ₫", product.getPrice()));
+            binding.txtTotalPrice.setText(String.format("%,.0f ₫", product.getPrice()));
+            binding.txtPlaceOrderPrice.setText(String.format("%,.0f ₫", product.getPrice()));
+
+            orders.add(new CartModel(product.getProductID(),product.getProductName(),product.getPrice(),product.getOriginalPrice(),product.getThumbUrl(), 1));
+
+            productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
+            binding.lvOrder.setAdapter(productOrderAdapter);
+        }
+
+
     }
 
 

@@ -131,7 +131,7 @@ public class HomeFragment extends Fragment {
 
         //---For you gridView
         forYou_list = new ArrayList<>();
-        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1 LIMIT 4");
+        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
         CategoryAdapter forYouAdapter = new CategoryAdapter(getActivity(), R.layout.item_category, forYou_list);
         binding.gridForYou.setAdapter(forYouAdapter);
 

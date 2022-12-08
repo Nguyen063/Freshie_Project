@@ -20,6 +20,7 @@ import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.FlashSaleAdapter;
 import com.phamvannguyen.freshie.databinding.ActivityFlashSaleBinding;
 import com.phamvannguyen.freshie.models.Product;
+import com.phamvannguyen.freshie.payment.Checkout;
 import com.phamvannguyen.freshie.product.ProductDetailActivity;
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class FlashSale extends AppCompatActivity {
 //                MainActivity.sendToProductDetail(flashSales.get(i),FlashSale.this);
                 Bundle b = new Bundle();
                 b.putParcelable(ProductDetailActivity.INTENT_PRODUCT, flashSales.get(i));
-                Intent intent = new Intent(FlashSale.this, ProductDetailActivity.class);
+                Intent intent = new Intent(FlashSale.this, Checkout.class);
 //                intent.setClass(FlashSale.this, ProductDetailActivity.class);
                 intent.putExtras(b);
                 startActivity(intent);

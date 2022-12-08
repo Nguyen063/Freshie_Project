@@ -28,7 +28,7 @@ public class delivering extends Fragment {
         View view = inflater.inflate(R.layout.fragment_delivering, container, false);
         ListView lvDelivering = view.findViewById(R.id.lv_delivering);
         ArrayList<CartModel> orders = new ArrayList<>();
-//        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
+        orders.add(new CartModel(1, "kem dưỡng", 10000, 1000000, "Https://salt.tikicdn.com/cache/200x280/ts/product/e7/25/7a/98b0031e8295bfb862b6428da85e9370.png", 1));
 //        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
 
         ProductOrderAdapter productOrderAdapter = new ProductOrderAdapter(getActivity(),R.layout.item_product_order,orders);

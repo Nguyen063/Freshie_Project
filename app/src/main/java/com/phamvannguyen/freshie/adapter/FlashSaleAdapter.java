@@ -86,10 +86,10 @@ public class FlashSaleAdapter extends BaseAdapter {
         holder.btnbuyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Bundle b = new Bundle();
-//                b.putSerializable(Checkout.INTENT_PRODUCT, (Serializable) flashSale);
+                Bundle b = new Bundle();
+                b.putParcelable(Checkout.INTENT_PRODUCT, flashSale);
                 Intent intent = new Intent(activity, Checkout.class);
-//                intent.putExtras(b);
+                intent.putExtras(b);
                 activity.startActivity(intent);
             }
         });

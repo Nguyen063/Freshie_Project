@@ -29,8 +29,9 @@
         android:id="@+id/text_search"
         android:layout_toRightOf="@+id/Back_Home"
         android:layout_toLeftOf="@id/line1"
-        app:iconifiedByDefault="true"
-        android:background="@drawable/border_radius_pink" />
+        app:iconifiedByDefault="false"
+        android:background="@drawable/border_radius_pink"
+        android:clickable="true"/>
 
 <LinearLayout
     android:id="@+id/line1"

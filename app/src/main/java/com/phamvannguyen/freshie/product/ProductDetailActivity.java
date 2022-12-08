@@ -89,7 +89,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 builder.setIcon(R.drawable.ic_baseline_shopping_cart_24);
                 builder.setPositiveButton("Có", (dialog, which) -> {
                     Intent intent = new Intent(ProductDetailActivity.this, MainActivity.class);
-                    intent.putExtra("fragment", "cart");
+                    intent.putExtra("to cart", "cart");
                     startActivity(intent);
                 });
                 builder.setNegativeButton("Không", (dialog, which) -> {

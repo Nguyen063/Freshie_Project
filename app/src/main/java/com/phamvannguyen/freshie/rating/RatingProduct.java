@@ -97,8 +97,21 @@ public class RatingProduct extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if( resultCode == RESULT_OK && data != null){
-        bitmap = (Bitmap) data.getExtras().get("data");
+            if(RatingAdapter.capture == 0){
+                bitmap = (Bitmap) data.getExtras().get("data");
+            }
+            else if(RatingAdapter.capture == 1){
+                Uri uri = data.getData();
+                try {
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    bitmap = BitmapFactory.decodeStream(inputStream);
+//                        binding.imgPhoto.setImageBitmap(bitmap);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
 
     }
 

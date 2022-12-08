@@ -67,11 +67,9 @@ public class ProductOrderAdapter extends BaseAdapter {
 
             CartModel notRating = ProductList.get(i);
             holder.txtName.setText(notRating.getProductName());
-            holder.txtPrice.setText(notRating.getFormattedPrice());
+            holder.txtPrice.setText(String.format("%,.0f ₫", notRating.getPrice()));
             holder.txtNum.setText(String.valueOf(notRating.getQuantity()));
-            holder.txtName.setText(notRating.getProductName());
             new MainActivity.FetchImage(notRating.getThumbUrl(), holder.imgProduct).start();
-
 
 
         return view;

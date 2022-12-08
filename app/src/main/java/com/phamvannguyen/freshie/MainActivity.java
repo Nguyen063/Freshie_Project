@@ -96,12 +96,28 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Send
         FragmentTransaction transaction = manager.beginTransaction();
 
         searchProduct();
+        receiveIntent();
 
+    }
+
+    private void receiveIntent() {
+        String intent = getIntent().getStringExtra("to cart");
+        if (intent != null) {
+            if (intent.equals("cart")) {
+                viewPager.setCurrentItem(3);
+            }
+        }
     }
 
     private void searchProduct() {
 
         SearchView searchView = findViewById(R.id.text_search);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchView.onActionViewExpanded();
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {

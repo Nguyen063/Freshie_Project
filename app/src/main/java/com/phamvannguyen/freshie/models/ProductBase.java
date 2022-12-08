@@ -19,6 +19,7 @@ public class ProductBase implements Parcelable {
     }
 
     protected ProductBase(Parcel in) {
+        super();
         ProductID = in.readInt();
         ProductName = in.readString();
         OriginalPrice = in.readDouble();
