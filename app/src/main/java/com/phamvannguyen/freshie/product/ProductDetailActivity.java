@@ -99,6 +99,20 @@ public class ProductDetailActivity extends AppCompatActivity {
 
             }
         });
+        binding.btnChatNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductDetailActivity.this, CustomerService.class);
+                startActivity(intent);
+            }
+        });
+        binding.btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadComment() {
@@ -210,26 +224,14 @@ public class ProductDetailActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-            binding.btnChatNow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ProductDetailActivity.this, CustomerService.class);
-                    startActivity(intent);
-                }
-            });
-            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
-                }
-            });
-            binding.btnBuy.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(ProductDetailActivity.this, Checkout.class);
-                    startActivity(intent);
-                }
-            });
+
+//            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
+//                }
+//            });
+
 
         }
 

@@ -124,7 +124,7 @@ public class AccountActivity extends AppCompatActivity {
             startActivity(intent);
         });
         binding.llVieworder.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, Watched.class);
+            Intent intent = new Intent(AccountActivity.this, order.class);
             startActivity(intent);
 
         });
@@ -133,6 +133,10 @@ public class AccountActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        binding.llViewedProduct.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountActivity.this, Watched.class);
+            startActivity(intent);
+        });
 
     }
 

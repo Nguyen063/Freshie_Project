@@ -496,9 +496,9 @@
                     android:layout_gravity="center"
                     />
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:text="Trung tâm trợ giúp"
+                    android:text="Chăm sóc khách hàng"
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:layout_gravity="center"/>
@@ -507,7 +507,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/black_polygon3"
                     android:layout_gravity="center"
-                    android:layout_marginStart="150dp"
+                    android:layout_marginStart="130dp"
                     />
 
             </LinearLayout>
