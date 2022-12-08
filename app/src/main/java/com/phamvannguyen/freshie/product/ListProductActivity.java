@@ -54,18 +54,7 @@ public class ListProductActivity extends AppCompatActivity {
 
     }
 
-//    private void filterList() {
-//
-//        if(products.size() != 0)
-//        {
-//          filterBy();
-//        }
-//        else
-//        {
-//            binding.txtNoData.setVisibility(View.VISIBLE);
-//        }
-//
-//    }
+
 
     private void filterBy(String feature){
         filterProducts = products;
