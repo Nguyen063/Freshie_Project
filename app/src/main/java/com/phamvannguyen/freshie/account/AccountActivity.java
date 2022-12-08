@@ -79,10 +79,6 @@ public class AccountActivity extends AppCompatActivity {
             Intent intent = new Intent(AccountActivity.this, EditProfile.class);
             startActivity(intent);
         });
-        binding.llVieworder.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, order.class);
-            startActivity(intent);
-        });
         binding.btnWaitingconfirm.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
             intent.putExtra(INTENT_NAME, INTENT_WAITING_CONFIRM);
@@ -130,10 +126,7 @@ public class AccountActivity extends AppCompatActivity {
         binding.llVieworder.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, Watched.class);
             startActivity(intent);
-        });
-        binding.llViewedProduct.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, Watched.class);
-            startActivity(intent);
+
         });
         binding.llViewAllVoucher.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, UserVoucherActivity.class);
