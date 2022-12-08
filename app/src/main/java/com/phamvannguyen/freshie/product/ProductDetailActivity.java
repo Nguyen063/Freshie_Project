@@ -42,7 +42,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     Product product;
 
     ActivityProductDetailBinding binding;
-    private RecyclerView rcvCategoryProduct;
+//    private RecyclerView rcvCategoryProduct;
     private CategoryProductAdapter categoryProductAdapter;
 
     List<Product> forYou_list;
@@ -55,15 +55,6 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding = ActivityProductDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        rcvCategoryProduct = findViewById(R.id.rcv_categoryProduct);
-        categoryProductAdapter = new CategoryProductAdapter(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        rcvCategoryProduct.setLayoutManager(linearLayoutManager);
-        categoryProductAdapter.setData(getListCategoryProduct());
-        rcvCategoryProduct.setAdapter(categoryProductAdapter);
-
-
-
         loadProductDetail();
         loadDataGridView();
 
@@ -75,42 +66,56 @@ public class ProductDetailActivity extends AppCompatActivity {
         List<ItemProduct> listItemProduct = new ArrayList<>();
         listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
         listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
-        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Nước hoa hồng Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
 
         listItemProduct.add(new ItemProduct(R.drawable.vitamintree, "Vitamin Tree"));
         listItemProduct.add(new ItemProduct(R.drawable.vichymineral89, "Vichy Mineral 89"));
-        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Nước hoa hồng Lancome"));
+        listItemProduct.add(new ItemProduct(R.drawable.lotionlancome, "Toner Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.serumlancome, "Tinh chất Lancome"));
         listItemProduct.add(new ItemProduct(R.drawable.tonerklairs, "Nước hoa hồng Klairs"));
 
         listCategoryProduct.add(new CategoryProduct("Sản phẩm nổi bật khác", listItemProduct));
         return listCategoryProduct;
+
+
+}
+
+    private void loadProductDetail() {
+        Bundle bundle = getIntent().getExtras();
+        bundleProduct = bundle.getParcelable(INTENT_PRODUCT);
+
+        product = MainActivity.getProductWithId(bundleProduct.getProductID());
+
+
+        new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
+        binding.txtProductName.setText(product.getProductName());
+        binding.txtPrice.setText(product.getFormattedPrice());
+        binding.txtDiscount.setText(product.getFormattedDiscount());
+        binding.txtDescription.setText(product.getDescription());
+        binding.txtSold.setText(product.getSold() + " đã bán");
+
     }
-
-        private void loadProductDetail () {
-            Bundle bundle = getIntent().getExtras();
-            bundleProduct = bundle.getParcelable(INTENT_PRODUCT);
-
-            product = MainActivity.getProductWithId(bundleProduct.getProductID());
-
-
-            new MainActivity.FetchImage(product.getImageUrl(), binding.imgProduct).start();
-            binding.txtProductName.setText(product.getProductName());
-            binding.txtPrice.setText(product.getFormattedPrice());
-            binding.txtDiscount.setText(product.getFormattedDiscount());
-            binding.txtDescription.setText(product.getDescription());
-            binding.txtSold.setText(product.getSold() + " đã bán");
-
-        }
 
         private void loadDataGridView () {
 
+//            rcvCategoryProduct = findViewById(R.id.rcv_categoryProduct);
+            categoryProductAdapter = new CategoryProductAdapter(this);
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            binding.rcvCategoryProduct.setLayoutManager(linearLayoutManager);
+
+
             forYou_list = new ArrayList<>();
             forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+
             CategoryAdapter forYouAdapter = new CategoryAdapter(this, R.layout.item_category, forYou_list);
-//        binding.gvForyou.setAdapter(forYouAdapter);
+            categoryProductAdapter.setData(getListCategoryProduct());
+            binding.rcvCategoryProduct.setAdapter(categoryProductAdapter);
+
+
+
 
 
         }

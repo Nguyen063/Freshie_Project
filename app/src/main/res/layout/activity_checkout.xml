@@ -222,10 +222,10 @@
                 android:textStyle="bold"/>
 
             <ListView
+                android:nestedScrollingEnabled="true"
                 android:id="@+id/lv_order"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scrollbars="vertical"
+                android:layout_height="350dp"
                 />
 
 <!--        </LinearLayout>-->
@@ -255,6 +255,7 @@
                     android:text="Tổng tiền hàng"
                     android:textColor="@color/black"/>
                 <TextView
+                    android:id="@+id/txt_totalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.000.000đ"
@@ -301,6 +302,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
                 <TextView
+                    android:id="@+id/txt_toPay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.000.000đ"
@@ -334,10 +336,13 @@
                 android:textColor="@color/white"
                 android:layout_marginStart="10dp"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_PlaceOrderPrice"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1.000.000đ"
                 android:textSize="18sp"
+                android:layout_weight="1"
+                android:gravity="end"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"/>
