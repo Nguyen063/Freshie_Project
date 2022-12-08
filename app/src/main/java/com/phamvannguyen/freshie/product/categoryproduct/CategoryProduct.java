@@ -7,6 +7,7 @@ import java.util.List;
 public class CategoryProduct {
     private List<ItemProduct> itemProductList;
 
+
     public CategoryProduct(List<ItemProduct> itemProductList) {
         this.itemProductList = itemProductList;
     }

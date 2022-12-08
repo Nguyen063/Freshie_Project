@@ -1,5 +1,6 @@
 package com.phamvannguyen.freshie.account;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,8 +58,22 @@ public class AccountActivity extends AppCompatActivity {
         categoryRecyclerAdapter.setData(getListCategoryRecyclerView());
         binding.rcvCategoryRecyclerview.setAdapter(categoryRecyclerAdapter);
 
+        displayActionBar();
+
         addEvents();
+
+
     }
+
+    private void displayActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Tài khoản");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
     private void addEvents() {
         binding.imageButtonEditProfile.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, EditProfile.class);
@@ -125,6 +140,7 @@ public class AccountActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
     }
 
     private List<CategoryRecyclerView> getListCategoryRecyclerView(){
@@ -151,8 +167,7 @@ public class AccountActivity extends AppCompatActivity {
         listItemRecycler.add(new ItemRecycler(R.drawable.senka, "Giảm 30K"));
         listItemRecycler.add(new ItemRecycler(R.drawable.vichy, "Giảm 100K"));
 
-
-        listCategoryRecyclerView.add(new CategoryRecyclerView( listItemRecycler));
+        listCategoryRecyclerView.add(new CategoryRecyclerView("Mã giảm giá", listItemRecycler));
 
 
         return listCategoryRecyclerView;

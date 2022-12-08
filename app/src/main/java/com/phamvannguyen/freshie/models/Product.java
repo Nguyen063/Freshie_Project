@@ -215,7 +215,13 @@ public class Product extends ProductBase implements Parcelable {
     }
 
     public String getFormattedDiscount (){
-        return String.format("-%.0f%% ", Discount);
+        if(Discount > 0){
+            return String.format("-%.0f%% ", Discount);
+
+        }
+        else{
+            return "";
+        }
     }
 
     public Bitmap getImageBitmap(){

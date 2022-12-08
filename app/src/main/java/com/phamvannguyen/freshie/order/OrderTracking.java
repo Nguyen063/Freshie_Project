@@ -15,6 +15,7 @@ import com.phamvannguyen.freshie.rating.RatingHistory;
 public class OrderTracking extends AppCompatActivity {
 
     ActivityOderTrackingBinding binding;
+    AdapterTablayoutOrder adapterTablayoutOrder = new AdapterTablayoutOrder(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,12 @@ public class OrderTracking extends AppCompatActivity {
 
         binding = ActivityOderTrackingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         addEvents();
         back();
 
     }
+
+
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
@@ -67,5 +69,9 @@ public class OrderTracking extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
     }
 }
