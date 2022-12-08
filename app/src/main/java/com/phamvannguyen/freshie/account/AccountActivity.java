@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import com.phamvannguyen.freshie.R;
@@ -71,8 +72,17 @@ public class AccountActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);}
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    this.finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
 
     private void addEvents() {
         binding.imageButtonEditProfile.setOnClickListener(v -> {

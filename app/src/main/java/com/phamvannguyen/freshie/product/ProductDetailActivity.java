@@ -217,12 +217,12 @@ public class ProductDetailActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
-                }
-            });
+//            binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(ProductDetailActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
+//                }
+//            });
             binding.btnBuy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
