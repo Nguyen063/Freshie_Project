@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.cart.CartModel;
-import com.phamvannguyen.freshie.models.Product;
 
 import java.util.ArrayList;
 
@@ -56,7 +55,6 @@ public class cacheCart {
     }
 
     public static void updateTotalValue() {
-        total = 0;
         for (int i = 0; i < cartList.size(); i++) {
             total += cartList.get(i).getQuantity() * cartList.get(i).getPrice();
         }

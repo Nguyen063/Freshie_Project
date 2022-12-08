@@ -1,6 +1,8 @@
 package com.phamvannguyen.freshie.cart;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.cache.cacheCart;
@@ -24,9 +27,10 @@ import java.util.List;
 public class CartAdapter extends BaseAdapter {
     Activity activity;
     int item_layout;
-    List<CartModel> cartList;
+    List<CartModel> cartList = CartFragment.cartList;
     int quantity = 0;
     double total = 0;
+    DataBaseHelper db = MainActivity.db;
 
     public CartAdapter(Activity activity, int item_layout, List<CartModel> cartList) {
         this.activity = activity;
@@ -68,7 +72,7 @@ public class CartAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        CartModel cartModel = cacheCart.cartList.get(i);
+        CartModel cartModel = cartList.get(i);
         new MainActivity.FetchImage(cartModel.getThumbUrl(),holder.imvCartProduct).start();
         holder.txtCartproductName.setText(cartModel.getProductName());
         holder.txtCartproductPrice.setText(String.valueOf(cartModel.getFormattedPrice()));
@@ -94,8 +98,8 @@ public class CartAdapter extends BaseAdapter {
 
                 //update totalValue of all product in cart on View
                 TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
-                txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
-
+                db.updateCart(cartModel.getProductID(), cartModel.getQuantity());
+                txtCartTotalPrice.setText(String.format("%,.0f ₫",countTotal()));
             }
 
         });
@@ -123,18 +127,20 @@ public class CartAdapter extends BaseAdapter {
 
                     //update totalValue of all product in cart on View
                     TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
-                    txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+                    txtCartTotalPrice.setText(String.format("%,.0f ₫", countTotal()));
+                    db.updateCart(cartModel.getProductID(), cartModel.getQuantity());
+                }
+                else {
+                   cartList.remove(i);
+                   cacheCart.removeCart(cartModel);
+                   cacheCart.updateTotalValue();
+                   notifyDataSetChanged();
+                   db.deleteCart(cartModel.getProductID());
+                   TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
+                   txtCartTotalPrice.setText(String.format("%,.0f ₫", countTotal()));
 
                 }
-                else{
-                    cacheCart.removeCart(cartModel);
-                    //update totalValue of all product in cart in cacheCart
-                    cacheCart.updateTotalValue();
-                    //update totalValue of all product in cart on View
-                    TextView txtCartTotalPrice = activity.findViewById(R.id.txt_cart_totalPrice);
-                    txtCartTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
-                    notifyDataSetChanged();
-                }
+
 
             }
         });

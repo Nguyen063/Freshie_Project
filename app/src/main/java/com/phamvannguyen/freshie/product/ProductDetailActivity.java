@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     ProductBase bundleProduct;
     Product product;
     Comment comment;
+    DataBaseHelper db = MainActivity.db;
 
     ActivityProductDetailBinding binding;
 //    private RecyclerView rcvCategoryProduct;
@@ -63,7 +65,40 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadDataGridView();
         back();
 
+        addEvents();
 
+
+
+    }
+
+    private void addEvents() {
+        binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    db.addCart(product.getProductID(),1);
+
+                }
+                catch (Exception ex){
+                    db.increaseCart(product.getProductID(),1);
+               }
+//                Toast.makeText(ProductDetailActivity.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProductDetailActivity.this);
+                builder.setTitle("Đã thêm vào giỏ hàng");
+                builder.setMessage("Bạn có xem giỏ hàng  không?");
+                builder.setIcon(R.drawable.ic_baseline_shopping_cart_24);
+                builder.setPositiveButton("Có", (dialog, which) -> {
+                    Intent intent = new Intent(ProductDetailActivity.this, MainActivity.class);
+                    intent.putExtra("fragment", "cart");
+                    startActivity(intent);
+                });
+                builder.setNegativeButton("Không", (dialog, which) -> {
+                    dialog.dismiss();
+                });
+                builder.show();
+
+            }
+        });
     }
 
     private void loadComment() {

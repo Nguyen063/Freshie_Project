@@ -3,6 +3,7 @@ package com.phamvannguyen.freshie.cart;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.cache.cacheCart;
@@ -21,15 +23,18 @@ import com.phamvannguyen.freshie.models.Product;
 import com.phamvannguyen.freshie.payment.Checkout;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.List;
 
 public class CartFragment extends Fragment {
     private View view;
     FragmentCartBinding binding;
     CartAdapter adapter;
-    ArrayList<CartModel> cartList;
+    public static ArrayList<CartModel> cartList;
     Product p;
     Button btnInc, btnDec;
     double total = 0;
+    DataBaseHelper db = MainActivity.db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,24 +89,42 @@ public class CartFragment extends Fragment {
 
     private void loadData() {
         cartList = new ArrayList<>();
-        if (cacheCart.cartList.size() == 0) {
-            for (int i = 1; i < 5; i++) {
-                p =  MainActivity.getProductWithId(i);
-                cartList.add( new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
-                cacheCart.addCart(new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
+//        if (cacheCart.cartList.size() == 0) {
+//            for (int i = 1; i < 5; i++) {
+//                p =  MainActivity.getProductWithId(i);
+//                cartList.add( new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
+//                cacheCart.addCart(new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(),p.getThumbUrl(),1));
+//            }
+//            cacheCart.updateTotalValue();
+
+        int id, quantity;
+        ArrayList<Integer> idList = new ArrayList<>();
+        ArrayList<Integer> quantityList = new ArrayList<>();
+        Cursor cursor = db.getData("SELECT * FROM " + DataBaseHelper.TBL_CART);
+
+        if(cursor.getCount() > 0){
+            while (cursor.moveToNext()) {
+                idList.add(cursor.getInt(0));
+                quantityList.add(cursor.getInt(1));
             }
-            cacheCart.updateTotalValue();
+
         }
-
-
+        cursor.close();
+        for (int i = 0; i < idList.size(); i++) {
+            id = idList.get(i);
+            quantity = quantityList.get(i);
+            p = MainActivity.getProductWithId(id);
+            cartList.add(new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(), p.getThumbUrl(), quantity));
+            cacheCart.addCart(new CartModel(p.getProductID(), p.getProductName(), p.getOriginalPrice(), p.getPrice(), p.getThumbUrl(), quantity));
+        }
         adapter = new CartAdapter(getActivity(), R.layout.item_list_product_cart, cacheCart.cartList);
         binding.lvProductCart.setAdapter(adapter);
+        updateTotalPrice();
 
+    }
 
         ////---Update total price
 
-       updateTotalPrice();
-    }
     public void updateTotalPrice(){
         for (CartModel item : cartList) {
             total += item.getPrice() * item.getQuantity();
