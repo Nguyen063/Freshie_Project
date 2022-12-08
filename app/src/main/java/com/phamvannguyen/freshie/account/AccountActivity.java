@@ -70,7 +70,7 @@ public class AccountActivity extends AppCompatActivity {
     }
     private void listenEvents() {
     }
-    private void back() {
+    public void back() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Tài khoản của bạn");
         actionBar.setDisplayShowHomeEnabled(true);
