@@ -67,14 +67,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kết thúc"
                 android:textSize="10sp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="50dp"/>
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/countdownflashsale"/>
 
         </LinearLayout>
         <LinearLayout
@@ -498,134 +502,37 @@
         android:layout_margin="5dp"
         android:background="@color/white"
         android:orientation="vertical">
+
         <ListView
             android:id="@+id/lv_Comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"/>
-            <ImageView
-                android:id="@+id/img_ReviewPhoto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/anhspcuakhach"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_half_24"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nguyen Thuong"
-                    android:textColor="@color/color_custom_blue"
-                    android:paddingLeft="15dp"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mình dùng thấy rất hiệu quả. Da mình bị tổn thương da mà dùng cái này đỡ hẳn. Nhưng kem thấm khá lâu"
-                android:textSize="15sp"/>
-        </LinearLayout>
-            <View
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="fill_parent"
-                android:layout_height="2dp"
-                android:background="#c5c5c5"/>
-        <LinearLayout
+            android:padding="10dp" />
+        <TextView
+            android:id="@+id/btn_XemThem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_rate_24"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_baseline_star_half_24"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dao Nguyen"
-                    android:textColor="@color/color_custom_blue"
-                    android:paddingLeft="15dp"/>
-            </LinearLayout>
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Chân ái của mình luôn, cấp ẩm khá tốt, sáng ngủ dậy thấy mặt có đổ dầu thật nhưng khi rửa mặt xong thì da rất mướt, ban ngày thì nên bôi lớp mỏng thôi vì nó thấm ko được nhanh lắm, nhìn chung thì da mình da dầu sử dụng loại này thấy cực kì ổn luôn"-->
-<!--                android:textSize="15sp"/>-->
-<!--        </LinearLayout>-->
-<!--        <View-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="2dp"-->
-<!--            android:background="#c5c5c5"/>-->
-<!--        <TextView-->
-<!--            android:id="@+id/btn_XemThem"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Xem thêm"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textColor="@color/color_custom_pink"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:paddingBottom="5dp"/>-->
-<!--    </LinearLayout>-->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="10dp"-->
-<!--        android:text="DÀNH CHO BẠN"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textColor="@color/color_custom_pink"/>-->
-<!--    <GridView-->
-<!--        android:id="@+id/gv_foryou"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1200dp"-->
-<!--        android:numColumns="2"/>-->
-<!--    </LinearLayout>-->
-<!--</LinearLayout>-->
-        </LinearLayout>
-        </LinearLayout>
+            android:text="Xem thêm"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/color_custom_pink"
+            android:layout_gravity="center"
+            android:paddingBottom="5dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="DÀNH CHO BẠN"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_custom_pink"/>
+    <GridView
+        android:id="@+id/gv_foryou"
+        android:layout_width="match_parent"
+        android:layout_height="1200dp"
+        android:numColumns="2"/>
+    </LinearLayout>
+
 </ScrollView>
