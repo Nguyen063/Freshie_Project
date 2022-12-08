@@ -1,12 +1,13 @@
 package com.phamvannguyen.freshie.account;
 
+import static com.phamvannguyen.freshie.home.HomeFragment.INTENT_NAME;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
 
 import com.phamvannguyen.freshie.R;
@@ -18,10 +19,7 @@ import com.phamvannguyen.freshie.databinding.ActivityAccountBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.login.ChangePassword;
 import com.phamvannguyen.freshie.login.LoginActivity;
-import com.phamvannguyen.freshie.order.delivered;
-import com.phamvannguyen.freshie.order.delivering;
-import com.phamvannguyen.freshie.order.order;
-import com.phamvannguyen.freshie.order.wait_confirm;
+import com.phamvannguyen.freshie.exchangegift.order.order;
 import com.phamvannguyen.freshie.rating.RatingHistory;
 import com.phamvannguyen.freshie.watched.Watched;
 
@@ -30,6 +28,20 @@ import java.util.List;
 
 public class AccountActivity extends AppCompatActivity {
     ActivityAccountBinding binding;
+    public static final String INTENT_NAME = "AccountFragment";
+    public static final String INTENT_CART = "Cart";
+    public static final String INTENT_CUSTOMER_SERVICE = "CustomerService";
+    public static final String INTENT_SETTING = "Setting";
+    public static final String INTENT_ORDERS = "Orders";
+    public static final String INTENT_WAITING_CONFIRM = "WaitingConfirm";
+    public static final String INTENT_DELIVERING = "Delivering";
+    public static final String INTENT_DELIVERED = "Delivered";
+    public static final String INTENT_CANCELLED = "Cancelled";
+    public static final String INTENT_VOUCHER = "Voucher";
+    public static final String INTENT_REBUY = "Rebuy";
+    public static final String INTENT_WATCHED = "Watched";
+    public static final String INTENT_RATING = "Rating";
+    public static final String INTENT_LOGOUT = "Logout";
     private RecyclerView rcvCategoryRecyclerView;
     private CategoryRecyclerAdapter categoryRecyclerAdapter;
     ImageButton imageButton;
@@ -69,7 +81,6 @@ public class AccountActivity extends AppCompatActivity {
         binding.btnDelivering.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
             intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
-//            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
             startActivity(intent);
         });
         binding.btnDelivered.setOnClickListener(v -> {

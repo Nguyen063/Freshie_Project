@@ -1,10 +1,12 @@
 package com.phamvannguyen.freshie.account;
 
 import static com.phamvannguyen.freshie.MainActivity.db;
+import static com.phamvannguyen.freshie.MainActivity.viewPager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.AccessibilityDelegateCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -19,8 +21,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.phamvannguyen.freshie.DataBaseHelper;
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.databinding.ActivityEditProfileBinding;
+import com.phamvannguyen.freshie.home.HomeAdapter;
+import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.watched.Watched;
 
 import java.util.ArrayList;
@@ -31,6 +36,8 @@ public class EditProfile extends AppCompatActivity {
     EditProfileAdapter adapter;
     ArrayList<EditProfile> editProfiles;
 
+    ViewPager viewPager = MainActivity.viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,6 @@ public class EditProfile extends AppCompatActivity {
         //setContentView(R.layout.activity_edit_profile);
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//        loadData();
 
         binding.btnProfileCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,74 +53,25 @@ public class EditProfile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
-    private void loadData() {
-        editProfiles = new ArrayList<>();
-        Cursor c = db.getData("SELECT * FROM " + DataBaseHelper.TBL_USER);
-//        while (c.moveToNext()) {
-//            editProfiles.add(new EditProfile(c.getString(0), c.getString(1), c.getString(2), c.getString(3),
-//                    c.getString(4)));
-//        }
-    c.close();
-
-        }
-
-
-
-
-
-    public void openEditDialog(EditProfileModel editProfileModel) {
-        Dialog dialog = new Dialog(EditProfile.this);
-        dialog.setContentView(R.layout.dialog_edit_userinfo);
-        EditText edtUserName, edtUserEmail, edtUserPhone, edtUserAddress;
-        RadioGroup rdgUserGender;
-        RadioButton rdbMale, rdbFemale, rdbOther;
-        Button btnSave, btnCancel;
-
-
-        edtUserName = dialog.findViewById(R.id.edt_userName);
-        edtUserName.setText(editProfileModel.getUserName());
-
-        edtUserEmail = dialog.findViewById(R.id.edt_userEmail);
-        edtUserEmail = dialog.findViewById(R.id.edt_userEmail);
-
-        edtUserPhone = dialog.findViewById(R.id.edt_userPhone);
-        edtUserPhone.setText(editProfileModel.getUserPhone());
-
-        edtUserAddress = dialog.findViewById(R.id.edt_userAddress);
-        edtUserAddress.setText(editProfileModel.getUserAddress());
-
-
-        rdgUserGender = dialog.findViewById(R.id.rdg_Gender);
-        rdbMale = dialog.findViewById(R.id.radio_Male);
-        rdbFemale = dialog.findViewById(R.id.radio_Female);
-        rdbOther = dialog.findViewById(R.id.radio_Other);
-        btnSave = dialog.findViewById(R.id.btn_save);
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        binding.btnProfileSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.execSql("UPDATE" + DataBaseHelper.TBL_USER + " SET " + DataBaseHelper.COL_UserName
-                        + "='" + edtUserName.getText().toString() + "', " + DataBaseHelper.COL_UserEmail + "="
-//                + edtUserEmail.getText().toString() + "', " + DataBaseHelper.COL_UserPhone + "='"
-                        + edtUserPhone.getText().toString() + "', " + DataBaseHelper.COL_UserAddress + "='"
-                        + edtUserAddress.getText().toString() + "', " + DataBaseHelper.COL_UserGender + "='"
-                        + rdgUserGender.getCheckedRadioButtonId());
-
-                loadData();
-                dialog.dismiss();
-
-
+                Dialog dialog = new Dialog(EditProfile.this);
+                dialog.setContentView(R.layout.dialog_saveprofile_success);
+                Button btnBackHome = dialog.findViewById(R.id.btn_backHome);
+                btnBackHome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(EditProfile.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                }); dialog.show();
             }
         });
-        btnCancel = dialog.findViewById(R.id.btn_cancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
+
+
+
     }
 
 
