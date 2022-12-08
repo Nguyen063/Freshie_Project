@@ -19,6 +19,7 @@ import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
+import com.phamvannguyen.freshie.cache.cacheCart;
 import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
@@ -37,7 +38,7 @@ public class Checkout extends AppCompatActivity {
     Spinner spinnerProvince, spinnerDistrict, spinnerTown;
 
     ProductOrderAdapter productOrderAdapter;
-    ArrayList<CartModel> orders = new ArrayList<>();
+    ArrayList<CartModel> orders = new ArrayList<CartModel>();
     public static final String INTENT_PRODUCT = "INTENT_PRODUCT";
 
     @Override
@@ -69,6 +70,19 @@ public class Checkout extends AppCompatActivity {
 
 
     }
+    private void loadData() {
+
+        orders = cacheCart.cartList;
+
+        binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
+        binding.txtTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+        binding.txtToPay.setText(String.format("%,.0f ₫", cacheCart.total));
+        binding.txtPlaceOrderPrice.setText(String.format("%,.0f ₫", cacheCart.total));
+
+        productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
+        binding.lvOrder.setAdapter(productOrderAdapter);
+    }
+
 
     private void back() {
         ActionBar actionBar = getSupportActionBar();
@@ -155,22 +169,5 @@ public class Checkout extends AppCompatActivity {
 
     }
 
-    private void loadData() {
 
-        Intent intent = getIntent();
-        orders = (ArrayList<CartModel>) intent.getSerializableExtra(INTENT_PRODUCT);
-//        orders.add(new ProductOrder(R.drawable.product_photo,"Kem dưỡng da Vitamin Tree Water-Gel",350000,2));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-//        orders.add(new ProductOrder(R.drawable.vitamintree,"Kem dưỡng da",250000,1));
-
-        binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
-
-
-//        orders = MainActivity.getListWhere(DataBaseHelper.COL_ID + " = " + id);
-
-        productOrderAdapter = new ProductOrderAdapter(this,R.layout.item_product_order,orders);
-        binding.lvOrder.setAdapter(productOrderAdapter);
-    }
 }
