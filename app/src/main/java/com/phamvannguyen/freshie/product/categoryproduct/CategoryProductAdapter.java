@@ -41,7 +41,6 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
         if (categoryProduct == null) {
             return;
         }
-        holder.txtCategoryProductName.setText(categoryProduct.getCategoryProductName());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,RecyclerView.HORIZONTAL,false);
         holder.rcvItemProducts.setLayoutManager(linearLayoutManager);
 
@@ -61,12 +60,10 @@ public class CategoryProductAdapter extends RecyclerView.Adapter<CategoryProduct
     }
 
     public class CategoryProductViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtCategoryProductName;
         private RecyclerView rcvItemProducts;
 
         public CategoryProductViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCategoryProductName = itemView.findViewById(R.id.txt_categoryProductName);
             rcvItemProducts = itemView.findViewById(R.id.rcv_itemProduct);
         }
     }
