@@ -40,13 +40,14 @@ public class ProductDetailActivity extends AppCompatActivity {
     public static final String INTENT_PRODUCT = "Product Parcelable";
     ProductBase bundleProduct;
     Product product;
+    Comment comment;
 
     ActivityProductDetailBinding binding;
 //    private RecyclerView rcvCategoryProduct;
     private CategoryProductAdapter categoryProductAdapter;
 
     List<Product> forYou_list;
-
+    List<Comment> commentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,20 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding = ActivityProductDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        loadComment();
         loadProductDetail();
         loadDataGridView();
 
 
+    }
+
+    private void loadComment() {
+        List<Comment> commentList = new ArrayList<>();
+        commentList.add(new Comment(R.drawable.vitamintree, "Ank Nguỹn", "comment này mang tính chất nhận xu xin đừng đọc hue hue"));
+        commentList.add(new Comment(R.drawable.anhspcuakhach, "Đỗ Huỳnh Thảo Vy", "Cái sản phẩm này sử dụng keo ly quáaaa. Mình dùng mà da mặt phải gọi là mãi mận, mãi đỉnh lun ý."));
+
+        CommentAdapter commentAdapter = new CommentAdapter(this,R.layout.item_comment,commentList);
+        binding.lvComment.setAdapter(commentAdapter);
     }
 
     private List<CategoryProduct> getListCategoryProduct() {
