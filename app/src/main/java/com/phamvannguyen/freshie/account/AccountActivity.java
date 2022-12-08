@@ -36,16 +36,17 @@ public class AccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_account);
-        rcvCategoryRecyclerView = findViewById(R.id.rcv_categoryRecyclerview);
-        categoryRecyclerAdapter = new CategoryRecyclerAdapter(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        rcvCategoryRecyclerView.setLayoutManager(linearLayoutManager);
-        categoryRecyclerAdapter.setData(getListCategoryRecyclerView());
-        rcvCategoryRecyclerView.setAdapter(categoryRecyclerAdapter);
 
         binding = ActivityAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+
+        binding.rcvCategoryRecyclerview.setLayoutManager(linearLayoutManager);
+        categoryRecyclerAdapter.setData(getListCategoryRecyclerView());
+        binding.rcvCategoryRecyclerview.setAdapter(categoryRecyclerAdapter);
+
+
         addEvents();
 
 
@@ -55,32 +56,30 @@ public class AccountActivity extends AppCompatActivity {
         binding.imageButtonEditProfile.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, EditProfile.class);
             startActivity(intent);
-            finish();
         });
         binding.llVieworder.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, order.class);
             startActivity(intent);
-            finish();
         });
         binding.btnWaitingconfirm.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, wait_confirm.class);
+            Intent intent = new Intent(AccountActivity.this, order.class);
+            intent.putExtra(INTENT_NAME, INTENT_WAITING_CONFIRM);
             startActivity(intent);
-            finish();
         });
         binding.btnDelivering.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, delivering.class);
+            Intent intent = new Intent(AccountActivity.this, order.class);
+            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
+//            intent.putExtra(INTENT_NAME, INTENT_DELIVERING);
             startActivity(intent);
-            finish();
         });
         binding.btnDelivered.setOnClickListener(v -> {
-            Intent intent = new Intent(AccountActivity.this, delivered.class);
+            Intent intent = new Intent(AccountActivity.this, order.class);
+            intent.putExtra(INTENT_NAME, INTENT_DELIVERED);
             startActivity(intent);
-            finish();
         });
         binding.rcvCategoryRecyclerview.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, ExchangeGiftActivity.class);
             startActivity(intent);
-            finish();
         });
         binding.llViewedProduct.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, Watched.class);
@@ -97,12 +96,10 @@ public class AccountActivity extends AppCompatActivity {
         binding.llHelpcenter.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, CustomerService.class);
             startActivity(intent);
-            finish();
         });
         binding.llLogOut.setOnClickListener(v -> {
             Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish();
         });
 
 

@@ -71,6 +71,23 @@ public class ProductDetailActivity extends AppCompatActivity {
         CommentAdapter commentAdapter = new CommentAdapter(this,R.layout.item_comment,commentList);
         binding.lvComment.setAdapter(commentAdapter);
     }
+    public void back() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Chi tiết sản phẩm");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private List<CategoryProduct> getListCategoryProduct() {
         List<CategoryProduct> listCategoryProduct = new ArrayList<>();

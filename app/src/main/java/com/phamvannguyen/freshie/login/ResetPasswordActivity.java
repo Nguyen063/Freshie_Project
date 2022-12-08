@@ -32,13 +32,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private void openOTPDialog() {
         Dialog dialog = new Dialog(ResetPasswordActivity.this);
         dialog.setContentView(R.layout.dialog_otp);
-        txt_one = findViewById(R.id.otp_edit_box1);
-        txt_two = findViewById(R.id.otp_edit_box2);
-        txt_three = findViewById(R.id.otp_edit_box3);
-        txt_four = findViewById(R.id.otp_edit_box4);
-        txt_five = findViewById(R.id.otp_edit_box5);
-        txt_six = findViewById(R.id.otp_edit_box6);
-        btn_input = findViewById(R.id.btn_Verify);
+        txt_one = dialog.findViewById(R.id.otp_edit_box1);
+        txt_two = dialog.findViewById(R.id.otp_edit_box2);
+        txt_three = dialog.findViewById(R.id.otp_edit_box3);
+        txt_four = dialog.findViewById(R.id.otp_edit_box4);
+        txt_five = dialog.findViewById(R.id.otp_edit_box5);
+        txt_six = dialog.findViewById(R.id.otp_edit_box6);
+        btn_input = dialog.findViewById(R.id.btn_Verify);
 
 
         txt_one.addTextChangedListener(new GenericTextWatcher(txt_one, new EditText[]{txt_one, txt_two, txt_three, txt_four, txt_five, txt_six}));

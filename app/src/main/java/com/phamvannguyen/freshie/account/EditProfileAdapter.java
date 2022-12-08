@@ -62,6 +62,7 @@ public class EditProfileAdapter extends BaseAdapter {
         holder.txtUserName.setText(editProfileModel.getUserName());
         holder.txtUserEmail.setText(editProfileModel.getUserEmail());
         holder.txtUserPhone.setText(editProfileModel.getUserPhone());
+
         //Gender
         holder.txtUserAddress.setText(editProfileModel.getUserAddress());
         holder.imvEdit.setOnClickListener(new View.OnClickListener() {
