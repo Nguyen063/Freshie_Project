@@ -13,9 +13,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
 import com.phamvannguyen.freshie.adapter.ProductOrderAdapter;
 import com.phamvannguyen.freshie.cache.cacheCart;
+import com.phamvannguyen.freshie.cart.CartFragment;
 import com.phamvannguyen.freshie.cart.CartModel;
 import com.phamvannguyen.freshie.databinding.ActivityCheckoutBinding;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
@@ -63,7 +65,7 @@ public class Checkout extends AppCompatActivity {
     }
     private void loadData() {
 
-        orders = cacheCart.cartList;
+        orders = CartFragment.cartList;
 
         binding.txtPaymentMethod.setText("Thanh toán khi nhận hàng");
         binding.txtTotalPrice.setText(String.format("%,.0f ₫", cacheCart.total));

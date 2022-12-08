@@ -41,14 +41,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_IS_DEAL = "is_deal";
     public static final String COL_IS_BEST_SELLER = "is_best_seller";
     public static final String COL_IS_NEW = "is_new";
-    //user database
-    public static final String DB_USER = "editProfileModelList.sqlite";
-    public static final String TBL_USER = "UserInfo";
-    public static final String COL_UserName = "UserName";
-    public static final String COL_UserEmail = "UserEmail";
-    public static final String COL_UserPhone = "UserPhone";
-    public static final String COL_UserAddress = "UserAddress";
-    public static final String COL_UserGender = "UserGender";
+    //Cart Table
+    public static final String TBL_CART = "cart";
+    public static final String COL_CART_ID = "ProductId";
+    public static final String COL_CART_QUANTITY = "Quantity";
+
 
 
 
@@ -152,6 +149,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         Cursor c = db.rawQuery(sql, null);
         return c;
+    }
+    public void updateCart(int productID, int quantity) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "UPDATE " + TBL_CART + " SET " + COL_CART_QUANTITY + " = " + quantity + " WHERE " + COL_CART_ID + " = " + productID;
+        db.execSQL(sql);
+    }
+    public void increaseCart(int productID, int quantity) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "UPDATE " + TBL_CART + " SET " + COL_CART_QUANTITY + " = " + COL_CART_QUANTITY + " + " + quantity + " WHERE " + COL_CART_ID + " = " + productID;
+        db.execSQL(sql);
+    }
+    public void addCart(int productID, int quantity) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "INSERT INTO " + TBL_CART + " VALUES (" + productID + ", " + quantity + ")";
+        db.execSQL(sql);
+    }
+    public void deleteCart(int productID) {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "DELETE FROM " + TBL_CART + " WHERE " + COL_CART_ID + " = " + productID;
+        db.execSQL(sql);
     }
 
     public void execSql(String s) {
