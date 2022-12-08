@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.exchangegift.order;
+package com.phamvannguyen.freshie.order;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

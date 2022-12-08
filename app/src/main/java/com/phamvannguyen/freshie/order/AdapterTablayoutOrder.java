@@ -1,4 +1,4 @@
-package com.phamvannguyen.freshie.exchangegift.order;
+package com.phamvannguyen.freshie.order;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

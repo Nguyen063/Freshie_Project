@@ -1,11 +1,13 @@
 package com.phamvannguyen.freshie.account;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -16,14 +18,10 @@ import com.phamvannguyen.freshie.account.itemrecycleview.ItemRecycler;
 import com.phamvannguyen.freshie.customerservice.CustomerService;
 import com.phamvannguyen.freshie.databinding.ActivityAccountBinding;
 import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
-import com.phamvannguyen.freshie.home.HomeFragment;
 import com.phamvannguyen.freshie.login.ChangePassword;
 import com.phamvannguyen.freshie.login.LoginActivity;
-import com.phamvannguyen.freshie.order.OrderTracking;
-import com.phamvannguyen.freshie.order.delivered;
-import com.phamvannguyen.freshie.order.delivering;
+
 import com.phamvannguyen.freshie.order.order;
-import com.phamvannguyen.freshie.order.wait_confirm;
 import com.phamvannguyen.freshie.rating.RatingHistory;
 import com.phamvannguyen.freshie.watched.Watched;
 
@@ -62,10 +60,20 @@ public class AccountActivity extends AppCompatActivity {
         categoryRecyclerAdapter.setData(getListCategoryRecyclerView());
         binding.rcvCategoryRecyclerview.setAdapter(categoryRecyclerAdapter);
 
+        displayActionBar();
 
         addEvents();
 
 
+    }
+
+    private void displayActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Tài khoản");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void addEvents() {

@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,7 +60,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         loadComment();
         loadProductDetail();
         loadDataGridView();
-        back();
+        displayActionBar();
 
 
     }
@@ -72,7 +73,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         CommentAdapter commentAdapter = new CommentAdapter(this,R.layout.item_comment,commentList);
         binding.lvComment.setAdapter(commentAdapter);
     }
-    public void back() {
+    private void displayActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Chi tiết sản phẩm");
         actionBar.setDisplayShowHomeEnabled(true);

@@ -13,7 +13,6 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
 import com.phamvannguyen.freshie.DataBaseHelper;
 import com.phamvannguyen.freshie.MainActivity;
 import com.phamvannguyen.freshie.R;
@@ -27,7 +26,6 @@ import com.phamvannguyen.freshie.exchangegift.ExchangeGiftActivity;
 import com.phamvannguyen.freshie.exchangegift.UserVoucherActivity;
 import com.phamvannguyen.freshie.flashsale.FlashSale;
 import com.phamvannguyen.freshie.models.Product;
-import com.phamvannguyen.freshie.exchangegift.order.order;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -159,7 +157,7 @@ public class HomeFragment extends Fragment {
         binding.txtOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getActivity(), order.class);
+                intent = new Intent(getActivity(), com.phamvannguyen.freshie.order.order.class);
                 intent.putExtra(INTENT_NAME, INTENT_ORDER);
                 startActivity(intent);
             }
