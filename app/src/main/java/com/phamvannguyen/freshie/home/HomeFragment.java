@@ -110,25 +110,25 @@ public class HomeFragment extends Fragment {
 
         //flash sale gridView
         flashSale_list = new ArrayList<>();
-        flashSale_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
+        flashSale_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1 LIMIT 4");
         FlashSaleHomeAdapter flashSaleHomeAdapter = new FlashSaleHomeAdapter(getActivity(), R.layout.item_flashsale_home, flashSale_list);
         binding.gridFlashSale.setAdapter(flashSaleHomeAdapter);
 
         //---new arrivals gridView
         newProduct_list = new ArrayList<>();
-        newProduct_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1");
+        newProduct_list = MainActivity.getListWhere( DataBaseHelper.COL_IS_DEAL + " = 1 LIMIT 4");
         NewProductHomeAdapter newProductAdapter = new NewProductHomeAdapter(getActivity(), R.layout.item_newproduct_home, newProduct_list);
         binding.gridNewProduct.setAdapter(newProductAdapter);
 
         //---best seller gridView
         bestSeller_list = new ArrayList<>();
-        bestSeller_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+        bestSeller_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1 LIMIT 4");
         BestSellerHomeAdapter bestSellerAdapter = new BestSellerHomeAdapter(getActivity(), R.layout.item_bestseller_home, bestSeller_list);
         binding.gridBestseller.setAdapter(bestSellerAdapter);
 
         //---For you gridView
         forYou_list = new ArrayList<>();
-        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1");
+        forYou_list = MainActivity.getListWhere(DataBaseHelper.COL_IS_BEST_SELLER + " = 1 LIMIT 4");
         CategoryAdapter forYouAdapter = new CategoryAdapter(getActivity(), R.layout.item_category, forYou_list);
         binding.gridForYou.setAdapter(forYouAdapter);
 
